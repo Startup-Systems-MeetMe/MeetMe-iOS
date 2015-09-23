@@ -7,9 +7,12 @@
 //
 
 #import "SignupViewController.h"
+#import "UIImage+animatedGIF.h"
 
 int PHONE_TAG = 99;
 int CODE_TAG = 88;
+
+NSString *FAKE_CODE = @"0000";
 
 @interface SignupViewController () <UITextFieldDelegate>
 
@@ -104,7 +107,24 @@ int CODE_TAG = 88;
         if (totalString.length == 4) {
             
             // Fake activation code
-            if ([totalString isEqualToString:@"2580"]) {
+            if ([totalString isEqualToString:FAKE_CODE]) {
+                
+                // Cover screen
+                UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
+                [background setBackgroundColor:self.view.backgroundColor];
+                [background setAlpha:0.f];
+                [self.view addSubview:background];
+                
+                UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 170, 150, 150)];
+                [imgView setCenter:CGPointMake(self.view.center.x, 200)];
+                NSURL *url = [[NSBundle mainBundle] URLForResource:@"clock" withExtension:@"gif"];
+                imgView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
+                [background addSubview:imgView];
+                
+                // Fade in
+                [UIView animateWithDuration:0.7f animations:^{
+                    background.alpha = 1.f;
+                }];
                 
             }
             

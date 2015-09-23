@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8A980D31BB3197E00C20A77 /* clock.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8A980D21BB3197E00C20A77 /* clock.gif */; settings = {ASSET_TAGS = (); }; };
+		B8A980D81BB31D4300C20A77 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980D71BB31D4300C20A77 /* UIImage+animatedGIF.m */; settings = {ASSET_TAGS = (); }; };
 		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B8EA6FE81BB1A23200C41477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FE71BB1A23200C41477 /* main.m */; };
 		B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8A980D21BB3197E00C20A77 /* clock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clock.gif; sourceTree = "<group>"; };
+		B8A980D61BB31D4300C20A77 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		B8A980D71BB31D4300C20A77 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		B8CA55631BB2698E00591B9F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		B8CA55641BB2698E00591B9F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		B8EA6FE31BB1A23200C41477 /* MeetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +86,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8A980D41BB3198400C20A77 /* GIFs */ = {
+			isa = PBXGroup;
+			children = (
+				B8A980D21BB3197E00C20A77 /* clock.gif */,
+			);
+			name = GIFs;
+			sourceTree = "<group>";
+		};
+		B8A980D51BB31D4300C20A77 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				B8A980D61BB31D4300C20A77 /* UIImage+animatedGIF.h */,
+				B8A980D71BB31D4300C20A77 /* UIImage+animatedGIF.m */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
 		B8EA6FDA1BB1A23200C41477 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +136,8 @@
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
 				B8EA6FF71BB1A23200C41477 /* Info.plist */,
+				B8A980D51BB31D4300C20A77 /* Third Party */,
+				B8A980D41BB3198400C20A77 /* GIFs */,
 				B8EA6FE61BB1A23200C41477 /* Supporting Files */,
 			);
 			path = MeetMe;
@@ -249,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8EA6FF61BB1A23200C41477 /* LaunchScreen.storyboard in Resources */,
+				B8A980D31BB3197E00C20A77 /* clock.gif in Resources */,
 				B8EA6FF31BB1A23200C41477 /* Assets.xcassets in Resources */,
 				B8EA6FF11BB1A23200C41477 /* Main.storyboard in Resources */,
 			);
@@ -278,6 +303,7 @@
 				B8EA6FEE1BB1A23200C41477 /* ViewController.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
+				B8A980D81BB31D4300C20A77 /* UIImage+animatedGIF.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
