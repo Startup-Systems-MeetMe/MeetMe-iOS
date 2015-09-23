@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B8EA6FE81BB1A23200C41477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FE71BB1A23200C41477 /* main.m */; };
 		B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */; };
 		B8EA6FEE1BB1A23200C41477 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FED1BB1A23200C41477 /* ViewController.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8CA55631BB2698E00591B9F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		B8CA55641BB2698E00591B9F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		B8EA6FE31BB1A23200C41477 /* MeetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA6FE71BB1A23200C41477 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8EA6FE91BB1A23200C41477 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */,
 				B8EA6FEC1BB1A23200C41477 /* ViewController.h */,
 				B8EA6FED1BB1A23200C41477 /* ViewController.m */,
+				B8CA55631BB2698E00591B9F /* SignupViewController.h */,
+				B8CA55641BB2698E00591B9F /* SignupViewController.m */,
 				B8EA6FEF1BB1A23200C41477 /* Main.storyboard */,
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
@@ -272,6 +277,7 @@
 			files = (
 				B8EA6FEE1BB1A23200C41477 /* ViewController.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
+				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

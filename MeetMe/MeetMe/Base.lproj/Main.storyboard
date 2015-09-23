@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Signup View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,27 +17,127 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MeetMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihv-cK-JhT">
-                                <rect key="frame" x="237" y="96" width="126" height="72"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tertiary-logo" translatesAutoresizingMaskIntoConstraints="NO" id="qUA-Ol-eRo">
+                                <rect key="frame" x="118" y="28" width="365" height="114"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="9Zb-ct-B7S"/>
-                                    <constraint firstAttribute="height" constant="72" id="CBO-UC-iB3"/>
+                                    <constraint firstAttribute="width" constant="365" id="5KL-Hj-HGm">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="275"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="114" id="Rih-9d-J8m">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="86"/>
+                                    </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pJs-zo-z0r">
+                                <rect key="frame" x="252" y="202" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad" returnKeyType="send"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YWD-0v-cmk"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Activation Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dqS-10-eY5">
+                                <rect key="frame" x="252" y="202" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1xA-yE-NyE"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5E-bS-DCF">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="pmi-Un-zaH"/>
+                                    <constraint firstAttribute="width" constant="62" id="uXd-tq-OuZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.20392156862745098" green="0.45098039215686275" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="pmi-Un-zaH"/>
+                                        <exclude reference="uXd-tq-OuZ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="pmi-Un-zaH"/>
+                                        <include reference="uXd-tq-OuZ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="enteredPhone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hoB-vM-mwC"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.9882352941176471" green="0.99215686274509807" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ihv-cK-JhT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="76" id="PSF-ft-z7i"/>
-                            <constraint firstItem="ihv-cK-JhT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RVu-Mn-MbT"/>
+                            <constraint firstItem="dqS-10-eY5" firstAttribute="top" secondItem="pJs-zo-z0r" secondAttribute="bottom" constant="39" id="0b8-wS-ZS6">
+                                <variation key="heightClass=regular-widthClass=compact" constant="29"/>
+                            </constraint>
+                            <constraint firstItem="pJs-zo-z0r" firstAttribute="top" secondItem="qUA-Ol-eRo" secondAttribute="bottom" constant="48" id="0sB-nw-Bl9"/>
+                            <constraint firstItem="pJs-zo-z0r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="77M-G5-edR"/>
+                            <constraint firstItem="qUA-Ol-eRo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="9qa-qB-b9p">
+                                <variation key="heightClass=regular-widthClass=compact" constant="18"/>
+                            </constraint>
+                            <constraint firstItem="Q5E-bS-DCF" firstAttribute="top" secondItem="dqS-10-eY5" secondAttribute="bottom" constant="25" id="F1F-mr-cG7">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-30"/>
+                            </constraint>
+                            <constraint firstItem="Q5E-bS-DCF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hnc-MC-bAq"/>
+                            <constraint firstItem="pJs-zo-z0r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="43" id="LCt-yu-eQE"/>
+                            <constraint firstItem="Q5E-bS-DCF" firstAttribute="centerY" secondItem="dqS-10-eY5" secondAttribute="centerY" id="Q8f-YR-lAC"/>
+                            <constraint firstItem="dqS-10-eY5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="43" id="aUE-jk-UNY"/>
+                            <constraint firstItem="dqS-10-eY5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sHb-0e-CLn"/>
+                            <constraint firstItem="qUA-Ol-eRo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="whb-zV-kba"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dqS-10-eY5"/>
+                                <exclude reference="Q5E-bS-DCF"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0sB-nw-Bl9"/>
+                                <exclude reference="77M-G5-edR"/>
+                                <exclude reference="LCt-yu-eQE"/>
+                                <exclude reference="0b8-wS-ZS6"/>
+                                <exclude reference="aUE-jk-UNY"/>
+                                <exclude reference="sHb-0e-CLn"/>
+                                <exclude reference="F1F-mr-cG7"/>
+                                <exclude reference="Hnc-MC-bAq"/>
+                                <exclude reference="Q8f-YR-lAC"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="dqS-10-eY5"/>
+                                <include reference="Q5E-bS-DCF"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0sB-nw-Bl9"/>
+                                <include reference="77M-G5-edR"/>
+                                <include reference="LCt-yu-eQE"/>
+                                <include reference="0b8-wS-ZS6"/>
+                                <include reference="aUE-jk-UNY"/>
+                                <include reference="sHb-0e-CLn"/>
+                                <exclude reference="F1F-mr-cG7"/>
+                                <include reference="Hnc-MC-bAq"/>
+                                <include reference="Q8f-YR-lAC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="activationTextField" destination="dqS-10-eY5" id="zr3-pK-glR"/>
+                        <outlet property="phoneTextField" destination="pJs-zo-z0r" id="VLy-tt-IPS"/>
+                        <outlet property="signupButton" destination="Q5E-bS-DCF" id="QCR-Gn-tEo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="415"/>
+            <point key="canvasLocation" x="439.5" y="414.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tertiary-logo" width="1508" height="462"/>
+    </resources>
 </document>

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-logo" translatesAutoresizingMaskIntoConstraints="NO" id="utd-4f-9hR">
-                                <rect key="frame" x="217" y="50" width="167" height="190"/>
+                                <rect key="frame" x="217" y="205" width="167" height="190"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="190" id="EYK-jA-5FK"/>
                                     <constraint firstAttribute="width" constant="167" id="gzr-70-zEL"/>
@@ -27,8 +27,8 @@
                         <animations/>
                         <color key="backgroundColor" red="0.25490196078431371" green="0.53725490196078429" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="utd-4f-9hR" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Qw2-Xu-Y0f"/>
                             <constraint firstItem="utd-4f-9hR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Tlr-SL-6L1"/>
-                            <constraint firstItem="utd-4f-9hR" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="30" id="g9u-Jo-OFz"/>
                         </constraints>
                     </view>
                 </viewController>
