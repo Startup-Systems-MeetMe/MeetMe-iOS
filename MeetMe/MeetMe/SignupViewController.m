@@ -8,6 +8,7 @@
 
 #import "SignupViewController.h"
 #import "UIImage+animatedGIF.h"
+#import <Parse/Parse.h>
 
 int PHONE_TAG = 99;
 int CODE_TAG = 88;
@@ -125,11 +126,8 @@ NSString *FAKE_CODE = @"0000";
                 [UIView animateWithDuration:0.7f animations:^{
                     background.alpha = 1.f;
                 }];
-                
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self presentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"homeVC"] animated:YES completion:nil];
-                });
-                
+
+                [self moveToNextScreen];
             }
             
             return YES;
@@ -137,6 +135,16 @@ NSString *FAKE_CODE = @"0000";
     }
 
     return YES;
+}
+
+- (void) moveToNextScreen {
+    PFObject *numObject = [PFObject objectWithClassName:@"Users"];
+    numObject[@"phoneNumber"] = self.phoneTextField.text;
+    [numObject saveInBackground];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self presentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"homeVC"] animated:YES completion:nil];
+    });
 }
 
 -(NSString*) formatPhoneNumber:(NSString*) simpleNumber deleteLastChar:(BOOL)deleteLastChar {

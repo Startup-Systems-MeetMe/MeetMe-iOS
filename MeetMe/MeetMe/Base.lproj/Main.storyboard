@@ -358,7 +358,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="doneEnteredName:" destination="e63-fA-WyZ" eventType="editingDidEnd" id="gN3-Zt-e3h"/>
+                                    <outlet property="delegate" destination="e63-fA-WyZ" id="Kyl-nY-mXa"/>
                                 </connections>
                             </textField>
                         </subviews>
@@ -446,7 +446,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Complete Profile" id="jC2-pK-SuA"/>
                     <connections>
-                        <outlet property="nameTextField" destination="byo-7K-tvZ" id="2xd-pB-4dX"/>
+                        <outlet property="nameTextField" destination="byo-7K-tvZ" id="FzU-bS-cbN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3l-aA-hfW" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,7 +8,7 @@
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 
@@ -18,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.nameTextField setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,8 +27,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)doneEnteredName:(id)sender {
-    [sender resignFirstResponder];
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [textField resignFirstResponder];
 }
 
 /*
