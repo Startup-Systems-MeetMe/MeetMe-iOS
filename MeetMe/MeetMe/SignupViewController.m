@@ -138,6 +138,9 @@ NSString *FAKE_CODE = @"0000";
 }
 
 - (void) moveToNextScreen {
+    
+    [self.activationTextField resignFirstResponder];
+    
     PFObject *numObject = [PFObject objectWithClassName:@"Users"];
     numObject[@"phoneNumber"] = self.phoneTextField.text;
     [numObject saveInBackground];
