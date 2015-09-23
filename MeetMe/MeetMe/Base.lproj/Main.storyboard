@@ -294,6 +294,9 @@
                                         <include reference="mrg-7J-9hg"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="requestAccessToEvents" destination="e63-fA-WyZ" eventType="touchUpInside" id="ew3-1i-Qsn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZ6-MM-JtS">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -320,6 +323,9 @@
                                         <include reference="gbf-oZ-5g9"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="requestAccessToEvents" destination="e63-fA-WyZ" eventType="touchUpInside" id="X8O-bg-CB4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(212) 893-9870" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRX-hp-q2a">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
