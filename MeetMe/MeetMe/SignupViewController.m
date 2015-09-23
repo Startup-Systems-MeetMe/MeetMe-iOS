@@ -126,6 +126,10 @@ NSString *FAKE_CODE = @"0000";
                     background.alpha = 1.f;
                 }];
                 
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self presentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"homeVC"] animated:YES completion:nil];
+                });
+                
             }
             
             return YES;
