@@ -16,6 +16,7 @@ int CODE_TAG = 88;
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (strong, nonatomic) IBOutlet UITextField *activationTextField;
 @property (strong, nonatomic) IBOutlet UIButton *signupButton;
+@property (strong, nonatomic) IBOutlet UIView *activationLine;
 
 @end
 
@@ -24,11 +25,19 @@ int CODE_TAG = 88;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Tags to control them in delegate
     self.phoneTextField.tag = PHONE_TAG;
     self.activationTextField.tag = CODE_TAG;
     
     // Make sure code textfield and signup button are hidden
-    self.activationTextField.alpha = 0.f;
+    self.activationTextField.alpha  = 0.f;
+    self.activationLine.alpha       = 0.f;
+    
+    // Placeholder colors
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:250 green:255 blue:255 alpha:1.f] }];
+    self.phoneTextField.attributedPlaceholder = str;
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:250 green:255 blue:255 alpha:1.f] }];
+    self.phoneTextField.attributedPlaceholder = str2;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,7 +66,8 @@ int CODE_TAG = 88;
     // Show activation code textfield
     self.signupButton.alpha = 0.f;
     [UIView animateWithDuration:0.2 animations:^{
-        self.activationTextField.alpha = 1.f;
+        self.activationTextField.alpha  = 1.f;
+        self.activationLine.alpha       = 1.f;
     } completion:^(BOOL finished) {
         [self.activationTextField becomeFirstResponder];
     }];
@@ -71,9 +81,7 @@ int CODE_TAG = 88;
     // Prevent from entering letters / symbols
     NSCharacterSet* notDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     if ([string rangeOfCharacterFromSet:notDigits].location != NSNotFound)
-    {
         return NO;
-    }
     
     // Phone #
     if(textField.tag == PHONE_TAG) {
@@ -88,14 +96,23 @@ int CODE_TAG = 88;
     // Activation Code
     } else if (textField.tag == CODE_TAG) {
         
-        if (totalString.length >= 5) {
-            // MOVE ON TO NEXT SCREEN
+        // Prevent from typing more than 4
+        if (totalString.length >= 5)
             return NO;
+
+        // If = 4, check code
+        if (totalString.length == 4) {
+            
+            // Fake activation code
+            if ([textField.text isEqualToString:@"2580"]) {
+                
+            }
+            
+            return YES;
         }
-        
     }
-    
-    return YES; 
+
+    return YES;
 }
 
 -(NSString*) formatPhoneNumber:(NSString*) simpleNumber deleteLastChar:(BOOL)deleteLastChar {
