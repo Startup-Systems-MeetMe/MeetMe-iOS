@@ -104,7 +104,7 @@ int CODE_TAG = 88;
         if (totalString.length == 4) {
             
             // Fake activation code
-            if ([textField.text isEqualToString:@"2580"]) {
+            if ([totalString isEqualToString:@"2580"]) {
                 
             }
             
