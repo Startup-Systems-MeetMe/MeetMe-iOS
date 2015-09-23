@@ -496,6 +496,7 @@
 				B8EA70121BB1A23200C41477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMeTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +505,7 @@
 				B8EA70151BB1A23200C41477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8EA70161BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +514,7 @@
 				B8EA70181BB1A23200C41477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
