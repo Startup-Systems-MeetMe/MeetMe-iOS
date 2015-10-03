@@ -7,6 +7,7 @@
 //
 
 #import "SignupViewController.h"
+#import "NSString+Additions.h"
 #import "UIImage+animatedGIF.h"
 #import <Parse/Parse.h>
 
@@ -58,8 +59,8 @@ NSString *FAKE_CODE = @"0000";
 
 - (IBAction)enteredPhone:(id)sender
 {
-    // Prevent from continuing with incomplete number
-    if (self.phoneTextField.text.length < 10) {
+    // Return early if issue with phone number input
+    if (![self.phoneTextField.text isUSPhoneNumber]) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Phone #" message:@"Please enter a valid U.S. number." preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:action];
@@ -177,15 +178,5 @@ NSString *FAKE_CODE = @"0000";
                                                                     range:NSMakeRange(0, [simpleNumber length])];
     return simpleNumber;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

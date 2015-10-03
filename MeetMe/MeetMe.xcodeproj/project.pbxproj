@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; settings = {ASSET_TAGS = (); }; };
+		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; settings = {ASSET_TAGS = (); }; };
 		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B813E7D41BC080BF000B45B1 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Additions/NSString+Additions.h"; sourceTree = "<group>"; };
+		B813E7D51BC080BF000B45B1 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Additions/NSString+Additions.m"; sourceTree = "<group>"; };
+		B813E7D81BC0811F000B45B1 /* AdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionsTests.m; sourceTree = "<group>"; };
 		B88B34EC1BC06FCF00CE1271 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		B88B34ED1BC06FCF00CE1271 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
 		B88B34EE1BC06FCF00CE1271 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+animatedGIF.h"; path = "../Frameworks/UIImage+animatedGIF.h"; sourceTree = "<group>"; };
@@ -125,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B813E7D71BC080C3000B45B1 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				B813E7D41BC080BF000B45B1 /* NSString+Additions.h */,
+				B813E7D51BC080BF000B45B1 /* NSString+Additions.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
 		B8A980D41BB3198400C20A77 /* GIFs */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,8 +204,9 @@
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
 				B8EA6FF71BB1A23200C41477 /* Info.plist */,
-				B8A980D51BB31D4300C20A77 /* Frameworks */,
+				B813E7D71BC080C3000B45B1 /* Additions */,
 				B8A980D41BB3198400C20A77 /* GIFs */,
+				B8A980D51BB31D4300C20A77 /* Frameworks */,
 				B8EA6FE61BB1A23200C41477 /* Supporting Files */,
 			);
 			path = MeetMe;
@@ -209,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				B8EA70001BB1A23200C41477 /* MeetMeTests.m */,
+				B813E7D81BC0811F000B45B1 /* AdditionsTests.m */,
 				B8EA70021BB1A23200C41477 /* Info.plist */,
 			);
 			path = MeetMeTests;
@@ -354,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */,
 				B8EA6FEE1BB1A23200C41477 /* ViewController.m in Sources */,
 				B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
@@ -368,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8EA70011BB1A23200C41477 /* MeetMeTests.m in Sources */,
+				B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
