@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B80964171BC06D8E0024ACE6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82BA54E1BBC66E7002B3C90 /* Parse.framework */; };
-		B80964181BC06D910024ACE6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82BA54D1BBC66E7002B3C90 /* Bolts.framework */; };
+		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */; settings = {ASSET_TAGS = (); }; };
 		B8A980D31BB3197E00C20A77 /* clock.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8A980D21BB3197E00C20A77 /* clock.gif */; settings = {ASSET_TAGS = (); }; };
-		B8A980D81BB31D4300C20A77 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980D71BB31D4300C20A77 /* UIImage+animatedGIF.m */; settings = {ASSET_TAGS = (); }; };
 		B8A980DB1BB31EC900C20A77 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980DA1BB31EC900C20A77 /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B8A980E11BB32BE700C20A77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */; };
 		B8A980E31BB32BEE00C20A77 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E21BB32BEE00C20A77 /* CFNetwork.framework */; };
@@ -51,11 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B82BA54D1BBC66E7002B3C90 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		B82BA54E1BBC66E7002B3C90 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		B88B34EC1BC06FCF00CE1271 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		B88B34ED1BC06FCF00CE1271 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
+		B88B34EE1BC06FCF00CE1271 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+animatedGIF.h"; path = "../Frameworks/UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+animatedGIF.m"; path = "../Frameworks/UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		B8A980D21BB3197E00C20A77 /* clock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clock.gif; sourceTree = "<group>"; };
-		B8A980D61BB31D4300C20A77 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
-		B8A980D71BB31D4300C20A77 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		B8A980D91BB31EC900C20A77 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B8A980DA1BB31EC900C20A77 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -101,10 +101,10 @@
 				B8A980E91BB32BFF00C20A77 /* QuartzCore.framework in Frameworks */,
 				B8A980E71BB32BFA00C20A77 /* CoreLocation.framework in Frameworks */,
 				B8A980E51BB32BF200C20A77 /* CoreGraphics.framework in Frameworks */,
+				B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */,
 				B8A980E31BB32BEE00C20A77 /* CFNetwork.framework in Frameworks */,
+				B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */,
 				B8A980E11BB32BE700C20A77 /* AudioToolbox.framework in Frameworks */,
-				B80964171BC06D8E0024ACE6 /* Parse.framework in Frameworks */,
-				B80964181BC06D910024ACE6 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,11 +133,13 @@
 			name = GIFs;
 			sourceTree = "<group>";
 		};
-		B8A980D51BB31D4300C20A77 /* Third Party */ = {
+		B8A980D51BB31D4300C20A77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B82BA54D1BBC66E7002B3C90 /* Bolts.framework */,
-				B82BA54E1BBC66E7002B3C90 /* Parse.framework */,
+				B88B34EC1BC06FCF00CE1271 /* Bolts.framework */,
+				B88B34ED1BC06FCF00CE1271 /* Parse.framework */,
+				B88B34EE1BC06FCF00CE1271 /* UIImage+animatedGIF.h */,
+				B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */,
 				B8A980F21BB32C2E00C20A77 /* libz.tbd */,
 				B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */,
 				B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */,
@@ -148,9 +150,8 @@
 				B8A980E41BB32BF200C20A77 /* CoreGraphics.framework */,
 				B8A980E21BB32BEE00C20A77 /* CFNetwork.framework */,
 				B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */,
-				B8A980D61BB31D4300C20A77 /* UIImage+animatedGIF.h */,
-				B8A980D71BB31D4300C20A77 /* UIImage+animatedGIF.m */,
 			);
+			name = Frameworks;
 			path = "Third Party";
 			sourceTree = "<group>";
 		};
@@ -189,7 +190,7 @@
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
 				B8EA6FF71BB1A23200C41477 /* Info.plist */,
-				B8A980D51BB31D4300C20A77 /* Third Party */,
+				B8A980D51BB31D4300C20A77 /* Frameworks */,
 				B8A980D41BB3198400C20A77 /* GIFs */,
 				B8EA6FE61BB1A23200C41477 /* Supporting Files */,
 			);
@@ -354,9 +355,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8EA6FEE1BB1A23200C41477 /* ViewController.m in Sources */,
+				B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
-				B8A980D81BB31D4300C20A77 /* UIImage+animatedGIF.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 			);
@@ -498,15 +499,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
 				);
 				INFOPLIST_FILE = MeetMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -520,15 +514,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/**",
 					"$(inherited)",
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
-					"$(PROJECT_DIR)/MeetMe/Third",
-					Party,
 				);
 				INFOPLIST_FILE = MeetMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
