@@ -14,14 +14,15 @@
 int PHONE_TAG = 99;
 int CODE_TAG = 88;
 
-NSString *FAKE_CODE = @"0000";
-
 @interface SignupViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (strong, nonatomic) IBOutlet UITextField *activationTextField;
 @property (strong, nonatomic) IBOutlet UIButton *signupButton;
 @property (strong, nonatomic) IBOutlet UIView *activationLine;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@property (strong, nonatomic) NSString *userPhoneNumber;
 
 @end
 
@@ -68,13 +69,38 @@ NSString *FAKE_CODE = @"0000";
         return;
     }
     
-    // Show activation code textfield
-    self.signupButton.alpha = 0.f;
-    [UIView animateWithDuration:0.2 animations:^{
-        self.activationTextField.alpha  = 1.f;
-        self.activationLine.alpha       = 1.f;
-    } completion:^(BOOL finished) {
-        [self.activationTextField becomeFirstResponder];
+    self.userPhoneNumber = self.phoneTextField.text;    // Save phone number
+    self.signupButton.alpha = 0.f;                      // Hide done button
+    [self.activityIndicator startAnimating];
+    
+    // Send Parse the phone #
+    [PFCloud callFunctionInBackground:@"sendCode" withParameters:@{@"phoneNumber":self.userPhoneNumber} block:^(id object, NSError *error) {
+        
+        [self.activityIndicator stopAnimating];
+
+        // Success
+        if (!error) {
+            // Show activation code textfield
+            self.signupButton.alpha = 0.f;
+            [UIView animateWithDuration:0.2 animations:^{
+                self.activationTextField.alpha  = 1.f;
+                self.activationLine.alpha       = 1.f;
+            } completion:^(BOOL finished) {
+                [self.activationTextField becomeFirstResponder];
+            }];
+        }
+        
+        // Error
+        else {
+            // Alert user
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            // Re-show done button
+            self.signupButton.alpha = 1.f;
+        }
     }];
 }
 
@@ -108,28 +134,43 @@ NSString *FAKE_CODE = @"0000";
         // If = 4, check code
         if (totalString.length == 4) {
             
-            // Fake activation code
-            if ([totalString isEqualToString:FAKE_CODE]) {
+            [self.activityIndicator startAnimating];
+            
+            // Login through Parse
+            [PFCloud callFunctionInBackground:@"logIn" withParameters:@{@"phoneNumber":self.userPhoneNumber, @"codeEntry": totalString} block:^(id object, NSError *error) {
                 
-                // Cover screen
-                UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
-                [background setBackgroundColor:self.view.backgroundColor];
-                [background setAlpha:0.f];
-                [self.view addSubview:background];
+                [self.activityIndicator stopAnimating];
                 
-                UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 170, 150, 150)];
-                [imgView setCenter:CGPointMake(self.view.center.x, 200)];
-                NSURL *url = [[NSBundle mainBundle] URLForResource:@"clock" withExtension:@"gif"];
-                imgView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
-                [background addSubview:imgView];
+                // Success
+                if (!error) {
+                    // Cover screen
+                    UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
+                    [background setBackgroundColor:self.view.backgroundColor];
+                    [background setAlpha:0.f];
+                    [self.view addSubview:background];
+                    
+                    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 170, 150, 150)];
+                    [imgView setCenter:CGPointMake(self.view.center.x, 200)];
+                    NSURL *url = [[NSBundle mainBundle] URLForResource:@"clock" withExtension:@"gif"];
+                    imgView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
+                    [background addSubview:imgView];
+                    
+                    // Fade in
+                    [UIView animateWithDuration:0.7f animations:^{
+                        background.alpha = 1.f;
+                    }];
+                    
+                    [self moveToNextScreen];
+                }
                 
-                // Fade in
-                [UIView animateWithDuration:0.7f animations:^{
-                    background.alpha = 1.f;
-                }];
-
-                [self moveToNextScreen];
-            }
+                // Error
+                else {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+                    [alert addAction:action];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+            }];
             
             return YES;
         }
