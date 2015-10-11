@@ -1,4 +1,4 @@
-# MeetMe-iOS ![](https://travis-ci.org/Startup-Systems-MeetMe/MeetMe-iOS.svg?branch=master)
+# MeetMe-iOS [![TravisCI](https://travis-ci.org/Startup-Systems-MeetMe/MeetMe-iOS.svg?branch=master)](https://travis-ci.org/Startup-Systems-MeetMe/MeetMe-iOS)
 
 ----
 
