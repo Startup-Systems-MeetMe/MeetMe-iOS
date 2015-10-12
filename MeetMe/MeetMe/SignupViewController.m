@@ -10,9 +10,13 @@
 #import "NSString+Additions.h"
 #import "UIImage+animatedGIF.h"
 #import <Parse/Parse.h>
+#import <SSKeychain/SSKeychain.h>
 
-int PHONE_TAG = 99;
-int CODE_TAG = 88;
+const int PHONE_TAG = 99;
+const int CODE_TAG = 88;
+
+NSString *RDVSERVICE = @"RDVSERVICE";
+NSString *RDVACCOUNT = @"RDVACCOUNT";
 
 @interface SignupViewController () <UITextFieldDelegate>
 
@@ -46,22 +50,31 @@ int CODE_TAG = 88;
     // Placeholder colors
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:250 green:255 blue:255 alpha:1.f] }];
     self.phoneTextField.attributedPlaceholder = str;
-    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:250 green:255 blue:255 alpha:1.f] }];
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"Phone Number" attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:250 green:255 blue:255 alpha:1.f]}];
     self.phoneTextField.attributedPlaceholder = str2;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    // Show keyboard
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.phoneTextField becomeFirstResponder];
-    });
+    // Is user already signed up?
+    if ([SSKeychain passwordForService:RDVSERVICE account:RDVACCOUNT]) {
+        // Move post sign-up and profile
+        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarRoot"] animated:YES];
+    } else {
+        // Show keyboard
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.phoneTextField becomeFirstResponder];
+        });
+    }
 }
 
 - (void) moveToProfileScreen {
     
     // Hide keyboard
     [self.activationTextField resignFirstResponder];
+    
+    // Save that user signed-up
+    [SSKeychain setPassword:self.userPhoneNumber forService:RDVSERVICE account:RDVACCOUNT];
     
     // Cover screen
     UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -82,7 +95,7 @@ int CODE_TAG = 88;
     }];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self presentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"homeVC"] animated:YES completion:nil];
+        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"completeProfile"] animated:YES];
     });
 }
 
