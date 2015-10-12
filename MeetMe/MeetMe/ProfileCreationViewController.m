@@ -6,21 +6,29 @@
 //  Copyright © 2015 Anas Bouzoubaa. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "ProfileCreationViewController.h"
 #import <EventKit/EventKit.h>
 
-@interface ProfileViewController () <UITextFieldDelegate>
+@interface ProfileCreationViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 
 @end
 
-@implementation ProfileViewController
+@implementation ProfileCreationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self.nameTextField setDelegate:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // Show keyboard
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.nameTextField becomeFirstResponder];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

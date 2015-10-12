@@ -268,7 +268,7 @@
         <!--Complete Profile-->
         <scene sceneID="3eY-Lx-yXs">
             <objects>
-                <viewController title="Complete Profile" id="e63-fA-WyZ" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController title="Complete Profile" id="e63-fA-WyZ" customClass="ProfileCreationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fvy-ky-2Sp"/>
                         <viewControllerLayoutGuide type="bottom" id="VjZ-BE-e9F"/>

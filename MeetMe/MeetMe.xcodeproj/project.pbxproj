@@ -13,7 +13,7 @@
 		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */; settings = {ASSET_TAGS = (); }; };
 		B8A980D31BB3197E00C20A77 /* clock.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8A980D21BB3197E00C20A77 /* clock.gif */; settings = {ASSET_TAGS = (); }; };
-		B8A980DB1BB31EC900C20A77 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980DA1BB31EC900C20A77 /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B8A980E11BB32BE700C20A77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */; };
 		B8A980E31BB32BEE00C20A77 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E21BB32BEE00C20A77 /* CFNetwork.framework */; };
 		B8A980E51BB32BF200C20A77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E41BB32BF200C20A77 /* CoreGraphics.framework */; };
@@ -60,8 +60,8 @@
 		B88B34EE1BC06FCF00CE1271 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+animatedGIF.h"; path = "../Frameworks/UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+animatedGIF.m"; path = "../Frameworks/UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		B8A980D21BB3197E00C20A77 /* clock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clock.gif; sourceTree = "<group>"; };
-		B8A980D91BB31EC900C20A77 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		B8A980DA1BB31EC900C20A77 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		B8A980D91BB31EC900C20A77 /* ProfileCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCreationViewController.h; sourceTree = "<group>"; };
+		B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCreationViewController.m; sourceTree = "<group>"; };
 		B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B8A980E21BB32BEE00C20A77 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B8A980E41BB32BF200C20A77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,10 +96,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A980EB1BB32C0500C20A77 /* Security.framework in Frameworks */,
 				B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */,
 				B8A980F11BB32C2800C20A77 /* libsqlite3.tbd in Frameworks */,
 				B8A980EF1BB32C1000C20A77 /* SystemConfiguration.framework in Frameworks */,
-				B8A980EB1BB32C0500C20A77 /* Security.framework in Frameworks */,
 				B8A980E91BB32BFF00C20A77 /* QuartzCore.framework in Frameworks */,
 				B8A980E71BB32BFA00C20A77 /* CoreLocation.framework in Frameworks */,
 				B8A980E51BB32BF200C20A77 /* CoreGraphics.framework in Frameworks */,
@@ -194,8 +194,8 @@
 				B8EA6FED1BB1A23200C41477 /* ViewController.m */,
 				B8CA55631BB2698E00591B9F /* SignupViewController.h */,
 				B8CA55641BB2698E00591B9F /* SignupViewController.m */,
-				B8A980D91BB31EC900C20A77 /* ProfileViewController.h */,
-				B8A980DA1BB31EC900C20A77 /* ProfileViewController.m */,
+				B8A980D91BB31EC900C20A77 /* ProfileCreationViewController.h */,
+				B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */,
 				B8EA6FEF1BB1A23200C41477 /* Main.storyboard */,
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
@@ -377,7 +377,7 @@
 				B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
-				B8A980DB1BB31EC900C20A77 /* ProfileViewController.m in Sources */,
+				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

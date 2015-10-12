@@ -28,6 +28,10 @@ int CODE_TAG = 88;
 
 @implementation SignupViewController
 
+//------------------------------------------------------------------------------------------
+#pragma mark - View Lifecycle -
+//------------------------------------------------------------------------------------------
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -54,9 +58,41 @@ int CODE_TAG = 88;
     });
 }
 
+- (void) moveToProfileScreen {
+    
+    // Hide keyboard
+    [self.activationTextField resignFirstResponder];
+    
+    // Cover screen
+    UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
+    [background setBackgroundColor:self.view.backgroundColor];
+    [background setAlpha:0.f];
+    [self.view addSubview:background];
+    
+    // Show animated clock
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 170, 150, 150)];
+    [imgView setCenter:CGPointMake(self.view.center.x, 200)];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"clock" withExtension:@"gif"];
+    imgView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
+    [background addSubview:imgView];
+    
+    // Fade in
+    [UIView animateWithDuration:0.7f animations:^{
+        background.alpha = 1.f;
+    }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self presentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"homeVC"] animated:YES completion:nil];
+    });
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+//------------------------------------------------------------------------------------------
+#pragma mark - IBActions -
+//------------------------------------------------------------------------------------------
 
 - (IBAction)enteredPhone:(id)sender
 {
@@ -104,7 +140,10 @@ int CODE_TAG = 88;
     }];
 }
 
-// Handle and Parse US number
+//------------------------------------------------------------------------------------------
+#pragma mark - Handle and Parse US number -
+//------------------------------------------------------------------------------------------
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
     NSString* totalString = [NSString stringWithFormat:@"%@%@",textField.text,string];
@@ -143,24 +182,8 @@ int CODE_TAG = 88;
                 
                 // Success
                 if (!error) {
-                    // Cover screen
-                    UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
-                    [background setBackgroundColor:self.view.backgroundColor];
-                    [background setAlpha:0.f];
-                    [self.view addSubview:background];
                     
-                    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 170, 150, 150)];
-                    [imgView setCenter:CGPointMake(self.view.center.x, 200)];
-                    NSURL *url = [[NSBundle mainBundle] URLForResource:@"clock" withExtension:@"gif"];
-                    imgView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
-                    [background addSubview:imgView];
-                    
-                    // Fade in
-                    [UIView animateWithDuration:0.7f animations:^{
-                        background.alpha = 1.f;
-                    }];
-                    
-                    [self moveToNextScreen];
+                    [self moveToProfileScreen];
                 }
                 
                 // Error
@@ -179,19 +202,7 @@ int CODE_TAG = 88;
     return YES;
 }
 
-- (void) moveToNextScreen {
-    
-    [self.activationTextField resignFirstResponder];
-    
-    PFObject *numObject = [PFObject objectWithClassName:@"Users"];
-    numObject[@"phoneNumber"] = self.phoneTextField.text;
-    [numObject saveInBackground];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self presentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"homeVC"] animated:YES completion:nil];
-    });
-}
-
+// Helper method
 -(NSString*) formatPhoneNumber:(NSString*) simpleNumber deleteLastChar:(BOOL)deleteLastChar {
     if(simpleNumber.length==0) return @"";
     NSError *error = NULL;
