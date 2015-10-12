@@ -20,7 +20,6 @@
 		B8A980E71BB32BFA00C20A77 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E61BB32BFA00C20A77 /* CoreLocation.framework */; };
 		B8A980E91BB32BFF00C20A77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E81BB32BFF00C20A77 /* QuartzCore.framework */; };
 		B8A980EB1BB32C0500C20A77 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980EA1BB32C0400C20A77 /* Security.framework */; };
-		B8A980ED1BB32C0A00C20A77 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980EC1BB32C0A00C20A77 /* StoreKit.framework */; };
 		B8A980EF1BB32C1000C20A77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */; };
 		B8A980F11BB32C2800C20A77 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */; };
 		B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F21BB32C2E00C20A77 /* libz.tbd */; };
@@ -69,13 +68,12 @@
 		B8A980E61BB32BFA00C20A77 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		B8A980E81BB32BFF00C20A77 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B8A980EA1BB32C0400C20A77 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		B8A980EC1BB32C0A00C20A77 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B8A980F21BB32C2E00C20A77 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B8CA55631BB2698E00591B9F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		B8CA55641BB2698E00591B9F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
-		B8EA6FE31BB1A23200C41477 /* MeetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rendez-Vous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA6FE71BB1A23200C41477 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8EA6FE91BB1A23200C41477 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -85,10 +83,10 @@
 		B8EA6FF21BB1A23200C41477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8EA6FF51BB1A23200C41477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8EA6FF71BB1A23200C41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8EA6FFC1BB1A23200C41477 /* MeetMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rendez-VousTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA70001BB1A23200C41477 /* MeetMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeTests.m; sourceTree = "<group>"; };
 		B8EA70021BB1A23200C41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8EA70071BB1A23200C41477 /* MeetMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EA70071BB1A23200C41477 /* Rendez-VousUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rendez-VousUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA700B1BB1A23200C41477 /* MeetMeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUITests.m; sourceTree = "<group>"; };
 		B8EA700D1BB1A23200C41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +99,6 @@
 				B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */,
 				B8A980F11BB32C2800C20A77 /* libsqlite3.tbd in Frameworks */,
 				B8A980EF1BB32C1000C20A77 /* SystemConfiguration.framework in Frameworks */,
-				B8A980ED1BB32C0A00C20A77 /* StoreKit.framework in Frameworks */,
 				B8A980EB1BB32C0500C20A77 /* Security.framework in Frameworks */,
 				B8A980E91BB32BFF00C20A77 /* QuartzCore.framework in Frameworks */,
 				B8A980E71BB32BFA00C20A77 /* CoreLocation.framework in Frameworks */,
@@ -157,7 +154,6 @@
 				B8A980F21BB32C2E00C20A77 /* libz.tbd */,
 				B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */,
 				B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */,
-				B8A980EC1BB32C0A00C20A77 /* StoreKit.framework */,
 				B8A980EA1BB32C0400C20A77 /* Security.framework */,
 				B8A980E81BB32BFF00C20A77 /* QuartzCore.framework */,
 				B8A980E61BB32BFA00C20A77 /* CoreLocation.framework */,
@@ -182,9 +178,9 @@
 		B8EA6FE41BB1A23200C41477 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8EA6FE31BB1A23200C41477 /* MeetMe.app */,
-				B8EA6FFC1BB1A23200C41477 /* MeetMeTests.xctest */,
-				B8EA70071BB1A23200C41477 /* MeetMeUITests.xctest */,
+				B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */,
+				B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */,
+				B8EA70071BB1A23200C41477 /* Rendez-VousUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,9 +238,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8EA6FE21BB1A23200C41477 /* MeetMe */ = {
+		B8EA6FE21BB1A23200C41477 /* Rendez-Vous */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMe" */;
+			buildConfigurationList = B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-Vous" */;
 			buildPhases = (
 				B8EA6FDF1BB1A23200C41477 /* Sources */,
 				B8EA6FE01BB1A23200C41477 /* Frameworks */,
@@ -254,14 +250,14 @@
 			);
 			dependencies = (
 			);
-			name = MeetMe;
+			name = "Rendez-Vous";
 			productName = MeetMe;
-			productReference = B8EA6FE31BB1A23200C41477 /* MeetMe.app */;
+			productReference = B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B8EA6FFB1BB1A23200C41477 /* MeetMeTests */ = {
+		B8EA6FFB1BB1A23200C41477 /* Rendez-VousTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMeTests" */;
+			buildConfigurationList = B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousTests" */;
 			buildPhases = (
 				B8EA6FF81BB1A23200C41477 /* Sources */,
 				B8EA6FF91BB1A23200C41477 /* Frameworks */,
@@ -272,14 +268,14 @@
 			dependencies = (
 				B8EA6FFE1BB1A23200C41477 /* PBXTargetDependency */,
 			);
-			name = MeetMeTests;
+			name = "Rendez-VousTests";
 			productName = MeetMeTests;
-			productReference = B8EA6FFC1BB1A23200C41477 /* MeetMeTests.xctest */;
+			productReference = B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B8EA70061BB1A23200C41477 /* MeetMeUITests */ = {
+		B8EA70061BB1A23200C41477 /* Rendez-VousUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8EA70161BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMeUITests" */;
+			buildConfigurationList = B8EA70161BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousUITests" */;
 			buildPhases = (
 				B8EA70031BB1A23200C41477 /* Sources */,
 				B8EA70041BB1A23200C41477 /* Frameworks */,
@@ -290,9 +286,9 @@
 			dependencies = (
 				B8EA70091BB1A23200C41477 /* PBXTargetDependency */,
 			);
-			name = MeetMeUITests;
+			name = "Rendez-VousUITests";
 			productName = MeetMeUITests;
-			productReference = B8EA70071BB1A23200C41477 /* MeetMeUITests.xctest */;
+			productReference = B8EA70071BB1A23200C41477 /* Rendez-VousUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -306,6 +302,12 @@
 				TargetAttributes = {
 					B8EA6FE21BB1A23200C41477 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = SJF6H824KN;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					B8EA6FFB1BB1A23200C41477 = {
 						CreatedOnToolsVersion = 7.0;
@@ -330,9 +332,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8EA6FE21BB1A23200C41477 /* MeetMe */,
-				B8EA6FFB1BB1A23200C41477 /* MeetMeTests */,
-				B8EA70061BB1A23200C41477 /* MeetMeUITests */,
+				B8EA6FE21BB1A23200C41477 /* Rendez-Vous */,
+				B8EA6FFB1BB1A23200C41477 /* Rendez-VousTests */,
+				B8EA70061BB1A23200C41477 /* Rendez-VousUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -402,12 +404,12 @@
 /* Begin PBXTargetDependency section */
 		B8EA6FFE1BB1A23200C41477 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8EA6FE21BB1A23200C41477 /* MeetMe */;
+			target = B8EA6FE21BB1A23200C41477 /* Rendez-Vous */;
 			targetProxy = B8EA6FFD1BB1A23200C41477 /* PBXContainerItemProxy */;
 		};
 		B8EA70091BB1A23200C41477 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8EA6FE21BB1A23200C41477 /* MeetMe */;
+			target = B8EA6FE21BB1A23200C41477 /* Rendez-Vous */;
 			targetProxy = B8EA70081BB1A23200C41477 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -516,14 +518,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MeetMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMe;
+				PRODUCT_BUNDLE_IDENTIFIER = MM.RendezVous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -531,14 +536,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MeetMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMe;
+				PRODUCT_BUNDLE_IDENTIFIER = MM.RendezVous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -602,7 +610,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMe" */ = {
+		B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-Vous" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8EA70111BB1A23200C41477 /* Debug */,
@@ -611,7 +619,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMeTests" */ = {
+		B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8EA70141BB1A23200C41477 /* Debug */,
@@ -620,7 +628,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8EA70161BB1A23200C41477 /* Build configuration list for PBXNativeTarget "MeetMeUITests" */ = {
+		B8EA70161BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8EA70171BB1A23200C41477 /* Debug */,
