@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; settings = {ASSET_TAGS = (); }; };
 		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; settings = {ASSET_TAGS = (); }; };
+		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
 		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
 		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
 		B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */; settings = {ASSET_TAGS = (); }; };
@@ -56,6 +57,8 @@
 		B813E7D41BC080BF000B45B1 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Additions/NSString+Additions.h"; sourceTree = "<group>"; };
 		B813E7D51BC080BF000B45B1 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Additions/NSString+Additions.m"; sourceTree = "<group>"; };
 		B813E7D81BC0811F000B45B1 /* AdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionsTests.m; sourceTree = "<group>"; };
+		B87F896D1BCDB38800CD76F7 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
+		B87F896E1BCDB38800CD76F7 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
 		B88B34EC1BC06FCF00CE1271 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		B88B34ED1BC06FCF00CE1271 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
 		B88B34EE1BC06FCF00CE1271 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+animatedGIF.h"; path = "../Frameworks/UIImage+animatedGIF.h"; sourceTree = "<group>"; };
@@ -155,6 +158,15 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
+		B87F896C1BCDB33600CD76F7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B87F896D1BCDB38800CD76F7 /* CurrentUser.h */,
+				B87F896E1BCDB38800CD76F7 /* CurrentUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		B8A980D41BB3198400C20A77 /* GIFs */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +231,7 @@
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
 				B8EA6FF71BB1A23200C41477 /* Info.plist */,
+				B87F896C1BCDB33600CD76F7 /* Model */,
 				B813E7D71BC080C3000B45B1 /* Additions */,
 				B8A980D41BB3198400C20A77 /* GIFs */,
 				B8A980D51BB31D4300C20A77 /* Frameworks */,
@@ -448,6 +461,7 @@
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
+				B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,14 @@
 #import "ProfileCreationViewController.h"
 #import <EventKit/EventKit.h>
 
+const int BUTTON_CORNER_RADIUS = 4.f;
+
 @interface ProfileCreationViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (strong, nonatomic) IBOutlet UIButton *calendarAccessButton;
+@property (strong, nonatomic) IBOutlet UIButton *contactsAccessButton;
 
 @end
 
@@ -21,6 +26,22 @@
     [super viewDidLoad];
     
     [self.nameTextField setDelegate:self];
+    
+    // Profile picture
+    [self.profilePicture.layer setCornerRadius:(self.profilePicture.bounds.size.width/2)];
+    [self.profilePicture.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [self.profilePicture.layer setBorderWidth:4.f];
+    [self.profilePicture setClipsToBounds:YES];
+    
+    // Buttons
+    [self.calendarAccessButton.layer setCornerRadius:BUTTON_CORNER_RADIUS];
+    [self.calendarAccessButton.layer setBorderColor:[UIColor colorWithRed:0.710 green:0.267 blue:0.267 alpha:1.000].CGColor];
+    [self.calendarAccessButton.layer setBorderWidth:1.f];
+    [self.calendarAccessButton setClipsToBounds:YES];
+    [self.contactsAccessButton.layer setCornerRadius:BUTTON_CORNER_RADIUS];
+    [self.contactsAccessButton.layer setBorderColor:[UIColor colorWithRed:0.710 green:0.267 blue:0.267 alpha:1.000].CGColor];
+    [self.contactsAccessButton.layer setBorderWidth:1.f];
+    [self.contactsAccessButton setClipsToBounds:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
