@@ -279,14 +279,14 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgh-k6-liU">
-                                <rect key="frame" x="192" y="316" width="215" height="38"/>
+                                <rect key="frame" x="195" y="316" width="210" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="AdF-ks-cYU"/>
-                                    <constraint firstAttribute="width" constant="215" id="hcu-7v-WIa"/>
+                                    <constraint firstAttribute="width" constant="210" id="hcu-7v-WIa"/>
                                     <constraint firstAttribute="height" constant="38" id="t63-P0-rgF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="   Give Calendar Access" image="calendar-icon">
+                                <state key="normal" title="  Give Calendar Access" image="calendar-icon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -296,13 +296,13 @@
                                 </variation>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wG-Xn-Unh">
-                                <rect key="frame" x="192" y="374" width="215" height="38"/>
+                                <rect key="frame" x="195" y="374" width="210" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="CEV-ZI-HWI"/>
-                                    <constraint firstAttribute="width" constant="215" id="Ks5-mq-aMh"/>
+                                    <constraint firstAttribute="width" constant="210" id="Ks5-mq-aMh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="   Give Contacts Access" image="contacts-icon">
+                                <state key="normal" title="  Give Contacts Access" image="contacts-icon">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -440,8 +440,8 @@
     </scenes>
     <resources>
         <image name="Background-complete-profile" width="187" height="333"/>
-        <image name="calendar-icon" width="13" height="10"/>
-        <image name="contacts-icon" width="13" height="13"/>
+        <image name="calendar-icon" width="26" height="21"/>
+        <image name="contacts-icon" width="25" height="24"/>
         <image name="default_profile_pic" width="128" height="128"/>
         <image name="tertiary-logo" width="1508" height="462"/>
     </resources>
