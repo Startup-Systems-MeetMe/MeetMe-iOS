@@ -1,10 +1,13 @@
 PODS:
+  - PKImagePicker (0.0.5)
   - SSKeychain (1.2.3)
 
 DEPENDENCIES:
+  - PKImagePicker (= 0.0.5)
   - SSKeychain (= 1.2.3)
 
 SPEC CHECKSUMS:
+  PKImagePicker: 0a6946f24a281d0664c88cac849b69792e4f1551
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
 
 COCOAPODS: 0.39.0
