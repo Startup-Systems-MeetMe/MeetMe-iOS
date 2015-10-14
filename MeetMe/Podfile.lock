@@ -1,13 +1,16 @@
 PODS:
   - PKImagePicker (0.0.5)
   - SSKeychain (1.2.3)
+  - SVProgressHUD (HEAD based on 1.1.3)
 
 DEPENDENCIES:
   - PKImagePicker (= 0.0.5)
   - SSKeychain (= 1.2.3)
+  - SVProgressHUD (HEAD)
 
 SPEC CHECKSUMS:
   PKImagePicker: 0a6946f24a281d0664c88cac849b69792e4f1551
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 
 COCOAPODS: 0.39.0

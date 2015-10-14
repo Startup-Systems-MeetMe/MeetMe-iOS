@@ -13,6 +13,7 @@
 #import "CurrentUser.h"
 #import <Parse/Parse.h>
 #import "UIImage+Additions.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 const int BUTTON_CORNER_RADIUS = 4.f;
 
@@ -95,6 +96,7 @@ const int BUTTON_CORNER_RADIUS = 4.f;
     }
     
     [self.nameTextField resignFirstResponder];
+    [SVProgressHUD show];
     
     // Set user profile & push to Parse
     CurrentUser *user = [CurrentUser sharedInstance];
@@ -104,6 +106,8 @@ const int BUTTON_CORNER_RADIUS = 4.f;
     NSData *imageData = UIImageJPEGRepresentation(self.selectedImage, 0.6);
     NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[user phoneNumber], @"phoneNumber", [user name], @"name", imageData, @"photo", nil];
     [PFCloud callFunctionInBackground:@"updateNameAndPhoto" withParameters:dict block:^(id object, NSError *error) {
+        
+        [SVProgressHUD dismiss];
         
         if (!error) {
             // Move to TabBar
