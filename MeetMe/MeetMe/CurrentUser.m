@@ -25,14 +25,39 @@
     if(self = [super init]){
         phoneNumber = @"";
         name = @"";
-        profileImage = [UIImage imageNamed:@"default_profile_pic"];
+        profileImage = [[UIImage alloc] init];
     }
     return self;
+}
+
+- (NSString *)phoneNumber
+{
+    return phoneNumber;
+}
+
+- (NSString *)name
+{
+    return name;
+}
+
+- (UIImage *)profileImage
+{
+    return profileImage;
 }
 
 - (void)setPhoneNumber:(NSString*)phone
 {
     phoneNumber = phone;
+}
+
+- (void)setProfilePicture:(UIImage*)image
+{
+    profileImage = image;
+}
+
+- (void)setName:(NSString*)username
+{
+    name = username;
 }
 
 @end

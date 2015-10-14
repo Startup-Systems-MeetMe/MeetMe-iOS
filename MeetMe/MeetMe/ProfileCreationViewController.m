@@ -10,6 +10,9 @@
 #import <EventKit/EventKit.h>
 #import <Contacts/Contacts.h>
 #import <PKImagePicker/PKImagePickerViewController.h>
+#import "CurrentUser.h"
+#import <Parse/Parse.h>
+#import "UIImage+Additions.h"
 
 const int BUTTON_CORNER_RADIUS = 4.f;
 
@@ -84,10 +87,34 @@ const int BUTTON_CORNER_RADIUS = 4.f;
 
 - (IBAction)tappedFinish:(id)sender
 {
+    // Make sure name is not empty
     if (self.nameTextField.text.length == 0) {
         [self flashTextFieldBackground];
         [self.nameTextField becomeFirstResponder];
+        return;
     }
+    
+    [self.nameTextField resignFirstResponder];
+    
+    // Set user profile & push to Parse
+    CurrentUser *user = [CurrentUser sharedInstance];
+    [user setName:self.nameTextField.text];
+    if (self.selectedImage) [user setProfilePicture:self.selectedImage];
+    
+    NSData *imageData = UIImageJPEGRepresentation(self.selectedImage, 0.6);
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[user phoneNumber], @"phoneNumber", [user name], @"name", imageData, @"photo", nil];
+    [PFCloud callFunctionInBackground:@"updateNameAndPhoto" withParameters:dict block:^(id object, NSError *error) {
+        
+        if (!error) {
+            // Move to TabBar
+            [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarRoot"] animated:YES];
+        } else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:action];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }];
 }
 
 //------------------------------------------------------------------------------------------

@@ -11,6 +11,7 @@
 #import "UIImage+animatedGIF.h"
 #import <Parse/Parse.h>
 #import <SSKeychain/SSKeychain.h>
+#import "CurrentUser.h"
 
 const int PHONE_TAG = 99;
 const int CODE_TAG = 88;
@@ -40,8 +41,8 @@ NSString *RDVACCOUNT = @"RDVACCOUNT";
     [super viewDidLoad];
     
     // Tags to control them in delegate
-    self.phoneTextField.tag = PHONE_TAG;
-    self.activationTextField.tag = CODE_TAG;
+    self.phoneTextField.tag         = PHONE_TAG;
+    self.activationTextField.tag    = CODE_TAG;
     
     // Make sure code textfield and signup button are hidden
     self.activationTextField.alpha  = 0.f;
@@ -75,6 +76,7 @@ NSString *RDVACCOUNT = @"RDVACCOUNT";
     
     // Save that user signed-up
     [SSKeychain setPassword:self.userPhoneNumber forService:RDVSERVICE account:RDVACCOUNT];
+    [[CurrentUser sharedInstance] setPhoneNumber:self.userPhoneNumber];
     
     // Cover screen
     UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];

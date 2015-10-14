@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B80686501BCEFE900044EDA1 /* UIImage+Additions.m */; settings = {ASSET_TAGS = (); }; };
 		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; settings = {ASSET_TAGS = (); }; };
 		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; settings = {ASSET_TAGS = (); }; };
 		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
@@ -54,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		9AC49D61042CB384DFF08C99 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B806864F1BCEFE900044EDA1 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Additions.h"; path = "Additions/UIImage+Additions.h"; sourceTree = "<group>"; };
+		B80686501BCEFE900044EDA1 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Additions.m"; path = "Additions/UIImage+Additions.m"; sourceTree = "<group>"; };
 		B813E7D41BC080BF000B45B1 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Additions/NSString+Additions.h"; sourceTree = "<group>"; };
 		B813E7D51BC080BF000B45B1 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Additions/NSString+Additions.m"; sourceTree = "<group>"; };
 		B813E7D81BC0811F000B45B1 /* AdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionsTests.m; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 			children = (
 				B813E7D41BC080BF000B45B1 /* NSString+Additions.h */,
 				B813E7D51BC080BF000B45B1 /* NSString+Additions.m */,
+				B806864F1BCEFE900044EDA1 /* UIImage+Additions.h */,
+				B80686501BCEFE900044EDA1 /* UIImage+Additions.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */,
+				B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */,
 				B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
