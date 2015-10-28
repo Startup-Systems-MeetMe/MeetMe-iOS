@@ -549,8 +549,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xub-cQ-dXK">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="xub-cQ-dXK">
+                                <rect key="frame" x="0.0" y="67" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
@@ -558,17 +558,29 @@
                                     <outlet property="delegate" destination="1gS-m8-uge" id="Nx5-tf-u7W"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNM-Ut-Cm3" userLabel="Red Bar">
+                                <rect key="frame" x="0.0" y="64" width="600" height="3"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.70980392160000005" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="3" id="NwH-gA-Vn3"/>
+                                    <constraint firstAttribute="height" constant="3" id="YVP-t3-fmb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vNM-Ut-Cm3" firstAttribute="leading" secondItem="Ir2-jf-cvl" secondAttribute="leadingMargin" constant="-20" id="05P-pa-MUy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xub-cQ-dXK" secondAttribute="trailing" constant="-20" id="3u9-ci-t8n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xub-cQ-dXK" secondAttribute="trailing" constant="-20" id="7i0-hr-nDG"/>
-                            <constraint firstItem="xub-cQ-dXK" firstAttribute="top" secondItem="OcO-lx-W21" secondAttribute="bottom" id="851-aa-9a8"/>
+                            <constraint firstItem="xub-cQ-dXK" firstAttribute="top" secondItem="OcO-lx-W21" secondAttribute="bottom" constant="3" id="851-aa-9a8"/>
                             <constraint firstItem="xub-cQ-dXK" firstAttribute="top" secondItem="OcO-lx-W21" secondAttribute="bottom" id="Hkm-5B-KaC"/>
+                            <constraint firstItem="vNM-Ut-Cm3" firstAttribute="top" secondItem="OcO-lx-W21" secondAttribute="bottom" id="LdV-AQ-aS2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vNM-Ut-Cm3" secondAttribute="trailing" constant="-20" id="WsK-O4-JUc"/>
                             <constraint firstItem="xub-cQ-dXK" firstAttribute="leading" secondItem="Ir2-jf-cvl" secondAttribute="leadingMargin" constant="-20" id="hhO-bZ-1hI"/>
                             <constraint firstItem="xub-cQ-dXK" firstAttribute="leading" secondItem="Ir2-jf-cvl" secondAttribute="leadingMargin" constant="-20" id="nQn-vr-5FI"/>
-                            <constraint firstItem="Q0b-R5-iK5" firstAttribute="top" secondItem="xub-cQ-dXK" secondAttribute="bottom" id="phd-JU-3mj"/>
+                            <constraint firstItem="Q0b-R5-iK5" firstAttribute="top" secondItem="xub-cQ-dXK" secondAttribute="bottom" constant="-3" id="phd-JU-3mj"/>
                             <constraint firstItem="Q0b-R5-iK5" firstAttribute="top" secondItem="xub-cQ-dXK" secondAttribute="bottom" id="zTq-eV-86i"/>
                         </constraints>
                         <variation key="default">
