@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B80686501BCEFE900044EDA1 /* UIImage+Additions.m */; settings = {ASSET_TAGS = (); }; };
-		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; settings = {ASSET_TAGS = (); }; };
-		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; settings = {ASSET_TAGS = (); }; };
-		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; settings = {ASSET_TAGS = (); }; };
-		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
-		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
-		B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */; settings = {ASSET_TAGS = (); }; };
-		B8A980D31BB3197E00C20A77 /* clock.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8A980D21BB3197E00C20A77 /* clock.gif */; settings = {ASSET_TAGS = (); }; };
-		B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B80686501BCEFE900044EDA1 /* UIImage+Additions.m */; };
+		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
+		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; };
+		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; };
+		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; };
+		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; };
+		B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */; };
+		B88EE7201BE13B9200D22709 /* LandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */; };
+		B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */; };
+		B8A980D31BB3197E00C20A77 /* clock.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8A980D21BB3197E00C20A77 /* clock.gif */; };
+		B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */; };
 		B8A980E11BB32BE700C20A77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */; };
 		B8A980E31BB32BEE00C20A77 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E21BB32BEE00C20A77 /* CFNetwork.framework */; };
 		B8A980E51BB32BF200C20A77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E41BB32BF200C20A77 /* CoreGraphics.framework */; };
@@ -25,7 +27,7 @@
 		B8A980EF1BB32C1000C20A77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */; };
 		B8A980F11BB32C2800C20A77 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */; };
 		B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F21BB32C2E00C20A77 /* libz.tbd */; };
-		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; };
 		B8EA6FE81BB1A23200C41477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FE71BB1A23200C41477 /* main.m */; };
 		B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */; };
 		B8EA6FF11BB1A23200C41477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA6FEF1BB1A23200C41477 /* Main.storyboard */; };
@@ -66,6 +68,10 @@
 		B88B34ED1BC06FCF00CE1271 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
 		B88B34EE1BC06FCF00CE1271 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+animatedGIF.h"; path = "../Frameworks/UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+animatedGIF.m"; path = "../Frameworks/UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingPageViewController.h; sourceTree = "<group>"; };
+		B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageViewController.m; sourceTree = "<group>"; };
+		B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContactsViewController.h; sourceTree = "<group>"; };
+		B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContactsViewController.m; sourceTree = "<group>"; };
 		B8A980D21BB3197E00C20A77 /* clock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clock.gif; sourceTree = "<group>"; };
 		B8A980D91BB31EC900C20A77 /* ProfileCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCreationViewController.h; sourceTree = "<group>"; };
 		B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCreationViewController.m; sourceTree = "<group>"; };
@@ -172,6 +178,17 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		B88EE71D1BE13B1000D22709 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				B8CA55631BB2698E00591B9F /* SignupViewController.h */,
+				B8CA55641BB2698E00591B9F /* SignupViewController.m */,
+				B8A980D91BB31EC900C20A77 /* ProfileCreationViewController.h */,
+				B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */,
+			);
+			name = Signup;
+			sourceTree = "<group>";
+		};
 		B8A980D41BB3198400C20A77 /* GIFs */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,10 +245,11 @@
 			children = (
 				B8EA6FE91BB1A23200C41477 /* AppDelegate.h */,
 				B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */,
-				B8CA55631BB2698E00591B9F /* SignupViewController.h */,
-				B8CA55641BB2698E00591B9F /* SignupViewController.m */,
-				B8A980D91BB31EC900C20A77 /* ProfileCreationViewController.h */,
-				B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */,
+				B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */,
+				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
+				B88EE71D1BE13B1000D22709 /* Signup */,
+				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
+				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
 				B8EA6FEF1BB1A23200C41477 /* Main.storyboard */,
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
@@ -461,11 +479,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */,
+				B88EE7201BE13B9200D22709 /* LandingPageViewController.m in Sources */,
 				B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */,
 				B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
+				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 				B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */,
 			);
