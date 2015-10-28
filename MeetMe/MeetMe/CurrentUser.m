@@ -10,6 +10,10 @@
 
 @implementation CurrentUser
 
+@synthesize phoneNumber;
+@synthesize name;
+@synthesize profileImage;
+
 + (instancetype)sharedInstance
 {
     static CurrentUser *sharedInstance = nil;

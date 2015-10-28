@@ -9,11 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface CurrentUser : NSObject {
-    NSString *name;
-    NSString *phoneNumber;
-    UIImage *profileImage;
-}
+@interface CurrentUser : NSObject
 
 @property (assign, nonatomic) NSString *name;
 @property (assign, nonatomic) NSString *phoneNumber;
