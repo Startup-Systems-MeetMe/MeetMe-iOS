@@ -424,7 +424,7 @@
         <!--Contacts-->
         <scene sceneID="TIo-6k-oib">
             <objects>
-                <viewController title="Contacts" id="1gS-m8-uge" customClass="SelectContactsViewController" sceneMemberID="viewController">
+                <viewController title="Contacts" automaticallyAdjustsScrollViewInsets="NO" id="1gS-m8-uge" customClass="SelectContactsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OcO-lx-W21"/>
                         <viewControllerLayoutGuide type="bottom" id="Q0b-R5-iK5"/>
@@ -433,10 +433,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="20" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="xub-cQ-dXK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="45" sectionHeaderHeight="10" sectionFooterHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="xub-cQ-dXK">
                                 <rect key="frame" x="0.0" y="67" width="600" height="487"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" rowHeight="45" id="OuC-3E-IIQ">
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OuC-3E-IIQ" id="ywF-US-sXy">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No-Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="271-gS-aIB">
+                                                    <rect key="frame" x="15" y="8" width="29" height="29"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="29" id="enT-FW-Nsv"/>
+                                                        <constraint firstAttribute="height" constant="29" id="iM6-vN-pHl"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkN-Ta-RVh">
+                                                    <rect key="frame" x="65" y="12" width="470" height="20.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checked Inactive" translatesAutoresizingMaskIntoConstraints="NO" id="UgO-On-zAl">
+                                                    <rect key="frame" x="556" y="8" width="29" height="29"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="Rmg-SF-q9V"/>
+                                                        <constraint firstAttribute="width" constant="29" id="Taq-zY-ZK2"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="ZkN-Ta-RVh" firstAttribute="leading" secondItem="271-gS-aIB" secondAttribute="trailing" constant="21" id="2ir-oI-upi"/>
+                                                <constraint firstItem="UgO-On-zAl" firstAttribute="leading" secondItem="ZkN-Ta-RVh" secondAttribute="trailing" constant="21" id="EoX-is-y83"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UgO-On-zAl" secondAttribute="trailing" constant="7" id="JSK-gc-6ik"/>
+                                                <constraint firstItem="271-gS-aIB" firstAttribute="centerY" secondItem="ywF-US-sXy" secondAttribute="centerY" id="PTh-pv-esE"/>
+                                                <constraint firstItem="UgO-On-zAl" firstAttribute="centerY" secondItem="ywF-US-sXy" secondAttribute="centerY" id="Va0-Ev-xAI"/>
+                                                <constraint firstItem="ZkN-Ta-RVh" firstAttribute="centerY" secondItem="ywF-US-sXy" secondAttribute="centerY" id="kFO-F6-7wc"/>
+                                                <constraint firstItem="271-gS-aIB" firstAttribute="leading" secondItem="ywF-US-sXy" secondAttribute="leadingMargin" constant="7" id="qiR-kh-Ish"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="1gS-m8-uge" id="he1-9u-OOe"/>
                                     <outlet property="delegate" destination="1gS-m8-uge" id="Nx5-tf-u7W"/>
@@ -514,6 +563,8 @@
     </scenes>
     <resources>
         <image name="Background-complete-profile" width="187" height="333"/>
+        <image name="Checked Inactive" width="29" height="29"/>
+        <image name="No-Avatar" width="29" height="29"/>
         <image name="calendar-icon" width="26" height="21"/>
         <image name="contacts-icon" width="25" height="24"/>
         <image name="default_profile_pic" width="128" height="128"/>

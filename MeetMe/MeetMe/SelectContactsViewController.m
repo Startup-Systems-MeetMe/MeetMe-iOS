@@ -69,6 +69,21 @@
         
         // Store all contacts
         _contactsArray = [NSMutableArray arrayWithArray:[self.store unifiedContactsMatchingPredicate:predicate keysToFetch:keys error:nil]];
+        
+        // Remove contacts with no name
+        NSMutableArray *toDelete = [NSMutableArray array];
+        for (id object in _contactsArray) {
+            if ([[object givenName] length] == 0) {
+                [toDelete addObject:object];
+            }
+        }
+        [_contactsArray removeObjectsInArray:toDelete];
+        
+        // ... and sort them
+        _contactsArray = [NSMutableArray arrayWithArray:[_contactsArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+            return [[a givenName] compare:[b givenName]];
+        }]];
+        
         [_myTableView reloadData];
         
         // Send Parse the phone numbers
@@ -88,12 +103,13 @@
                 
                 // Strip off unneeded characters
                 NSString *parsedNum = [[[number stringValue] componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
-                // ...and starting '1' of US phone numbers
-                if ([parsedNum length] > 0 && [parsedNum characterAtIndex:0] == '1') {
-                    parsedNum = [parsedNum substringFromIndex:1];
+                
+                if ([parsedNum length] > 0) {
+                    // and the starting '1' of US phone numbers
+                    if ([parsedNum characterAtIndex:0] == '1') parsedNum = [parsedNum substringFromIndex:1];
+                    // ...then added to object of phone numbers to send to Parse
+                    [numbers addObject:parsedNum];
                 }
-                // ...then added to object of phone numbers to send to Parse
-                [numbers addObject:parsedNum];
             }
         }
     }
@@ -108,6 +124,10 @@
         // Add contacts in _friends array and reload table
         if ([(NSArray*)object count] > 0) {
             _friends = [NSMutableArray arrayWithArray:object];
+            // ... and sort them
+            _friends = [NSMutableArray arrayWithArray:[_friends sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+                return [[a objectForKey:@"name"] compare:[b objectForKey:@"name"]];
+            }]];
             [_myTableView reloadData];
         }
     }];
@@ -135,23 +155,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Dequeue cell with subtitle style
+    // Dequeue prototype cell
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"contactCell"];
-    }
-
+    
+    UILabel *nameLabel = (UILabel*)[cell viewWithTag:101];
+    UIImageView *profileImageView = (UIImageView*)[cell viewWithTag:100];
+    [profileImageView.layer setCornerRadius:(profileImageView.bounds.size.width/2)];
+    [profileImageView setClipsToBounds:YES];
+    
     // Section 0: Contacts from Parse
     if (indexPath.section == 0) {
 
         if (self.friends.count > 0) {
             
+            // Contact to display
             NSDictionary *contact = [self.friends objectAtIndex:indexPath.row];
-            cell.textLabel.text = [[contact objectForKey:@"name"] capitalizedString];
-            cell.detailTextLabel.text = [contact objectForKey:@"username"];
-            // Fetch image on background thread
-            cell.imageView.image = [UIImage imageWithData:[(PFFile*)[contact objectForKey:@"profilePicture"] getData]];
+            profileImageView.image = [UIImage imageWithData:[(PFFile*)[contact objectForKey:@"profilePicture"] getData]];
+            nameLabel.text = [[contact objectForKey:@"name"] capitalizedString];
             
+            // Fetch image on background thread
 //            [(PFFile*)[contact objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
 //                cell.imageView.image = [UIImage imageWithData:data];
 //            } progressBlock:nil];
@@ -159,37 +181,29 @@
         
     // Section 1: Contacts from Address Book
     } else {
-        cell.imageView.image = [UIImage imageWithData:[[self.contactsArray objectAtIndex:indexPath.row] valueForKey:@"thumbnailImageData"]];
-        cell.textLabel.text = [[self.contactsArray objectAtIndex:indexPath.row] givenName];
-        CNPhoneNumber *phone = [(CNPhoneNumber*)[[[self.contactsArray objectAtIndex:0] phoneNumbers] objectAtIndex:0] valueForKey:@"value"];
-        cell.detailTextLabel.text = [phone stringValue];
+        
+        nameLabel.text = [[self.contactsArray objectAtIndex:indexPath.row] givenName];
+        UIImage *image = [UIImage imageWithData:[[self.contactsArray objectAtIndex:indexPath.row] valueForKey:@"thumbnailImageData"]];
+        profileImageView.image = image ?: [UIImage imageNamed:@"No-Avatar"];
     }
-    
-    [cell.textLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
-    [cell.detailTextLabel setFont:[UIFont systemFontOfSize:13.f]];
     
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 15.f;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 30.f;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 10.f;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 35.f;
+//}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) return @"Contacts in Rendez-Vous";
     else return @"Contacts in Phone";
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60.f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
