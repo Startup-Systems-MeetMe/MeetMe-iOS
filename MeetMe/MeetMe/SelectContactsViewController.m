@@ -9,6 +9,7 @@
 #import "SelectContactsViewController.h"
 #import <Contacts/Contacts.h>
 #import <Parse/Parse.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface SelectContactsViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,21 +29,31 @@
     
     self.contactsArray = [[NSMutableArray alloc] init];
     self.notInAppArray = [[NSMutableArray alloc] init];
+    self.friends = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"Loading Contacts"];
     
     self.store = [[CNContactStore alloc] init];
     [self.store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
     
+        // Return early if not granted access
+        //TODO: Alert user
         if (!granted) return;
-        
+
+        // Fetch contacts
         [self fetchContacts];
-        
     }];
 }
 
+/**
+ *  Fetches contacts from CNContactStore
+ *  and adds them in _contactsArray to be displayed
+ *  in the tableview.
+ */
 - (void)fetchContacts
 {
     // Fetch all contacts
@@ -74,19 +85,31 @@
         if (contact.phoneNumbers.count > 0) {
             for (CNLabeledValue *labeledValue in contact.phoneNumbers) {
                 CNPhoneNumber *number = [labeledValue value];
+                
+                // Strip off unneeded characters
                 NSString *parsedNum = [[[number stringValue] componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
-                if ([parsedNum characterAtIndex:0] == '1') {
+                // ...and starting '1' of US phone numbers
+                if ([parsedNum length] > 0 && [parsedNum characterAtIndex:0] == '1') {
                     parsedNum = [parsedNum substringFromIndex:1];
                 }
+                // ...then added to object of phone numbers to send to Parse
                 [numbers addObject:parsedNum];
             }
         }
     }
     
-    NSLog(@"%@", numbers);
-    
     [PFCloud callFunctionInBackground:@"getCommonContacts" withParameters:@{@"phoneNumbers":numbers} block:^(id  _Nullable object, NSError * _Nullable error) {
-        //if (error) return;
+        
+        [SVProgressHUD dismiss];
+        
+        // TODO: Handle Error
+        if (error) return;
+        
+        // Add contacts in _friends array and reload table
+        if ([(NSArray*)object count] > 0) {
+            _friends = [NSMutableArray arrayWithArray:object];
+            [_myTableView reloadData];
+        }
     }];
 }
 
@@ -101,58 +124,62 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    return self.contactsArray.count > 0 ? 2 : 1;
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) return self.contactsArray.count > 0 ? self.contactsArray.count : 2;
-    return 10; // Show 100 contacts not in app
+    if (section == 0) return self.friends.count;
+    else return self.contactsArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Dequeue cell with subtitle style
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"contactCell"];
     }
 
+    // Section 0: Contacts from Parse
     if (indexPath.section == 0) {
-        NSArray *names = @[@"Anas", @"Mark"];
-        NSArray *phones = @[@"235355435", @"32324325"];
-        
-        if (self.contactsArray.count == 0) {
-            cell.textLabel.text = [names objectAtIndex:indexPath.row];
-            cell.detailTextLabel.text = [phones objectAtIndex:indexPath.row];
-        } else {
-            cell.imageView.image = [UIImage imageWithData:[[self.contactsArray objectAtIndex:indexPath.row] valueForKey:@"thumbnailImageData"]];
-            cell.textLabel.text = [[self.contactsArray objectAtIndex:indexPath.row] givenName];
-            CNPhoneNumber *phone = [(CNPhoneNumber*)[[[self.contactsArray objectAtIndex:0] phoneNumbers] objectAtIndex:0] valueForKey:@"value"];
-            cell.detailTextLabel.text = [phone stringValue];
+
+        if (self.friends.count > 0) {
+            
+            NSDictionary *contact = [self.friends objectAtIndex:indexPath.row];
+            cell.imageView.image = nil;
+            cell.textLabel.text = [[contact objectForKey:@"name"] capitalizedString];
+            cell.detailTextLabel.text = [contact objectForKey:@"username"];
         }
         
+    // Section 1: Contacts from Address Book
     } else {
-        cell.imageView.image = nil;
-        cell.textLabel.text = [[self.notInAppArray objectAtIndex:indexPath.row] givenName];
-        CNPhoneNumber *phone = [(CNPhoneNumber*)[[[self.notInAppArray objectAtIndex:0] phoneNumbers] objectAtIndex:0] valueForKey:@"value"];
+        cell.imageView.image = [UIImage imageWithData:[[self.contactsArray objectAtIndex:indexPath.row] valueForKey:@"thumbnailImageData"]];
+        cell.textLabel.text = [[self.contactsArray objectAtIndex:indexPath.row] givenName];
+        CNPhoneNumber *phone = [(CNPhoneNumber*)[[[self.contactsArray objectAtIndex:0] phoneNumbers] objectAtIndex:0] valueForKey:@"value"];
         cell.detailTextLabel.text = [phone stringValue];
     }
     
     [cell.textLabel setFont:[UIFont boldSystemFontOfSize:15.f]];
-    [cell.detailTextLabel setFont:[UIFont systemFontOfSize:14.f]];
+    [cell.detailTextLabel setFont:[UIFont systemFontOfSize:13.f]];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 10.f;
+    return 15.f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 30.f;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Contacts in Rendez-Vous";
+    if (section == 0) return @"Contacts in Rendez-Vous";
+    else return @"Contacts in Phone";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
