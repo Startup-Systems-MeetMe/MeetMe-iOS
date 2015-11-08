@@ -147,9 +147,14 @@
         if (self.friends.count > 0) {
             
             NSDictionary *contact = [self.friends objectAtIndex:indexPath.row];
-            cell.imageView.image = nil;
             cell.textLabel.text = [[contact objectForKey:@"name"] capitalizedString];
             cell.detailTextLabel.text = [contact objectForKey:@"username"];
+            // Fetch image on background thread
+            cell.imageView.image = [UIImage imageWithData:[(PFFile*)[contact objectForKey:@"profilePicture"] getData]];
+            
+//            [(PFFile*)[contact objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+//                cell.imageView.image = [UIImage imageWithData:data];
+//            } progressBlock:nil];
         }
         
     // Section 1: Contacts from Address Book
