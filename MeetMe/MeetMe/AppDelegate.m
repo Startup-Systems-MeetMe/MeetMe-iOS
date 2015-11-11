@@ -17,7 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
+    // UITabBar
+    UIColor *blueColor = [UIColor colorWithRed:0.19 green:0.44 blue:0.86 alpha:1.0];
+    [[UITabBar appearance] setTintColor:blueColor];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : blueColor }
+                                             forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : blueColor }
+                                             forState:UIControlStateSelected];
+    
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];

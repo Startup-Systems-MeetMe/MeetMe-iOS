@@ -16,6 +16,7 @@
 		B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = B88B34EF1BC06FCF00CE1271 /* UIImage+animatedGIF.m */; };
 		B88EE7201BE13B9200D22709 /* LandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */; };
 		B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */; };
+		B88F794A1BF2D0C200555CE3 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88F79491BF2D0C200555CE3 /* TabBarController.m */; };
 		B8A980D31BB3197E00C20A77 /* clock.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8A980D21BB3197E00C20A77 /* clock.gif */; };
 		B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */; };
 		B8A980E11BB32BE700C20A77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */; };
@@ -72,6 +73,8 @@
 		B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingPageViewController.m; sourceTree = "<group>"; };
 		B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectContactsViewController.h; sourceTree = "<group>"; };
 		B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContactsViewController.m; sourceTree = "<group>"; };
+		B88F79481BF2D0C200555CE3 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		B88F79491BF2D0C200555CE3 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		B8A980D21BB3197E00C20A77 /* clock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clock.gif; sourceTree = "<group>"; };
 		B8A980D91BB31EC900C20A77 /* ProfileCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCreationViewController.h; sourceTree = "<group>"; };
 		B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCreationViewController.m; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */,
 				B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */,
 				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
+				B88F79481BF2D0C200555CE3 /* TabBarController.h */,
+				B88F79491BF2D0C200555CE3 /* TabBarController.m */,
 				B88EE71D1BE13B1000D22709 /* Signup */,
 				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
 				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
@@ -483,6 +488,7 @@
 				B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */,
 				B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
+				B88F794A1BF2D0C200555CE3 /* TabBarController.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
 				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,

@@ -135,7 +135,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //------------------------------------------------------------------------------------------
@@ -190,20 +189,13 @@
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 10.f;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return 35.f;
-//}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) return @"Contacts in Rendez-Vous";
-    else return @"Contacts in Phone";
+    if (section == 0) {
+        return self.friends.count > 0 ? @"Contacts in Rendez-Vous" : @"";
+    } else {
+        return self.contactsArray.count > 0 ? @"Contacts on Phone" : @"";
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

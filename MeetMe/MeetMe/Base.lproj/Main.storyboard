@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="amT-aS-I0K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="amT-aS-I0K">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -298,7 +298,7 @@
             </objects>
             <point key="canvasLocation" x="1114" y="-368"/>
         </scene>
-        <!--View Controller-->
+        <!--Meetings-->
         <scene sceneID="JMg-8d-U7I">
             <objects>
                 <viewController id="CiJ-nu-k1r" sceneMemberID="viewController">
@@ -312,13 +312,59 @@
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="Svv-4X-oeK"/>
+                    <tabBarItem key="tabBarItem" title="Meetings" image="Meetings-unselected" selectedImage="Meetings-selected" id="Svv-4X-oeK">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Meetings-selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzc-BI-t9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2267" y="743"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="LPl-nY-XAz">
+            <objects>
+                <navigationController id="iOk-Ra-csK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings-unselected" id="nGx-KI-2Sj">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Settings-selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hAH-kc-Pvm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="s21-kQ-dlM" kind="relationship" relationship="rootViewController" id="7gj-xB-zFE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S7u-kr-T6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207" y="1291"/>
+        </scene>
         <!--View Controller-->
+        <scene sceneID="izu-Ol-mQP">
+            <objects>
+                <viewController id="s21-kQ-dlM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wR5-c9-ieH"/>
+                        <viewControllerLayoutGuide type="bottom" id="8t4-5R-KI6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EtB-uU-oid">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LsF-WO-Ra5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2a4-QQ-uhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207" y="2137"/>
+        </scene>
+        <!--Profile-->
         <scene sceneID="PZ5-MH-1kf">
             <objects>
                 <viewController id="R3S-i4-g5d" sceneMemberID="viewController">
@@ -332,17 +378,17 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="y5J-gA-GSB"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile-unselected" selectedImage="Profile-selected" id="y5J-gA-GSB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2y-MH-4Ws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2261" y="1713"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Favorites-->
         <scene sceneID="Gmx-qs-U09">
             <objects>
                 <navigationController id="vr9-cH-M0P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="5kv-FR-FcF"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites-unselected" selectedImage="Favorites-selected" id="5kv-FR-FcF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rjo-xd-9FJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -407,7 +453,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="recents" id="JKp-bG-KlU"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites-unselected" selectedImage="Favorites-selected" id="JKp-bG-KlU"/>
                     <navigationItem key="navigationItem" title="Rendez-Vous" id="AGO-px-snU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Ed-pi-j8t">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -536,14 +582,14 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Pp6-o6-cWy">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarRoot" id="3Tz-uS-kGL" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarRoot" id="3Tz-uS-kGL" customClass="TabBarController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="S7f-9O-kkk"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="qBk-wQ-fBH">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="qBk-wQ-fBH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.2196078431372549" green="0.22352941176470587" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.94509803921568625" green="0.95294117647058818" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                 <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -554,6 +600,7 @@
                         <segue destination="vr9-cH-M0P" kind="relationship" relationship="viewControllers" id="rlf-Gh-1B4"/>
                         <segue destination="CiJ-nu-k1r" kind="relationship" relationship="viewControllers" id="Kvo-4i-eHe"/>
                         <segue destination="R3S-i4-g5d" kind="relationship" relationship="viewControllers" id="azD-UL-OUf"/>
+                        <segue destination="iOk-Ra-csK" kind="relationship" relationship="viewControllers" id="ytI-ql-LaK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTx-a8-v1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -564,7 +611,15 @@
     <resources>
         <image name="Background-complete-profile" width="187" height="333"/>
         <image name="Checked Inactive" width="29" height="29"/>
+        <image name="Favorites-selected" width="31" height="30"/>
+        <image name="Favorites-unselected" width="31" height="30"/>
+        <image name="Meetings-selected" width="29" height="29"/>
+        <image name="Meetings-unselected" width="29" height="29"/>
         <image name="No-Avatar" width="29" height="29"/>
+        <image name="Profile-selected" width="29" height="29"/>
+        <image name="Profile-unselected" width="29" height="29"/>
+        <image name="Settings-selected" width="30" height="30"/>
+        <image name="Settings-unselected" width="30" height="31"/>
         <image name="calendar-icon" width="26" height="21"/>
         <image name="contacts-icon" width="25" height="24"/>
         <image name="default_profile_pic" width="128" height="128"/>
