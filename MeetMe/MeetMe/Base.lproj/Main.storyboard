@@ -474,14 +474,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Meetings" image="Meetings-unselected" selectedImage="Meetings-selected" id="JKp-bG-KlU"/>
-                    <navigationItem key="navigationItem" title="Rendez-Vous" id="AGO-px-snU">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Ed-pi-j8t">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="1gS-m8-uge" kind="show" identifier="createMeetingSegue" id="OUe-CA-a7H"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Rendez-Vous" id="AGO-px-snU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqH-MO-Pz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -490,17 +483,17 @@
         <!--Contacts-->
         <scene sceneID="TIo-6k-oib">
             <objects>
-                <viewController title="Contacts" automaticallyAdjustsScrollViewInsets="NO" id="1gS-m8-uge" customClass="SelectContactsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="selectContactsVC" title="Contacts" automaticallyAdjustsScrollViewInsets="NO" id="1gS-m8-uge" customClass="SelectContactsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OcO-lx-W21"/>
                         <viewControllerLayoutGuide type="bottom" id="Q0b-R5-iK5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ir2-jf-cvl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="45" sectionHeaderHeight="10" sectionFooterHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="xub-cQ-dXK">
-                                <rect key="frame" x="0.0" y="67" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="23" width="600" height="580"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -558,7 +551,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNM-Ut-Cm3" userLabel="Red Bar">
-                                <rect key="frame" x="0.0" y="64" width="600" height="3"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="3"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.70980392160000005" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

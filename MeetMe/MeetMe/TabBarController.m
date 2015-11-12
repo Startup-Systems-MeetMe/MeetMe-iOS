@@ -38,9 +38,9 @@
 
 - (void)tappedCreateButton
 {
-    [self.tabBarController setSelectedIndex:0];
-    LandingPageViewController *landingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"landingPageStoryboard"];
-    [landingVC performSegueWithIdentifier:@"createMeetingSegue" sender:self];
+    [self setSelectedIndex:1];
+    UINavigationController *navController = (UINavigationController*)[[self viewControllers] objectAtIndex:1];
+    [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"selectContactsVC"] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
