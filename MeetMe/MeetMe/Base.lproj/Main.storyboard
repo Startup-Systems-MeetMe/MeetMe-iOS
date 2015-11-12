@@ -358,7 +358,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="dPa-Iu-JMw"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="dPa-Iu-JMw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vz-cS-uEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -98,18 +98,21 @@ const int BUTTON_CORNER_RADIUS = 4.f;
     [self.nameTextField resignFirstResponder];
     [SVProgressHUD show];
     
-    // Set user profile & push to Parse
-    CurrentUser *user = [CurrentUser sharedInstance];
-    [user setName:self.nameTextField.text];
-    if (self.selectedImage) [user setProfilePicture:self.selectedImage];
+    // Push to Parse
+    NSString *username = self.nameTextField.text;
+    NSData *imageData = UIImageJPEGRepresentation(self.selectedImage, 0.4);
     
-    NSData *imageData = UIImageJPEGRepresentation(self.selectedImage, 0.6);
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[user phoneNumber], @"phoneNumber", [user name], @"name", imageData, @"photo", nil];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[[CurrentUser sharedInstance] phoneNumber], @"phoneNumber", username, @"name", imageData, @"photo", nil];
     [PFCloud callFunctionInBackground:@"updateNameAndPhoto" withParameters:dict block:^(id object, NSError *error) {
         
         [SVProgressHUD dismiss];
         
         if (!error) {
+            // Create profile instance
+            CurrentUser *user = [CurrentUser sharedInstance];
+            [user setName:self.nameTextField.text];
+            if (self.selectedImage) [user setProfilePicture:self.selectedImage];
+            
             // Move to TabBar
             [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarRoot"] animated:YES];
         } else {
