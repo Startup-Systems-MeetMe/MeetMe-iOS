@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
 
 @property (strong, nonatomic) NSMutableArray *contactsArray;
-@property (strong, nonatomic) NSMutableArray *notInAppArray;
+@property (strong, nonatomic) NSMutableArray *selectedContacts;
 @property (strong, nonatomic) NSMutableArray *friends;
 @property (strong, nonatomic) CNContactStore *store;
 
@@ -27,9 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.contactsArray = [[NSMutableArray alloc] init];
-    self.notInAppArray = [[NSMutableArray alloc] init];
-    self.friends = [[NSMutableArray alloc] init];
+    self.contactsArray    = [[NSMutableArray alloc] init];
+    self.friends          = [[NSMutableArray alloc] init];
+    self.selectedContacts = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -158,6 +158,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"contactCell"];
     
     UILabel *nameLabel = (UILabel*)[cell viewWithTag:101];
+    UIImageView *checkmarkImageView = (UIImageView*)[cell viewWithTag:102];
     UIImageView *profileImageView = (UIImageView*)[cell viewWithTag:100];
     [profileImageView.layer setCornerRadius:(profileImageView.bounds.size.width/2)];
     [profileImageView setClipsToBounds:YES];
@@ -169,21 +170,32 @@
             
             // Contact to display
             NSDictionary *contact = [self.friends objectAtIndex:indexPath.row];
-            profileImageView.image = [UIImage imageWithData:[(PFFile*)[contact objectForKey:@"profilePicture"] getData]];
-            nameLabel.text = [[contact objectForKey:@"name"] capitalizedString];
+            
+            nameLabel.text            = [[contact objectForKey:@"name"] capitalizedString];
+            checkmarkImageView.hidden = NO;
+            checkmarkImageView.image  = [self.selectedContacts containsObject:indexPath] ? [UIImage imageNamed:@"Checked Active"] : [UIImage imageNamed:@"Checked Inactive"];
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
             // Fetch image on background thread
-//            [(PFFile*)[contact objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-//                cell.imageView.image = [UIImage imageWithData:data];
-//            } progressBlock:nil];
+            [(PFFile*)[contact objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+                if (!error) {
+                    profileImageView.image = [UIImage imageWithData:data];
+                }
+            } progressBlock:nil];
         }
         
     // Section 1: Contacts from Address Book
     } else {
         
-        nameLabel.text = [[self.contactsArray objectAtIndex:indexPath.row] givenName];
-        UIImage *image = [UIImage imageWithData:[[self.contactsArray objectAtIndex:indexPath.row] valueForKey:@"thumbnailImageData"]];
-        profileImageView.image = image ?: [UIImage imageNamed:@"No-Avatar"];
+        CNContact *contact = (CNContact*)[self.contactsArray objectAtIndex:indexPath.row];
+        
+        nameLabel.text            = [NSString stringWithFormat:@"%@ %@", contact.givenName, contact.familyName];
+        UIImage *image            = [UIImage imageWithData:[contact valueForKey:@"thumbnailImageData"]];
+        profileImageView.image    = image ?: [UIImage imageNamed:@"No-Avatar"];
+        checkmarkImageView.hidden = YES;
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleDefault];
     }
     
     return cell;
@@ -201,6 +213,29 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Contacts from AddressBook, not RendezVous
+    if (indexPath.section == 1) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invite" message:@"Working on adding the option to invite your friends ;-)" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Alright" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:action];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+    // Get checkmark image view
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UIImageView *checkmarkImageView = (UIImageView*)[cell viewWithTag:102];
+
+    // Already selected
+    if ([self.selectedContacts containsObject:indexPath]) {
+        [self.selectedContacts removeObject:indexPath];
+        [checkmarkImageView setImage:[UIImage imageNamed:@"Checked Inactive"]];
+        
+    // Not selected yet
+    } else {
+        [self.selectedContacts addObject:indexPath];
+        [checkmarkImageView setImage:[UIImage imageNamed:@"Checked Active"]];
+    }
 }
 
 @end
