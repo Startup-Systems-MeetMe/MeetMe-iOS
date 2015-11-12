@@ -11,9 +11,12 @@
 #import <Parse/Parse.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 
+static const int NEXT_BUTTON_HEIGHT = 75.f;
+
 @interface SelectContactsViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *myTableView;
+@property (strong, nonatomic) UIButton *nextButton;
 
 @property (strong, nonatomic) NSMutableArray *contactsArray;
 @property (strong, nonatomic) NSMutableArray *selectedContacts;
@@ -23,6 +26,10 @@
 @end
 
 @implementation SelectContactsViewController
+
+//------------------------------------------------------------------------------------------
+#pragma mark - View -
+//------------------------------------------------------------------------------------------
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,7 +54,25 @@
         // Fetch contacts
         [self fetchContacts];
     }];
+    
+    CGRect bounds = self.myTableView.frame;
+    self.nextButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bounds), CGRectGetWidth(bounds), NEXT_BUTTON_HEIGHT)];
+    [self.nextButton setBackgroundColor:[UIColor colorWithRed:0.13 green:0.75 blue:0.39 alpha:1]];
+    [self.nextButton setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
+    [self.view addSubview:self.nextButton];
 }
+
+-(BOOL)hidesBottomBarWhenPushed {
+    return YES;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+//------------------------------------------------------------------------------------------
+#pragma mark - Getting Contacts -
+//------------------------------------------------------------------------------------------
 
 /**
  *  Fetches contacts from CNContactStore
@@ -133,10 +158,6 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 //------------------------------------------------------------------------------------------
 #pragma mark - UITableView -
 //------------------------------------------------------------------------------------------
@@ -220,6 +241,7 @@
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"Alright" style:UIAlertActionStyleDefault handler:nil];
         [alert addAction:action];
         [self presentViewController:alert animated:YES completion:nil];
+        return;
     }
     
     // Get checkmark image view
@@ -235,6 +257,48 @@
     } else {
         [self.selectedContacts addObject:indexPath];
         [checkmarkImageView setImage:[UIImage imageNamed:@"Checked Active"]];
+    }
+    
+    // Show "next button" if some contacts selected, else hide
+    [self showNextButton:(self.selectedContacts.count > 0)];
+}
+
+- (void)showNextButton:(BOOL)visible
+{
+    CGFloat damping = 0.78f;
+    CGFloat velocity = 0.6f;
+    
+    if (visible) {
+        
+        [UIView animateWithDuration:0.4f delay:0.f usingSpringWithDamping:damping initialSpringVelocity:velocity options:UIViewAnimationOptionCurveEaseIn animations:^{
+            
+            // Re-position button
+            CGRect buttonFrame = self.nextButton.frame;
+            buttonFrame.origin.y = CGRectGetMaxY(self.myTableView.frame) - NEXT_BUTTON_HEIGHT;
+            self.nextButton.frame = buttonFrame;
+            
+            // Adjust tableview inset
+            UIEdgeInsets contentInsets;
+            contentInsets = UIEdgeInsetsMake(0.0, 0.0, NEXT_BUTTON_HEIGHT, 0.0);
+            self.myTableView.contentInset = contentInsets;
+            self.myTableView.scrollIndicatorInsets = contentInsets;
+            
+        } completion:nil];
+    
+    } else {
+        
+        [UIView animateWithDuration:0.4f delay:0.f usingSpringWithDamping:damping initialSpringVelocity:velocity options:UIViewAnimationOptionCurveEaseOut animations:^{
+            
+            // Re-position button
+            CGRect buttonFrame = self.nextButton.frame;
+            buttonFrame.origin.y = CGRectGetMaxY(self.myTableView.frame);
+            self.nextButton.frame = buttonFrame;
+            
+            // Adjust tableview inset
+            self.myTableView.contentInset = UIEdgeInsetsZero;
+            self.myTableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+            
+        } completion:nil];
     }
 }
 

@@ -430,7 +430,7 @@
         <!--Rendez-Vous-->
         <scene sceneID="1fL-Xh-3LF">
             <objects>
-                <viewController id="7Ds-qZ-3bK" customClass="LandingPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="landingPageStoryboard" id="7Ds-qZ-3bK" customClass="LandingPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yQ7-6E-cnv"/>
                         <viewControllerLayoutGuide type="bottom" id="OfZ-A1-Fxg"/>
@@ -478,7 +478,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Ed-pi-j8t">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="1gS-m8-uge" kind="show" id="OUe-CA-a7H"/>
+                                <segue destination="1gS-m8-uge" kind="show" identifier="createMeetingSegue" id="OUe-CA-a7H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
