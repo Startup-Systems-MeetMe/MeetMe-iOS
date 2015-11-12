@@ -29,6 +29,7 @@
 		B8A980F11BB32C2800C20A77 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */; };
 		B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F21BB32C2E00C20A77 /* libz.tbd */; };
 		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; };
+		B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */; };
 		B8EA6FE81BB1A23200C41477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FE71BB1A23200C41477 /* main.m */; };
 		B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */; };
 		B8EA6FF11BB1A23200C41477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA6FEF1BB1A23200C41477 /* Main.storyboard */; };
@@ -89,6 +90,8 @@
 		B8A980F21BB32C2E00C20A77 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B8CA55631BB2698E00591B9F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		B8CA55641BB2698E00591B9F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMeetingViewController.h; sourceTree = "<group>"; };
+		B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMeetingViewController.m; sourceTree = "<group>"; };
 		B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rendez-Vous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA6FE71BB1A23200C41477 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8EA6FE91BB1A23200C41477 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				B88EE71D1BE13B1000D22709 /* Signup */,
 				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
 				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
+				B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */,
+				B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */,
 				B8EA6FEF1BB1A23200C41477 /* Main.storyboard */,
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
@@ -494,6 +499,7 @@
 				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 				B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */,
+				B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

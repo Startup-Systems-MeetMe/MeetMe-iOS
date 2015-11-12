@@ -34,32 +34,46 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Init arrays
     self.contactsArray    = [[NSMutableArray alloc] init];
     self.friends          = [[NSMutableArray alloc] init];
     self.selectedContacts = [[NSMutableArray alloc] init];
+    
+    self.store = [[CNContactStore alloc] init];
+    [self.store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        
+        // Return early if not granted access
+        //TODO: Alert user
+        if (!granted) return;
+        
+        // Fetch contacts
+        [self fetchContacts];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-    [SVProgressHUD showWithStatus:@"Loading Contacts"];
-    
-    self.store = [[CNContactStore alloc] init];
-    [self.store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-    
-        // Return early if not granted access
-        //TODO: Alert user
-        if (!granted) return;
-
-        // Fetch contacts
-        [self fetchContacts];
-    }];
-    
+    // Next button frame
     CGRect bounds = self.myTableView.frame;
     self.nextButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bounds), CGRectGetWidth(bounds), NEXT_BUTTON_HEIGHT)];
     [self.nextButton setBackgroundColor:[UIColor colorWithRed:0.13 green:0.75 blue:0.39 alpha:1]];
     [self.nextButton setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
+    [self.nextButton addTarget:self action:@selector(goToCreateMeeting) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.nextButton];
+    [self showNextButton:(self.selectedContacts.count > 0)];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self showNextButton:NO];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.nextButton removeFromSuperview];
+    });
+}
+
+- (void)goToCreateMeeting
+{
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"newMeetingVC"] animated:YES];
 }
 
 -(BOOL)hidesBottomBarWhenPushed {
@@ -91,6 +105,9 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     
     // Go back to main queue
     dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showWithStatus:@"Loading Contacts"];
         
         // Store all contacts
         _contactsArray = [NSMutableArray arrayWithArray:[self.store unifiedContactsMatchingPredicate:predicate keysToFetch:keys error:nil]];
