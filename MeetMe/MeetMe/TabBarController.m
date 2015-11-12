@@ -7,6 +7,7 @@
 //
 
 #import "TabBarController.h"
+#import "LandingPageViewController.h"
 
 @interface TabBarController ()
 
@@ -17,19 +18,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Default tab
+    [self setSelectedIndex:1];
+    
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *buttonImage = [UIImage imageNamed:@"Create-selected"];
-    button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+    UIImage *buttonImage = [UIImage imageNamed:@"Create-unselected"];
     [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
-    if (heightDifference < 0) {
-        button.center = self.tabBar.center;
-    } else {
-        CGPoint center = self.tabBar.center;
-        center.y -= heightDifference / 3.f;
-        button.center = center;
-    }
-    [self.view addSubview:button];
+    [button setBackgroundImage:[UIImage imageNamed:@"Create-selected"] forState:UIControlStateHighlighted];
+    [button addTarget:self action:@selector(tappedCreateButton) forControlEvents:UIControlEventTouchDown];
+    CGFloat x = self.tabBar.center.x - buttonImage.size.width / 2.f;
+    CGFloat y = self.tabBar.frame.size.height - buttonImage.size.height;
+    button.frame = CGRectMake(x, y, buttonImage.size.width, buttonImage.size.height);
+    
+    [self.tabBar addSubview:button];
+    
+    self.tabBar.backgroundImage = [UIImage new];
+    self.tabBar.shadowImage     = [UIImage new];
+}
+
+- (void)tappedCreateButton
+{
+    [self.tabBarController setSelectedIndex:0];
+    LandingPageViewController *landingVC = [self.storyboard instantiateViewControllerWithIdentifier:@"landingPageStoryboard"];
+    [landingVC performSegueWithIdentifier:@"createMeetingSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

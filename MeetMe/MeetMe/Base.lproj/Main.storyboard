@@ -298,7 +298,7 @@
             </objects>
             <point key="canvasLocation" x="-1758" y="-888"/>
         </scene>
-        <!--Meetings-->
+        <!--Favorites-->
         <scene sceneID="JMg-8d-U7I">
             <objects>
                 <viewController id="CiJ-nu-k1r" sceneMemberID="viewController">
@@ -312,9 +312,9 @@
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Meetings" image="Meetings-unselected" selectedImage="Meetings-selected" id="Svv-4X-oeK">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites-unselected" selectedImage="Favorites-selected" id="Svv-4X-oeK">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Meetings-selected"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="Favorites-selected"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
@@ -404,11 +404,11 @@
             </objects>
             <point key="canvasLocation" x="323" y="1433"/>
         </scene>
-        <!--Favorites-->
+        <!--Meetings-->
         <scene sceneID="Gmx-qs-U09">
             <objects>
                 <navigationController id="vr9-cH-M0P" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites-unselected" selectedImage="Favorites-selected" id="5kv-FR-FcF"/>
+                    <tabBarItem key="tabBarItem" title="Meetings" image="Meetings-unselected" selectedImage="Meetings-selected" id="5kv-FR-FcF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rjo-xd-9FJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -473,7 +473,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="Favorites-unselected" selectedImage="Favorites-selected" id="JKp-bG-KlU"/>
+                    <tabBarItem key="tabBarItem" title="Meetings" image="Meetings-unselected" selectedImage="Meetings-selected" id="JKp-bG-KlU"/>
                     <navigationItem key="navigationItem" title="Rendez-Vous" id="AGO-px-snU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8Ed-pi-j8t">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -616,7 +616,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -652,8 +652,8 @@
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="vr9-cH-M0P" kind="relationship" relationship="viewControllers" id="rlf-Gh-1B4"/>
                         <segue destination="CiJ-nu-k1r" kind="relationship" relationship="viewControllers" id="Kvo-4i-eHe"/>
+                        <segue destination="vr9-cH-M0P" kind="relationship" relationship="viewControllers" id="rlf-Gh-1B4"/>
                         <segue destination="dtf-uV-nGy" kind="relationship" relationship="viewControllers" id="CNM-3F-XaS"/>
                         <segue destination="R3S-i4-g5d" kind="relationship" relationship="viewControllers" id="azD-UL-OUf"/>
                         <segue destination="iOk-Ra-csK" kind="relationship" relationship="viewControllers" id="ytI-ql-LaK"/>
@@ -667,15 +667,15 @@
     <resources>
         <image name="Background-complete-profile" width="187" height="333"/>
         <image name="Checked Inactive" width="29" height="29"/>
-        <image name="Favorites-selected" width="31" height="30"/>
-        <image name="Favorites-unselected" width="31" height="30"/>
-        <image name="Meetings-selected" width="29" height="29"/>
-        <image name="Meetings-unselected" width="29" height="29"/>
+        <image name="Favorites-selected" width="25" height="24"/>
+        <image name="Favorites-unselected" width="25" height="24"/>
+        <image name="Meetings-selected" width="25" height="25"/>
+        <image name="Meetings-unselected" width="25" height="25"/>
         <image name="No-Avatar" width="29" height="29"/>
-        <image name="Profile-selected" width="29" height="29"/>
-        <image name="Profile-unselected" width="29" height="29"/>
-        <image name="Settings-selected" width="30" height="30"/>
-        <image name="Settings-unselected" width="30" height="31"/>
+        <image name="Profile-selected" width="25" height="25"/>
+        <image name="Profile-unselected" width="25" height="25"/>
+        <image name="Settings-selected" width="26" height="27"/>
+        <image name="Settings-unselected" width="26" height="27"/>
         <image name="calendar-icon" width="26" height="21"/>
         <image name="contacts-icon" width="25" height="24"/>
         <image name="default_profile_pic" width="128" height="128"/>
