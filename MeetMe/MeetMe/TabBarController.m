@@ -21,6 +21,7 @@
     // Default tab
     [self setSelectedIndex:1];
     
+    // Center '+' button
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *buttonImage = [UIImage imageNamed:@"Create-unselected"];
     [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
@@ -29,9 +30,9 @@
     CGFloat x = self.tabBar.center.x - buttonImage.size.width / 2.f;
     CGFloat y = self.tabBar.frame.size.height - buttonImage.size.height;
     button.frame = CGRectMake(x, y, buttonImage.size.width, buttonImage.size.height);
-    
     [self.tabBar addSubview:button];
-    
+
+    // Get rid of line behind tab
     self.tabBar.backgroundImage = [UIImage new];
     self.tabBar.shadowImage     = [UIImage new];
 }

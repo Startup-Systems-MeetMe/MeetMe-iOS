@@ -8,30 +8,40 @@
 
 #import "NewMeetingViewController.h"
 
-@interface NewMeetingViewController ()
+@interface NewMeetingViewController () <UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+@property (strong, nonatomic) IBOutlet UITextView *notesTextView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 @end
 
-@implementation NewMeetingViewController
+@implementation NewMeetingViewController 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // Date Picker
+    [self.datePicker setMinimumDate:[NSDate date]];
+    
+    // Tap to dismiss keyboard
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tapGesture];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)dismissKeyboard {
+    [self.titleTextField resignFirstResponder];
+    [self.notesTextView resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
