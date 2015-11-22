@@ -7,10 +7,12 @@
 //
 
 #import "NewMeetingViewController.h"
+#import "LandingPageViewController.h"
 
-@interface NewMeetingViewController () <UITextFieldDelegate>
+@interface NewMeetingViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+@property (strong, nonatomic) IBOutlet UIButton *meetWithButton;
 @property (strong, nonatomic) IBOutlet UITextView *notesTextView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
@@ -20,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.notesTextView setText:@"Notes"];
+    
+    [self.meetWithButton setTitle:[NSString stringWithFormat:@"With %@", [self.contactsToMeetWith objectAtIndex:0]] forState:UIControlStateNormal];
     
     // Date Picker
     [self.datePicker setMinimumDate:[NSDate date]];
@@ -33,6 +39,34 @@
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+- (IBAction)saveMeeting:(id)sender
+{
+    // No title
+    if (self.titleTextField.text.length == 0) {
+        [self.titleTextField becomeFirstResponder];
+        
+    // Return to home page
+    } else {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"Notes"]) {
+        textView.text = @"";
+    }
+    [textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Notes";
+    }
+    [textView resignFirstResponder];
 }
 
 - (void)dismissKeyboard {

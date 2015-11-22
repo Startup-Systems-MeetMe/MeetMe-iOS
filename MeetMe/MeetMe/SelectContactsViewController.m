@@ -10,6 +10,7 @@
 #import <Contacts/Contacts.h>
 #import <Parse/Parse.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "NewMeetingViewController.h"
 
 static const int NEXT_BUTTON_HEIGHT = 75.f;
 
@@ -34,6 +35,12 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel"
+                                                                 style:UIBarButtonItemStylePlain
+                                                                target:self
+                                                                action:@selector(tappedCancel)];
+    self.navigationItem.leftBarButtonItem = leftItem;
+    
     // Init arrays
     self.contactsArray    = [[NSMutableArray alloc] init];
     self.friends          = [[NSMutableArray alloc] init];
@@ -51,6 +58,11 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     }];
 }
 
+- (void)tappedCancel
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     // Next button frame
@@ -59,6 +71,9 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     [self.nextButton setBackgroundColor:[UIColor colorWithRed:0.13 green:0.75 blue:0.39 alpha:1]];
     [self.nextButton setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
     [self.nextButton addTarget:self action:@selector(goToCreateMeeting) forControlEvents:UIControlEventTouchDown];
+    UIView *fakeExtensionView = [[UIView alloc] initWithFrame:CGRectMake(0, NEXT_BUTTON_HEIGHT, CGRectGetWidth(bounds), 50)];
+    [fakeExtensionView setBackgroundColor:[UIColor colorWithRed:0.13 green:0.75 blue:0.39 alpha:1]];
+    [self.nextButton addSubview:fakeExtensionView];
     [self.view addSubview:self.nextButton];
     [self showNextButton:(self.selectedContacts.count > 0)];
 }
@@ -72,7 +87,9 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 
 - (void)goToCreateMeeting
 {
-    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"newMeetingVC"] animated:YES];
+    NewMeetingViewController *vc = (NewMeetingViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"newMeetingVC"];
+    vc.contactsToMeetWith = @[@"Anas"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(BOOL)hidesBottomBarWhenPushed {
@@ -267,12 +284,26 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     // Already selected
     if ([self.selectedContacts containsObject:indexPath]) {
         [self.selectedContacts removeObject:indexPath];
-        [checkmarkImageView setImage:[UIImage imageNamed:@"Checked Inactive"]];
+        
+        // Animate image change with cross dissolve
+        [UIView transitionWithView:checkmarkImageView
+                          duration:0.2f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            checkmarkImageView.image = [UIImage imageNamed:@"Checked Inactive"];
+                        } completion:nil];
         
     // Not selected yet
     } else {
         [self.selectedContacts addObject:indexPath];
-        [checkmarkImageView setImage:[UIImage imageNamed:@"Checked Active"]];
+        
+        // Animate image change with cross dissolve
+        [UIView transitionWithView:checkmarkImageView
+                          duration:0.2f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            checkmarkImageView.image = [UIImage imageNamed:@"Checked Active"];
+                        } completion:nil];
     }
     
     // Show "next button" if some contacts selected, else hide
@@ -281,12 +312,13 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 
 - (void)showNextButton:(BOOL)visible
 {
-    CGFloat damping = 0.78f;
-    CGFloat velocity = 0.6f;
-    
+    CGFloat duration = 0.6f;
+    CGFloat damping  = 0.4f;
+    CGFloat velocity = 0.5f;
+
     if (visible) {
         
-        [UIView animateWithDuration:0.4f delay:0.f usingSpringWithDamping:damping initialSpringVelocity:velocity options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:duration delay:0.f usingSpringWithDamping:damping initialSpringVelocity:velocity options:UIViewAnimationOptionCurveEaseIn animations:^{
             
             // Re-position button
             CGRect buttonFrame = self.nextButton.frame;
@@ -303,7 +335,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     
     } else {
         
-        [UIView animateWithDuration:0.4f delay:0.f usingSpringWithDamping:damping initialSpringVelocity:velocity options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:duration delay:0.f usingSpringWithDamping:damping initialSpringVelocity:velocity options:UIViewAnimationOptionCurveEaseOut animations:^{
             
             // Re-position button
             CGRect buttonFrame = self.nextButton.frame;

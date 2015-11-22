@@ -10,4 +10,6 @@
 
 @interface NewMeetingViewController : UIViewController
 
+@property (strong, nonatomic) NSArray *contactsToMeetWith;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface LandingPageViewController : UIViewController
 
+@property (assign, nonatomic) BOOL hasCreatedMeeting;
+
 @end

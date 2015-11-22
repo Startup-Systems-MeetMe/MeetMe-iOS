@@ -21,6 +21,11 @@
     // Default tab
     [self setSelectedIndex:1];
     
+    // Disable all tabs but 1
+    for (int i = 0; i < self.tabBar.items.count; i++) {
+        if (i != 1) [[self.tabBar.items objectAtIndex:i] setEnabled:NO];
+    }
+    
     // Center '+' button
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *buttonImage = [UIImage imageNamed:@"Create-unselected"];
@@ -41,7 +46,7 @@
 {
     [self setSelectedIndex:1];
     UINavigationController *navController = (UINavigationController*)[[self viewControllers] objectAtIndex:1];
-    [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"selectContactsVC"] animated:YES];
+    [navController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"selectContactsNavigationVC"] animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
