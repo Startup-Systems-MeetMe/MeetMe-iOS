@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NewMeetingViewController.h"
+#import "UIColor+Additions.h"
 
 static const int NEXT_BUTTON_HEIGHT = 75.f;
 
@@ -68,11 +69,11 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     // Next button frame
     CGRect bounds = self.myTableView.frame;
     self.nextButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bounds), CGRectGetWidth(bounds), NEXT_BUTTON_HEIGHT)];
-    [self.nextButton setBackgroundColor:[UIColor colorWithRed:0.13 green:0.75 blue:0.39 alpha:1]];
+    [self.nextButton setBackgroundColor:[UIColor rdvGreenColor]];
     [self.nextButton setImage:[UIImage imageNamed:@"Arrow"] forState:UIControlStateNormal];
     [self.nextButton addTarget:self action:@selector(goToCreateMeeting) forControlEvents:UIControlEventTouchDown];
     UIView *fakeExtensionView = [[UIView alloc] initWithFrame:CGRectMake(0, NEXT_BUTTON_HEIGHT, CGRectGetWidth(bounds), 50)];
-    [fakeExtensionView setBackgroundColor:[UIColor colorWithRed:0.13 green:0.75 blue:0.39 alpha:1]];
+    [fakeExtensionView setBackgroundColor:[UIColor rdvGreenColor]];
     [self.nextButton addSubview:fakeExtensionView];
     [self.view addSubview:self.nextButton];
     [self showNextButton:(self.selectedContacts.count > 0)];
@@ -258,7 +259,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return self.friends.count > 0 ? @"Contacts in Rendez-Vous" : @"";
+        return self.friends.count > 0 ? @"Contacts in RendezVous" : @"";
     } else {
         return self.contactsArray.count > 0 ? @"Contacts on Phone" : @"";
     }

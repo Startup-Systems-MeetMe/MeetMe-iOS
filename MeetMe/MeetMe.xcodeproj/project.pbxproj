@@ -11,6 +11,7 @@
 		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
 		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; };
 		B85B9CA11C027AB9009C0ED7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
+		B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */; };
 		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; };
 		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; };
 		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; };
@@ -67,6 +68,8 @@
 		B813E7D81BC0811F000B45B1 /* AdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionsTests.m; sourceTree = "<group>"; };
 		B85B9C9F1C027AB9009C0ED7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		B85B9CA01C027AB9009C0ED7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
+		B85B9CA21C02A89C009C0ED7 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Additions.h"; path = "Additions/UIColor+Additions.h"; sourceTree = "<group>"; };
+		B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Additions.m"; path = "Additions/UIColor+Additions.m"; sourceTree = "<group>"; };
 		B87F896D1BCDB38800CD76F7 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
 		B87F896E1BCDB38800CD76F7 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
 		B88B34EC1BC06FCF00CE1271 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 			children = (
 				B813E7D41BC080BF000B45B1 /* NSString+Additions.h */,
 				B813E7D51BC080BF000B45B1 /* NSString+Additions.m */,
+				B85B9CA21C02A89C009C0ED7 /* UIColor+Additions.h */,
+				B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */,
 				B806864F1BCEFE900044EDA1 /* UIImage+Additions.h */,
 				B80686501BCEFE900044EDA1 /* UIImage+Additions.m */,
 			);
@@ -494,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B85B9CA11C027AB9009C0ED7 /* User.m in Sources */,
+				B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */,
 				B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */,
 				B88EE7201BE13B9200D22709 /* LandingPageViewController.m in Sources */,
 				B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */,
