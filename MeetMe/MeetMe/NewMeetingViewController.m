@@ -25,6 +25,10 @@
 
 @implementation NewMeetingViewController 
 
+//------------------------------------------------------------------------------------------
+#pragma mark - View lifecycle -
+//------------------------------------------------------------------------------------------
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,31 +36,77 @@
     
     // Buttins
     [self.meetWithButton setTitle:[NSString stringWithFormat:@"With %@", [self.contactsToMeetWith objectAtIndex:0]] forState:UIControlStateNormal];
+    
+    // Add borders & corner radius
     self.thisWeekButton.layer.borderWidth = 1.f;
     self.thisWeekButton.layer.borderColor = [UIColor rdvTertiaryColor].CGColor;
     self.thisWeekButton.layer.cornerRadius = 5.f;
-    
     self.nextWeekButton.layer.borderWidth = 1.f;
     self.nextWeekButton.layer.borderColor = [UIColor rdvTertiaryColor].CGColor;
     self.nextWeekButton.layer.cornerRadius = 5.f;
     
-    // Date Picker
-    NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
-    dayComponent.day = 7;
-    NSDate *oneWeekFromNow = [[NSCalendar currentCalendar] dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
-    [self.datePicker setMinimumDate:[NSDate date]];
-    [self.datePicker setDate:oneWeekFromNow];
+    // Initial button state: this week is selected
+    [self.thisWeekButton setBackgroundColor:[UIColor rdvTertiaryColor]];
+    [self.thisWeekButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.nextWeekButton setBackgroundColor:[UIColor clearColor]];
+    [self.nextWeekButton setTitleColor:[UIColor rdvTertiaryColor] forState:UIControlStateNormal];
+    
+    // Setup date picker
+    [self.datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self setUpDatePickerForThisWeek:YES];
     
     // Tap to dismiss keyboard
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
+
+//------------------------------------------------------------------------------------------
+#pragma mark - Date picker -
+//------------------------------------------------------------------------------------------
+
+- (void)setUpDatePickerForThisWeek:(BOOL)thisWeek
+{
+    // Minimum date, can't scroll before that
+    [self.datePicker setMinimumDate:[NSDate date]];
+    
+    // Find this Sunday
+    if (thisWeek) {
+        NSDate *today = [NSDate date];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        [gregorian setLocale:[NSLocale currentLocale]];
+        NSDateComponents *nowComponents = [gregorian components:NSCalendarUnitYear | NSCalendarUnitWeekday fromDate:today];
+        [nowComponents setWeekday:1];
+        NSDate *thisSunday = [gregorian dateFromComponents:nowComponents];
+        [self.datePicker setDate:thisSunday];
+        
+    // Set to next week
+    } else {
+        NSDateComponents *dayComponent = [[NSDateComponents alloc] init];
+        dayComponent.day = 7;
+        NSDate *oneWeekFromNow = [[NSCalendar currentCalendar] dateByAddingComponents:dayComponent toDate:[NSDate date] options:0];
+        [self.datePicker setDate:oneWeekFromNow];
+    }
+}
+
+- (void)datePickerValueChanged:(id)sender
+{
+    // Deselect both buttons
+    [UIView animateWithDuration:0.1f animations:^{
+        [self.thisWeekButton setBackgroundColor:[UIColor clearColor]];
+        [self.thisWeekButton setTitleColor:[UIColor rdvTertiaryColor] forState:UIControlStateNormal];
+        
+        [self.nextWeekButton setBackgroundColor:[UIColor clearColor]];
+        [self.nextWeekButton setTitleColor:[UIColor rdvTertiaryColor] forState:UIControlStateNormal];
+    }];
+}
+
+//------------------------------------------------------------------------------------------
+#pragma mark - IBActions -
+//------------------------------------------------------------------------------------------
 
 - (IBAction)saveMeeting:(id)sender
 {
@@ -64,10 +114,46 @@
     if (self.titleTextField.text.length == 0) {
         [self.titleTextField becomeFirstResponder];
         
-    // Return to home page
+        // Return to home page
     } else {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (IBAction)tappedThisWeek:(id)sender
+{
+    [UIView animateWithDuration:0.2f animations:^{
+        [self.thisWeekButton setBackgroundColor:[UIColor rdvTertiaryColor]];
+        [self.thisWeekButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [self.nextWeekButton setBackgroundColor:[UIColor clearColor]];
+        [self.nextWeekButton setTitleColor:[UIColor rdvTertiaryColor] forState:UIControlStateNormal];
+    }];
+    
+    [self setUpDatePickerForThisWeek:YES];
+}
+
+- (IBAction)tappedNextWeek:(id)sender
+{
+    [UIView animateWithDuration:0.2f animations:^{
+        [self.nextWeekButton setBackgroundColor:[UIColor rdvTertiaryColor]];
+        [self.nextWeekButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        [self.thisWeekButton setBackgroundColor:[UIColor clearColor]];
+        [self.thisWeekButton setTitleColor:[UIColor rdvTertiaryColor] forState:UIControlStateNormal];
+    }];
+    
+    [self setUpDatePickerForThisWeek:NO];
+}
+
+//------------------------------------------------------------------------------------------
+#pragma mark - TextField -
+//------------------------------------------------------------------------------------------
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
@@ -89,10 +175,6 @@
 - (void)dismissKeyboard {
     [self.titleTextField resignFirstResponder];
     [self.notesTextView resignFirstResponder];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 @end

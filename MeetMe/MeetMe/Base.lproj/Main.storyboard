@@ -739,6 +739,9 @@
                                         <exclude reference="H9D-BI-5lR"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="tappedThisWeek:" destination="DqG-bX-Acm" eventType="touchUpInside" id="KEy-aO-EED"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXr-dQ-I0h">
                                 <rect key="frame" x="330" y="243" width="240" height="34"/>
@@ -750,6 +753,9 @@
                                 <state key="normal" title="Next Week">
                                     <color key="titleColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedNextWeek:" destination="DqG-bX-Acm" eventType="touchUpInside" id="5xx-vf-XFl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buy-Zm-0O8">
                                 <rect key="frame" x="534" y="75" width="46" height="30"/>
