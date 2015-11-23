@@ -12,6 +12,7 @@
 		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; };
 		B85B9CA11C027AB9009C0ED7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
 		B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */; };
+		B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */; };
 		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; };
 		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; };
 		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; };
@@ -70,6 +71,8 @@
 		B85B9CA01C027AB9009C0ED7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		B85B9CA21C02A89C009C0ED7 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Additions.h"; path = "Additions/UIColor+Additions.h"; sourceTree = "<group>"; };
 		B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Additions.m"; path = "Additions/UIColor+Additions.m"; sourceTree = "<group>"; };
+		B85B9CA81C02BAF2009C0ED7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		B87F896D1BCDB38800CD76F7 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
 		B87F896E1BCDB38800CD76F7 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
 		B88B34EC1BC06FCF00CE1271 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
 				B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */,
 				B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */,
+				B85B9CA81C02BAF2009C0ED7 /* SettingsViewController.h */,
+				B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */,
 				B8EA6FEF1BB1A23200C41477 /* Main.storyboard */,
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
@@ -510,6 +515,7 @@
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
 				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
+				B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */,
 				B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */,
 				B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */,
 			);

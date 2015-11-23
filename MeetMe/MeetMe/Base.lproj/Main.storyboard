@@ -336,6 +336,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="s21-kQ-dlM" kind="relationship" relationship="rootViewController" id="7gj-xB-zFE"/>
@@ -365,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="-334" y="-331"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="izu-Ol-mQP">
             <objects>
-                <viewController id="s21-kQ-dlM" sceneMemberID="viewController">
+                <viewController title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="s21-kQ-dlM" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wR5-c9-ieH"/>
                         <viewControllerLayoutGuide type="bottom" id="8t4-5R-KI6"/>
@@ -376,10 +381,30 @@
                     <view key="view" contentMode="scaleToFill" id="EtB-uU-oid">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="48" sectionHeaderHeight="10" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="GP8-5G-D3z">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <animations/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="s21-kQ-dlM" id="lek-Gb-PTt"/>
+                                    <outlet property="delegate" destination="s21-kQ-dlM" id="kHY-nz-zK0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GP8-5G-D3z" firstAttribute="leading" secondItem="EtB-uU-oid" secondAttribute="leadingMargin" constant="-20" id="7d6-lV-JH6"/>
+                            <constraint firstItem="GP8-5G-D3z" firstAttribute="top" secondItem="wR5-c9-ieH" secondAttribute="bottom" id="Mwv-be-dHW"/>
+                            <constraint firstItem="8t4-5R-KI6" firstAttribute="top" secondItem="GP8-5G-D3z" secondAttribute="bottom" id="ORG-PD-fZd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GP8-5G-D3z" secondAttribute="trailing" constant="-20" id="iwc-W2-kMt"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LsF-WO-Ra5"/>
+                    <navigationItem key="navigationItem" title="Settings" id="LsF-WO-Ra5"/>
+                    <connections>
+                        <outlet property="myTableView" destination="GP8-5G-D3z" id="od3-2c-1ai"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2a4-QQ-uhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
