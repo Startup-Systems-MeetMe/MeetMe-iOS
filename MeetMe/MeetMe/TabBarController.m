@@ -8,8 +8,12 @@
 
 #import "TabBarController.h"
 #import "LandingPageViewController.h"
+#import "CustomTransitionDelegate.h"
+#import "NewMeetingNavigationViewController.h"
 
 @interface TabBarController ()
+
+@property (nonatomic) CustomTransitionDelegate* transitionDelegate;
 
 @end
 
@@ -45,12 +49,37 @@
 - (void)tappedCreateButton
 {
     [self setSelectedIndex:1];
-    UINavigationController *navController = (UINavigationController*)[[self viewControllers] objectAtIndex:1];
+    NewMeetingNavigationViewController *navController = (NewMeetingNavigationViewController*)[[self viewControllers] objectAtIndex:1];
+    navController.transitioningDelegate = self.transitioningDelegate;
+    navController.modalPresentationStyle = UIModalPresentationCustom;
+    navController.modalPresentationCapturesStatusBarAppearance = YES;
     [navController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"selectContactsNavigationVC"] animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+//------------------------------------------------------------------------------------------
+#pragma mark - Transitions -
+//------------------------------------------------------------------------------------------
+
+- (CustomTransitionDelegate*)transitionDelegate
+{
+    if (!_transitionDelegate) {
+        _transitionDelegate = [CustomTransitionDelegate new];
+    }
+    return _transitionDelegate;
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    UIViewController* controller = (UIViewController*)segue.destinationViewController;
+    
+    controller.transitioningDelegate = self.transitionDelegate;
+    controller.modalPresentationStyle = UIModalPresentationCustom;
+    controller.modalPresentationCapturesStatusBarAppearance = YES;
+}
+
 
 @end

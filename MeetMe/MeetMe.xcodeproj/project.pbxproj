@@ -10,6 +10,10 @@
 		B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B80686501BCEFE900044EDA1 /* UIImage+Additions.m */; };
 		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
 		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; };
+		B83124CE1C03F7F1007DB6C2 /* CustomTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = B83124CD1C03F7F1007DB6C2 /* CustomTransitionAnimator.m */; };
+		B83124D21C03FA2B007DB6C2 /* CustomTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B83124D11C03FA2B007DB6C2 /* CustomTransitionDelegate.m */; };
+		B83124D51C03FA5F007DB6C2 /* CustomPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83124D41C03FA5F007DB6C2 /* CustomPresentationController.m */; };
+		B83124D81C03FE23007DB6C2 /* NewMeetingNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B83124D71C03FE23007DB6C2 /* NewMeetingNavigationViewController.m */; };
 		B85B9CA11C027AB9009C0ED7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
 		B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */; };
 		B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */; };
@@ -67,6 +71,14 @@
 		B813E7D41BC080BF000B45B1 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Additions/NSString+Additions.h"; sourceTree = "<group>"; };
 		B813E7D51BC080BF000B45B1 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Additions/NSString+Additions.m"; sourceTree = "<group>"; };
 		B813E7D81BC0811F000B45B1 /* AdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionsTests.m; sourceTree = "<group>"; };
+		B83124CC1C03F7F1007DB6C2 /* CustomTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTransitionAnimator.h; sourceTree = "<group>"; };
+		B83124CD1C03F7F1007DB6C2 /* CustomTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTransitionAnimator.m; sourceTree = "<group>"; };
+		B83124D01C03FA2B007DB6C2 /* CustomTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTransitionDelegate.h; sourceTree = "<group>"; };
+		B83124D11C03FA2B007DB6C2 /* CustomTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTransitionDelegate.m; sourceTree = "<group>"; };
+		B83124D31C03FA5F007DB6C2 /* CustomPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPresentationController.h; sourceTree = "<group>"; };
+		B83124D41C03FA5F007DB6C2 /* CustomPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPresentationController.m; sourceTree = "<group>"; };
+		B83124D61C03FE23007DB6C2 /* NewMeetingNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMeetingNavigationViewController.h; sourceTree = "<group>"; };
+		B83124D71C03FE23007DB6C2 /* NewMeetingNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMeetingNavigationViewController.m; sourceTree = "<group>"; };
 		B85B9C9F1C027AB9009C0ED7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		B85B9CA01C027AB9009C0ED7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		B85B9CA21C02A89C009C0ED7 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Additions.h"; path = "Additions/UIColor+Additions.h"; sourceTree = "<group>"; };
@@ -186,6 +198,21 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
+		B83124CF1C03FA11007DB6C2 /* Custom Transition */ = {
+			isa = PBXGroup;
+			children = (
+				B83124CC1C03F7F1007DB6C2 /* CustomTransitionAnimator.h */,
+				B83124CD1C03F7F1007DB6C2 /* CustomTransitionAnimator.m */,
+				B83124D01C03FA2B007DB6C2 /* CustomTransitionDelegate.h */,
+				B83124D11C03FA2B007DB6C2 /* CustomTransitionDelegate.m */,
+				B83124D31C03FA5F007DB6C2 /* CustomPresentationController.h */,
+				B83124D41C03FA5F007DB6C2 /* CustomPresentationController.m */,
+				B83124D61C03FE23007DB6C2 /* NewMeetingNavigationViewController.h */,
+				B83124D71C03FE23007DB6C2 /* NewMeetingNavigationViewController.m */,
+			);
+			name = "Custom Transition";
+			sourceTree = "<group>";
+		};
 		B87F896C1BCDB33600CD76F7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +295,7 @@
 				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
 				B88F79481BF2D0C200555CE3 /* TabBarController.h */,
 				B88F79491BF2D0C200555CE3 /* TabBarController.m */,
+				B83124CF1C03FA11007DB6C2 /* Custom Transition */,
 				B88EE71D1BE13B1000D22709 /* Signup */,
 				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
 				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
@@ -509,13 +537,17 @@
 				B88EE7201BE13B9200D22709 /* LandingPageViewController.m in Sources */,
 				B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */,
 				B88B34F21BC06FCF00CE1271 /* UIImage+animatedGIF.m in Sources */,
+				B83124CE1C03F7F1007DB6C2 /* CustomTransitionAnimator.m in Sources */,
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
 				B88F794A1BF2D0C200555CE3 /* TabBarController.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
+				B83124D81C03FE23007DB6C2 /* NewMeetingNavigationViewController.m in Sources */,
+				B83124D51C03FA5F007DB6C2 /* CustomPresentationController.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
 				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 				B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */,
+				B83124D21C03FA2B007DB6C2 /* CustomTransitionDelegate.m in Sources */,
 				B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */,
 				B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */,
 			);

@@ -433,7 +433,7 @@
         <!--Meetings-->
         <scene sceneID="Gmx-qs-U09">
             <objects>
-                <navigationController id="vr9-cH-M0P" sceneMemberID="viewController">
+                <navigationController id="vr9-cH-M0P" customClass="NewMeetingNavigationViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Meetings" image="Meetings-unselected" selectedImage="Meetings-selected" id="5kv-FR-FcF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rjo-xd-9FJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
