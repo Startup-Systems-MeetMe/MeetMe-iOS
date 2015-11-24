@@ -736,8 +736,8 @@
                                     <constraint firstAttribute="height" constant="3" id="bU9-na-fNp"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ie3-rp-g7D">
-                                <rect key="frame" x="20" y="75" width="494" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ie3-rp-g7D">
+                                <rect key="frame" x="20" y="75" width="519" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="xrw-x8-c5D"/>
@@ -747,6 +747,9 @@
                                 <state key="normal" title="With ">
                                     <color key="titleColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goBackToContacts:" destination="DqG-bX-Acm" eventType="touchUpInside" id="GZi-Lv-XO5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbA-Ag-tmi">
                                 <rect key="frame" x="30" y="243" width="240" height="34"/>
@@ -783,15 +786,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buy-Zm-0O8">
-                                <rect key="frame" x="534" y="75" width="46" height="30"/>
+                                <rect key="frame" x="547" y="75" width="33" height="30"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="a0p-mI-GX9"/>
+                                    <constraint firstAttribute="width" constant="33" id="a0p-mI-GX9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-LightOblique" family="Avenir" pointSize="16"/>
                                 <state key="normal" title="edit">
                                     <color key="titleColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goBackToContacts:" destination="DqG-bX-Acm" eventType="touchUpInside" id="Nob-wH-bHP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or, before this date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fh-dc-xxj">
                                 <rect key="frame" x="20" y="298" width="262" height="21"/>
@@ -851,7 +857,7 @@
                             <constraint firstItem="SSK-Qy-S16" firstAttribute="top" secondItem="buy-Zm-0O8" secondAttribute="bottom" constant="8" id="njp-vo-n2K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Mf-Us-ZMG" secondAttribute="trailing" constant="-20" id="oFH-UM-WiH"/>
                             <constraint firstItem="hbA-Ag-tmi" firstAttribute="top" secondItem="mVd-Fx-c6t" secondAttribute="bottom" constant="8" id="rsH-eh-Sdm"/>
-                            <constraint firstItem="buy-Zm-0O8" firstAttribute="leading" secondItem="Ie3-rp-g7D" secondAttribute="trailing" constant="20" id="sqh-y2-S9u"/>
+                            <constraint firstItem="buy-Zm-0O8" firstAttribute="leading" secondItem="Ie3-rp-g7D" secondAttribute="trailing" constant="8" id="sqh-y2-S9u"/>
                             <constraint firstItem="oXr-dQ-I0h" firstAttribute="leading" secondItem="hbA-Ag-tmi" secondAttribute="trailing" constant="36" id="t1O-3G-Jrl"/>
                             <constraint firstItem="jBx-zK-NcI" firstAttribute="top" secondItem="kfX-Gz-aBk" secondAttribute="bottom" constant="8" id="tIO-7a-1vY"/>
                             <constraint firstItem="kfX-Gz-aBk" firstAttribute="top" secondItem="frX-jj-NTC" secondAttribute="bottom" constant="5" id="tpM-g9-ZNw"/>

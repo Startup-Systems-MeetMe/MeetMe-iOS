@@ -12,6 +12,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NewMeetingViewController.h"
 #import "UIColor+Additions.h"
+#import "User.h"
 
 static const int NEXT_BUTTON_HEIGHT = 75.f;
 
@@ -22,6 +23,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 
 @property (strong, nonatomic) NSMutableArray *contactsArray;
 @property (strong, nonatomic) NSMutableArray *selectedContacts;
+@property (strong, nonatomic) NSMutableArray *selectedIndexPaths;
 @property (strong, nonatomic) NSMutableArray *friends;
 @property (strong, nonatomic) CNContactStore *store;
 
@@ -43,9 +45,10 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     self.navigationItem.leftBarButtonItem = leftItem;
     
     // Init arrays
-    self.contactsArray    = [[NSMutableArray alloc] init];
-    self.friends          = [[NSMutableArray alloc] init];
-    self.selectedContacts = [[NSMutableArray alloc] init];
+    self.contactsArray      = [[NSMutableArray alloc] init];
+    self.friends            = [[NSMutableArray alloc] init];
+    self.selectedContacts   = [[NSMutableArray alloc] init];
+    self.selectedIndexPaths = [[NSMutableArray alloc] init];
     
     self.store = [[CNContactStore alloc] init];
     [self.store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
@@ -76,7 +79,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     [fakeExtensionView setBackgroundColor:[UIColor rdvGreenColor]];
     [self.nextButton addSubview:fakeExtensionView];
     [self.view addSubview:self.nextButton];
-    [self showNextButton:(self.selectedContacts.count > 0)];
+    [self showNextButton:(self.selectedIndexPaths.count > 0)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -89,7 +92,12 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 - (void)goToCreateMeeting
 {
     NewMeetingViewController *vc = (NewMeetingViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"newMeetingVC"];
-    vc.contactsToMeetWith = @[@"Anas"];
+    // Sort selected contacts first
+    self.selectedContacts = [NSMutableArray arrayWithArray:[self.selectedContacts
+                                                            sortedArrayUsingComparator:^NSComparisonResult(User *a, User *b) {
+                                                                return [a.name compare:b.name];
+                                                            }]];
+    vc.contactsToMeetWith = self.selectedContacts;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -228,7 +236,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
             
             nameLabel.text            = [[contact objectForKey:@"name"] capitalizedString];
             checkmarkImageView.hidden = NO;
-            checkmarkImageView.image  = [self.selectedContacts containsObject:indexPath] ? [UIImage imageNamed:@"Checked Active"] : [UIImage imageNamed:@"Checked Inactive"];
+            checkmarkImageView.image  = [self.selectedIndexPaths containsObject:indexPath] ? [UIImage imageNamed:@"Checked Active"] : [UIImage imageNamed:@"Checked Inactive"];
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
@@ -281,10 +289,22 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     // Get checkmark image view
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     UIImageView *checkmarkImageView = (UIImageView*)[cell viewWithTag:102];
-
+    
+    // User (de)selected
+    User *user = [[User alloc] initFromDictionary:[self.friends objectAtIndex:indexPath.row]];
+    
     // Already selected
-    if ([self.selectedContacts containsObject:indexPath]) {
-        [self.selectedContacts removeObject:indexPath];
+    if ([self.selectedIndexPaths containsObject:indexPath]) {
+        [self.selectedIndexPaths removeObject:indexPath];
+        
+        User *comparedUser;
+        for (User *obj in self.selectedContacts) {
+            if (obj.phoneNumber == user.phoneNumber) {
+                comparedUser = obj;
+                break;
+            }
+        }
+        [self.selectedContacts removeObject:comparedUser];
         
         // Animate image change with cross dissolve
         [UIView transitionWithView:checkmarkImageView
@@ -296,7 +316,8 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
         
     // Not selected yet
     } else {
-        [self.selectedContacts addObject:indexPath];
+        [self.selectedIndexPaths addObject:indexPath];
+        [self.selectedContacts addObject:user];
         
         // Animate image change with cross dissolve
         [UIView transitionWithView:checkmarkImageView
@@ -308,7 +329,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     }
     
     // Show "next button" if some contacts selected, else hide
-    [self showNextButton:(self.selectedContacts.count > 0)];
+    [self showNextButton:(self.selectedIndexPaths.count > 0)];
 }
 
 - (void)showNextButton:(BOOL)visible

@@ -9,6 +9,7 @@
 #import "NewMeetingViewController.h"
 #import "LandingPageViewController.h"
 #import "UIColor+Additions.h"
+#import "User.h"
 
 @interface NewMeetingViewController () <UITextFieldDelegate, UITextViewDelegate>
 
@@ -34,8 +35,15 @@
     
     [self.notesTextView setText:@"Notes"];
     
-    // Buttins
-    [self.meetWithButton setTitle:[NSString stringWithFormat:@"With %@", [self.contactsToMeetWith objectAtIndex:0]] forState:UIControlStateNormal];
+    // Buttons
+    NSString *withWho = @"With";
+    for (User *user in self.contactsToMeetWith) {
+        withWho = [withWho stringByAppendingFormat:@" %@,", user.name];
+    }
+    // Remove last comma
+    withWho = [withWho substringToIndex:withWho.length-1];
+    
+    [self.meetWithButton setTitle:withWho forState:UIControlStateNormal];
     
     // Add borders & corner radius
     self.thisWeekButton.layer.borderWidth = 1.f;
@@ -144,6 +152,11 @@
     }];
     
     [self setUpDatePickerForThisWeek:NO];
+}
+
+- (IBAction)goBackToContacts:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //------------------------------------------------------------------------------------------

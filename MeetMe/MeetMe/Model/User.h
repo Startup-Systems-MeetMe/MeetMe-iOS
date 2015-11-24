@@ -8,13 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface User : NSObject
 
 @property (assign, nonatomic) NSString *name;
 @property (assign, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) UIImage *profileImage;
+@property (strong, nonatomic) PFFile *profilePictureFile;
 
 - (id) initWithName:(NSString*)name andNumber:(NSString*)number andProfileImage:(UIImage*)image;
+
+- (id) initFromDictionary:(NSDictionary*)dictionary;
 
 @end
