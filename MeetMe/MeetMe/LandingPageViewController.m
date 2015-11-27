@@ -21,46 +21,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.store = [[EKEventStore alloc] init];
-//    [self.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
-//        
-//        if (!granted) return;
-//        
-//        [self fetchEvents];
-//    }];
+    self.store = [[EKEventStore alloc] init];
+    [self.store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
+        
+        if (!granted) return;
+        
+        [self fetchEvents];
+    }];
 }
 
-//- (void)fetchEvents
-//{
-//    // Get the appropriate calendar
-//    NSCalendar *calendar = [NSCalendar currentCalendar];
-//    
-//    // Create the start date components
-//    NSDateComponents *oneDayAgoComponents = [[NSDateComponents alloc] init];
-//    oneDayAgoComponents.day = -1;
-//    NSDate *oneDayAgo = [calendar dateByAddingComponents:oneDayAgoComponents
-//                                                  toDate:[NSDate date]
-//                                                 options:0];
-//    
-//    // Create the end date components
-//    NSDateComponents *oneYearFromNowComponents = [[NSDateComponents alloc] init];
-//    oneYearFromNowComponents.year = 1;
-//    NSDate *oneYearFromNow = [calendar dateByAddingComponents:oneYearFromNowComponents
-//                                                       toDate:[NSDate date]
-//                                                      options:0];
-//    
-//    // Create the predicate from the event store's instance method
-//    NSPredicate *predicate = [self.store predicateForEventsWithStartDate:oneDayAgo
-//                                                            endDate:oneYearFromNow
-//                                                          calendars:nil];
-//    
-//    // Fetch all events that match the predicate
-//    NSArray *events = [self.store eventsMatchingPredicate:predicate];
-//    NSMutableArray *titles = [[NSMutableArray alloc] init];
-//    for (EKEvent *event in events) {
-//        [titles addObject:event.title];
-//    }
-//}
+- (void)fetchEvents
+{
+    // Get the appropriate calendar
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    // 1 month from now
+    NSDateComponents *oneMonthFromNowComponents = [[NSDateComponents alloc] init];
+    oneMonthFromNowComponents.month = 1;
+    NSDate *oneMonthFromNow = [calendar dateByAddingComponents:oneMonthFromNowComponents
+                                                       toDate:[NSDate date]
+                                                      options:0];
+    
+    // Create the predicate from the event store's instance method
+    NSPredicate *predicate = [self.store predicateForEventsWithStartDate:[NSDate date]
+                                                            endDate:oneMonthFromNow
+                                                          calendars:nil];
+    
+    // Fetch all events that match the predicate
+    NSArray *storeEvents = [self.store eventsMatchingPredicate:predicate];
+    NSMutableArray *events = [[NSMutableArray alloc] init];
+    for (EKEvent *event in storeEvents) {
+        // Skip all-day events
+        if (![event isAllDay]) {
+            [events addObject:@{@"title":event.title,
+                                @"start":@(floor([event.startDate timeIntervalSince1970] * 1000)),
+                                @"end":@(floor([event.endDate timeIntervalSince1970] * 1000))}];
+        }
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
