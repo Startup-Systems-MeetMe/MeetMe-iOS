@@ -33,6 +33,7 @@
 		B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F21BB32C2E00C20A77 /* libz.tbd */; };
 		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; };
 		B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */; };
+		B8DE3DE41C0A63B900A4154B /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DE3DE31C0A63B900A4154B /* Friends.m */; };
 		B8EA6FE81BB1A23200C41477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FE71BB1A23200C41477 /* main.m */; };
 		B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */; };
 		B8EA6FF11BB1A23200C41477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA6FEF1BB1A23200C41477 /* Main.storyboard */; };
@@ -73,8 +74,8 @@
 		B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Additions.m"; path = "Additions/UIColor+Additions.m"; sourceTree = "<group>"; };
 		B85B9CA81C02BAF2009C0ED7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		B87F896D1BCDB38800CD76F7 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentUser.h; sourceTree = "<group>"; };
-		B87F896E1BCDB38800CD76F7 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentUser.m; sourceTree = "<group>"; };
+		B87F896D1BCDB38800CD76F7 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUser.h; path = Model/CurrentUser.h; sourceTree = "<group>"; };
+		B87F896E1BCDB38800CD76F7 /* CurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentUser.m; path = Model/CurrentUser.m; sourceTree = "<group>"; };
 		B88B34EC1BC06FCF00CE1271 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		B88B34ED1BC06FCF00CE1271 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Frameworks/Parse.framework; sourceTree = "<group>"; };
 		B88B34EE1BC06FCF00CE1271 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+animatedGIF.h"; path = "../Frameworks/UIImage+animatedGIF.h"; sourceTree = "<group>"; };
@@ -101,6 +102,8 @@
 		B8CA55641BB2698E00591B9F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMeetingViewController.h; sourceTree = "<group>"; };
 		B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMeetingViewController.m; sourceTree = "<group>"; };
+		B8DE3DE21C0A63B900A4154B /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Friends.h; path = Model/Friends.h; sourceTree = "<group>"; };
+		B8DE3DE31C0A63B900A4154B /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Friends.m; path = Model/Friends.m; sourceTree = "<group>"; };
 		B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rendez-Vous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA6FE71BB1A23200C41477 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8EA6FE91BB1A23200C41477 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				B87F896E1BCDB38800CD76F7 /* CurrentUser.m */,
 				B85B9C9F1C027AB9009C0ED7 /* User.h */,
 				B85B9CA01C027AB9009C0ED7 /* User.m */,
+				B8DE3DE21C0A63B900A4154B /* Friends.h */,
+				B8DE3DE31C0A63B900A4154B /* Friends.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -390,6 +395,9 @@
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					B8EA6FFB1BB1A23200C41477 = {
@@ -518,6 +526,7 @@
 				B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */,
 				B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */,
 				B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */,
+				B8DE3DE41C0A63B900A4154B /* Friends.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +599,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: MM.RendezVous.RendezVous";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -612,6 +622,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "19e03242-aeb3-414a-904f-d1bc850697fd";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -633,6 +644,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: MM.RendezVous.RendezVous";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -648,6 +660,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "19e03242-aeb3-414a-904f-d1bc850697fd";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -658,7 +671,7 @@
 			baseConfigurationReference = F48D1A59ACA6C8D4A4D4B04B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: MM.RendezVous.RendezVous";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/**",
@@ -668,7 +681,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.RendezVous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "19e03242-aeb3-414a-904f-d1bc850697fd";
 			};
 			name = Debug;
 		};
@@ -677,7 +690,7 @@
 			baseConfigurationReference = F06C1169CB4CB89309E7E4B8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: MM.RendezVous.RendezVous";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/**",
@@ -687,7 +700,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.RendezVous;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "19e03242-aeb3-414a-904f-d1bc850697fd";
 			};
 			name = Release;
 		};
