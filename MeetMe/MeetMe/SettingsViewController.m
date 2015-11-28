@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "UIColor+Additions.h"
+#import <SSKeychain/SSKeychain.h>
 
 @interface SettingsViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -27,6 +28,13 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)logout
+{
+    [SSKeychain deletePasswordForService:@"RDVSERVICE" account:@"RDVACCOUNT"];
+    UINavigationController *mainNavigator = (UINavigationController*)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    [mainNavigator popToRootViewControllerAnimated:NO];
 }
 
 //------------------------------------------------------------------------------------------
@@ -77,6 +85,7 @@
     
     if (indexPath.section == 0) {
         // Handle Logout
+        [self logout];
         
     } else {
         
