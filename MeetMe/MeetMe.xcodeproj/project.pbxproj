@@ -10,6 +10,7 @@
 		B80686511BCEFE900044EDA1 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B80686501BCEFE900044EDA1 /* UIImage+Additions.m */; };
 		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
 		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; };
+		B8179FB01C0B5642009A2AF0 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */; };
 		B85B9CA11C027AB9009C0ED7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
 		B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */; };
 		B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */; };
@@ -70,6 +71,8 @@
 		B813E7D41BC080BF000B45B1 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "Additions/NSString+Additions.h"; sourceTree = "<group>"; };
 		B813E7D51BC080BF000B45B1 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "Additions/NSString+Additions.m"; sourceTree = "<group>"; };
 		B813E7D81BC0811F000B45B1 /* AdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionsTests.m; sourceTree = "<group>"; };
+		B8179FAE1C0B5642009A2AF0 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		B85B9C9F1C027AB9009C0ED7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		B85B9CA01C027AB9009C0ED7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		B85B9CA21C02A89C009C0ED7 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Additions.h"; path = "Additions/UIColor+Additions.h"; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 				B88EE71D1BE13B1000D22709 /* Signup */,
 				B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */,
 				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
+				B8179FAE1C0B5642009A2AF0 /* FavoritesViewController.h */,
+				B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */,
 				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
 				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
 				B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */,
@@ -531,6 +536,7 @@
 				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 				B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */,
+				B8179FB01C0B5642009A2AF0 /* FavoritesViewController.m in Sources */,
 				B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */,
 				B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */,
 				B8DE3DE41C0A63B900A4154B /* Contacts.m in Sources */,
