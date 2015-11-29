@@ -13,6 +13,7 @@
 #import "NewMeetingViewController.h"
 #import "UIColor+Additions.h"
 #import "User.h"
+#import "NSString+Additions.h"
 
 static const int NEXT_BUTTON_HEIGHT = 75.f;
 
@@ -166,15 +167,11 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     for (CNContact *contact in self.contactsArray) {
         if (contact.phoneNumbers.count > 0) {
             for (CNLabeledValue *labeledValue in contact.phoneNumbers) {
+
+                // Add the phone number as a string, without formatting
                 CNPhoneNumber *number = [labeledValue value];
-                
-                // Strip off unneeded characters
-                NSString *parsedNum = [[[number stringValue] componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
-                
+                NSString *parsedNum   = [[number stringValue] stringWithoutPhoneFormatting];
                 if ([parsedNum length] > 0) {
-                    // and the starting '1' of US phone numbers
-                    if ([parsedNum characterAtIndex:0] == '1') parsedNum = [parsedNum substringFromIndex:1];
-                    // ...then added to object of phone numbers to send to Parse
                     [numbers addObject:parsedNum];
                 }
             }

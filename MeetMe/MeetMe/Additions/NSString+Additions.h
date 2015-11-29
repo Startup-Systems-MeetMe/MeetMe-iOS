@@ -12,4 +12,6 @@
 
 - (BOOL) isUSPhoneNumber;
 
+- (NSString*) stringWithoutPhoneFormatting;
+
 @end

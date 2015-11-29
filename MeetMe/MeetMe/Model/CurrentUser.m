@@ -7,6 +7,7 @@
 //
 
 #import "CurrentUser.h"
+#import "NSString+Additions.h"
 
 NSString * const RDVSERVICE = @"RDVSERVICE";
 NSString * const RDVACCOUNT = @"RDVACCOUNT";
@@ -61,7 +62,8 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
 
 - (void)setPhoneNumber:(NSString*)phone
 {
-    phoneNumber = phone;
+    // Remove formatting before setting phone number string
+    phoneNumber = [phone stringWithoutPhoneFormatting];
 }
 
 - (void)setProfilePicture:(UIImage*)image

@@ -17,4 +17,18 @@
     return [test evaluateWithObject:self];
 }
 
+- (NSString*) stringWithoutPhoneFormatting
+{
+    // Strip off unneeded characters
+    NSString *parsedNum = [[self componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:@""];
+    
+    // Remove 1 at the beginning
+    if ([parsedNum length] > 0) {
+        if ([parsedNum characterAtIndex:0] == '1') {
+            parsedNum = [parsedNum substringFromIndex:1];
+        }
+    }
+    return parsedNum;
+}
+
 @end

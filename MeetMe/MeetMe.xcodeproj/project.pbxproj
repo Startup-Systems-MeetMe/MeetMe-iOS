@@ -269,11 +269,11 @@
 			children = (
 				B8EA6FE91BB1A23200C41477 /* AppDelegate.h */,
 				B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */,
-				B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */,
-				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
 				B88F79481BF2D0C200555CE3 /* TabBarController.h */,
 				B88F79491BF2D0C200555CE3 /* TabBarController.m */,
 				B88EE71D1BE13B1000D22709 /* Signup */,
+				B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */,
+				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
 				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
 				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
 				B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */,

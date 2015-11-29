@@ -53,12 +53,13 @@ const int CODE_TAG = 88;
     self.phoneTextField.attributedPlaceholder = str2;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     // Is user already signed up?
-    if ([SSKeychain passwordForService:RDVSERVICE account:RDVACCOUNT]) {
+    if ([SSKeychain passwordForService:RDVSERVICE account:RDVACCOUNT] &&
+        [[[NSUserDefaults standardUserDefaults] objectForKey:RDVACCOUNT] isEqualToString:RDVSERVICE]) {
         // Move post sign-up and profile
-        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarRoot"] animated:YES];
+        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarRoot"] animated:NO];
     } else {
         // Show keyboard
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -188,6 +189,7 @@ const int CODE_TAG = 88;
             
             [textField resignFirstResponder];
             
+            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
             [SVProgressHUD show];
             
             // Login through Parse
