@@ -33,6 +33,7 @@
 		B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F21BB32C2E00C20A77 /* libz.tbd */; };
 		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; };
 		B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */; };
+		B8DA7E5A1C0AA1AB006E1D8B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
 		B8DE3DE41C0A63B900A4154B /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DE3DE31C0A63B900A4154B /* Friends.m */; };
 		B8EA6FE81BB1A23200C41477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FE71BB1A23200C41477 /* main.m */; };
 		B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */; };
@@ -536,6 +537,7 @@
 			files = (
 				B8EA70011BB1A23200C41477 /* MeetMeTests.m in Sources */,
 				B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */,
+				B8DA7E5A1C0AA1AB006E1D8B /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,11 +710,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MeetMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeetMe.app/MeetMe";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -720,21 +723,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MeetMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeetMe.app/MeetMe";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 		B8EA70171BB1A23200C41477 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = MeetMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = MeetMe;
 				USES_XCTRUNNER = YES;
 			};
@@ -743,10 +749,12 @@
 		B8EA70181BB1A23200C41477 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = MeetMeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_TARGET_NAME = MeetMe;
 				USES_XCTRUNNER = YES;
 			};
