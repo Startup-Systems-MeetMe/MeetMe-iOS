@@ -8,6 +8,9 @@
 
 #import "CurrentUser.h"
 
+// Key to save current user in user defaults
+NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
+
 @implementation CurrentUser
 
 @synthesize phoneNumber;
@@ -33,6 +36,10 @@
     }
     return self;
 }
+
+//------------------------------------------------------------------------------------------
+#pragma mark - Properties -
+//------------------------------------------------------------------------------------------
 
 - (NSString *)phoneNumber
 {
@@ -62,6 +69,46 @@
 - (void)setName:(NSString*)username
 {
     name = username;
+}
+
+//------------------------------------------------------------------------------------------
+#pragma mark - Encoding & Saving -
+//------------------------------------------------------------------------------------------
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.phoneNumber forKey:@"phoneNumber"];
+    [encoder encodeObject:self.profileImage forKey:@"profileImage"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    if (self = [super init]) {
+        self.name         = [decoder decodeObjectForKey:@"name"];
+        self.phoneNumber  = [decoder decodeObjectForKey:@"phoneNumber"];
+        self.profileImage = [decoder decodeObjectForKey:@"profileImage"];
+    }
+    return self;
+}
+
+- (void)saveToDisk
+{
+    NSData *encodedObject    = [NSKeyedArchiver archivedDataWithRootObject:self];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:CURRENT_USER_KEY];
+    [defaults synchronize];
+}
+
+- (void)loadCustomObject
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject    = [defaults objectForKey:CURRENT_USER_KEY];
+    CurrentUser *user        = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+
+    [self setName:user.name];
+    [self setPhoneNumber:user.phoneNumber];
+    [self setProfileImage:user.profileImage];
 }
 
 @end

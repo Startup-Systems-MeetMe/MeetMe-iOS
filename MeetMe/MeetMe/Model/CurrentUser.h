@@ -11,13 +11,15 @@
 
 @interface CurrentUser : NSObject
 
-@property (assign, nonatomic) NSString *name;
-@property (assign, nonatomic) NSString *phoneNumber;
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *phoneNumber;
 @property (strong, nonatomic) UIImage *profileImage;
 
 + (instancetype)sharedInstance;
 - (void)setProfilePicture:(UIImage*)image;
 - (void)setPhoneNumber:(NSString*)phone;
 - (void)setName:(NSString*)username;
+- (void)saveToDisk;
+- (void)loadCustomObject;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "LandingPageViewController.h"
 #import <EventKit/EventKit.h>
+#import "CurrentUser.h"
 
 @interface LandingPageViewController ()
 
@@ -28,6 +29,11 @@
         
         [self fetchEvents];
     }];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self registerForPushNotifications];
 }
 
 - (void)fetchEvents
@@ -58,6 +64,19 @@
                                 @"end":@(floor([event.endDate timeIntervalSince1970] * 1000))}];
         }
     }
+}
+
+- (void)registerForPushNotifications
+{
+    // Setup Push Notifications
+    UIApplication *application = [UIApplication sharedApplication];
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    [application registerUserNotificationSettings:settings];
+    [application registerForRemoteNotifications];
 }
 
 - (void)didReceiveMemoryWarning {

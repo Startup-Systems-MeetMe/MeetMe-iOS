@@ -112,6 +112,7 @@ const int BUTTON_CORNER_RADIUS = 4.f;
             CurrentUser *user = [CurrentUser sharedInstance];
             [user setName:self.nameTextField.text];
             if (self.selectedImage) [user setProfilePicture:self.selectedImage];
+            [user saveToDisk];
             
             // Move to TabBar
             [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarRoot"] animated:YES];

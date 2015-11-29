@@ -77,6 +77,7 @@ NSString *RDVACCOUNT = @"RDVACCOUNT";
     // Save that user signed-up
     [SSKeychain setPassword:self.userPhoneNumber forService:RDVSERVICE account:RDVACCOUNT];
     [[CurrentUser sharedInstance] setPhoneNumber:self.userPhoneNumber];
+    [[CurrentUser sharedInstance] saveToDisk];
     
     // Cover screen
     UIView *background = [[UIView alloc] initWithFrame:self.view.bounds];
