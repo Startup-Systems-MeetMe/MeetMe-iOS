@@ -109,11 +109,13 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSData *encodedObject    = [defaults objectForKey:CURRENT_USER_KEY];
-    CurrentUser *user        = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
-
-    [self setName:user.name];
-    [self setPhoneNumber:user.phoneNumber];
-    [self setProfileImage:user.profileImage];
+    
+    if (encodedObject) {
+        CurrentUser *user        = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+        [self setName:user.name];
+        [self setPhoneNumber:user.phoneNumber];
+        [self setProfileImage:user.profileImage];
+    }
 }
 
 @end

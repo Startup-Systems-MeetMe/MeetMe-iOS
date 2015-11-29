@@ -21,11 +21,6 @@
     // Default tab
     [self setSelectedIndex:1];
     
-    // Disable all tabs but 1 and 4
-    for (int i = 0; i < self.tabBar.items.count; i++) {
-        if (i != 1 && i != 4) [[self.tabBar.items objectAtIndex:i] setEnabled:NO];
-    }
-    
     // Center '+' button
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *buttonImage = [UIImage imageNamed:@"Create-unselected"];

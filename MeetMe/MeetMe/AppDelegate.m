@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // Load current user
+    [[CurrentUser sharedInstance] loadCustomObject];
+    
     // UITabBar
     UIColor *blueColor = [UIColor colorWithRed:0.19 green:0.44 blue:0.86 alpha:1.0];
     [[UITabBar appearance] setTintColor:blueColor];
