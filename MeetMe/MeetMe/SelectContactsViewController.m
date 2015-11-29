@@ -7,13 +7,13 @@
 //
 
 #import "SelectContactsViewController.h"
-#import <Contacts/Contacts.h>
 #import <Parse/Parse.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "NewMeetingViewController.h"
 #import "UIColor+Additions.h"
 #import "User.h"
-#import "NSString+Additions.h"
+#import <Contacts/Contacts.h>
+#import "Contacts.h"
 
 static const int NEXT_BUTTON_HEIGHT = 75.f;
 
@@ -26,7 +26,6 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 @property (strong, nonatomic) NSMutableArray *selectedContacts;
 @property (strong, nonatomic) NSMutableArray *selectedIndexPaths;
 @property (strong, nonatomic) NSMutableArray *friends;
-@property (strong, nonatomic) CNContactStore *store;
 
 @end
 
@@ -51,16 +50,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
     self.selectedContacts   = [[NSMutableArray alloc] init];
     self.selectedIndexPaths = [[NSMutableArray alloc] init];
     
-    self.store = [[CNContactStore alloc] init];
-    [self.store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        
-        // Return early if not granted access
-        //TODO: Alert user
-        if (!granted) return;
-        
-        // Fetch contacts
-        [self fetchContacts];
-    }];
+    [self fetchContacts];
 }
 
 - (void)tappedCancel
@@ -114,87 +104,35 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 #pragma mark - Getting Contacts -
 //------------------------------------------------------------------------------------------
 
-/**
- *  Fetches contacts from CNContactStore
- *  and adds them in _contactsArray to be displayed
- *  in the tableview.
- */
 - (void)fetchContacts
 {
-    // Fetch all contacts
-    NSPredicate *predicate = [CNContact predicateForContactsInContainerWithIdentifier:self.store.defaultContainerIdentifier];
-    NSArray *keys = [NSArray arrayWithObjects:
-                             CNContactGivenNameKey,
-                             CNContactFamilyNameKey,
-                             CNContactPhoneNumbersKey,
-                             CNContactThumbnailImageDataKey, nil];
-    
     // Go back to main queue
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
         [SVProgressHUD showWithStatus:@"Loading Contacts"];
         
-        // Store all contacts
-        _contactsArray = [NSMutableArray arrayWithArray:[self.store unifiedContactsMatchingPredicate:predicate keysToFetch:keys error:nil]];
-        
-        // Remove contacts with no name
-        NSMutableArray *toDelete = [NSMutableArray array];
-        for (id object in _contactsArray) {
-            if ([[object givenName] length] == 0) {
-                [toDelete addObject:object];
-            }
-        }
-        [_contactsArray removeObjectsInArray:toDelete];
-        
-        // ... and sort them
-        _contactsArray = [NSMutableArray arrayWithArray:[_contactsArray sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-            return [[a givenName] compare:[b givenName]];
-        }]];
-        
-        [_myTableView reloadData];
-        
-        // Send Parse the phone numbers
-        [self pushContactsToParse];
+        // Get contacts access
+        [[Contacts sharedInstance] askForContactsAccess:^(BOOL granted) {
+            
+            if (!granted) return;
+            
+            // Then fetch all contacts
+            [[Contacts sharedInstance] fetchContactsFromPhone:^(NSArray *phoneContacts) {
+                
+                _contactsArray = [NSMutableArray arrayWithArray:phoneContacts];
+                [_myTableView reloadData];
+                
+                // Send Parse the phone numbers
+                [[Contacts sharedInstance] fetchContactsFromParse:^(NSArray *parseContacts) {
+                    _friends = [NSMutableArray arrayWithArray:parseContacts];
+                    
+                    [SVProgressHUD dismiss];
+                    [_myTableView reloadData];
+                }];
+            }];
+        }];
     });
-}
-
-- (void) pushContactsToParse
-{
-    // Flatten phone numbers first
-    // by removing +, (, ), and '1' for US phones
-    NSMutableArray *numbers = [[NSMutableArray alloc] init];
-    for (CNContact *contact in self.contactsArray) {
-        if (contact.phoneNumbers.count > 0) {
-            for (CNLabeledValue *labeledValue in contact.phoneNumbers) {
-
-                // Add the phone number as a string, without formatting
-                CNPhoneNumber *number = [labeledValue value];
-                NSString *parsedNum   = [[number stringValue] stringWithoutPhoneFormatting];
-                if ([parsedNum length] > 0) {
-                    [numbers addObject:parsedNum];
-                }
-            }
-        }
-    }
-    
-    [PFCloud callFunctionInBackground:@"getCommonContacts" withParameters:@{@"phoneNumbers":numbers} block:^(id  _Nullable object, NSError * _Nullable error) {
-        
-        [SVProgressHUD dismiss];
-        
-        // TODO: Handle Error
-        if (error) return;
-        
-        // Add contacts in _friends array and reload table
-        if ([(NSArray*)object count] > 0) {
-            _friends = [NSMutableArray arrayWithArray:object];
-            // ... and sort them
-            _friends = [NSMutableArray arrayWithArray:[_friends sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-                return [[a objectForKey:@"name"] compare:[b objectForKey:@"name"]];
-            }]];
-            [_myTableView reloadData];
-        }
-    }];
 }
 
 //------------------------------------------------------------------------------------------
