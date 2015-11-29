@@ -12,12 +12,10 @@
 #import <Parse/Parse.h>
 #import <SSKeychain/SSKeychain.h>
 #import "CurrentUser.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 const int PHONE_TAG = 99;
 const int CODE_TAG = 88;
-
-NSString *RDVSERVICE = @"RDVSERVICE";
-NSString *RDVACCOUNT = @"RDVACCOUNT";
 
 @interface SignupViewController () <UITextFieldDelegate>
 
@@ -75,7 +73,6 @@ NSString *RDVACCOUNT = @"RDVACCOUNT";
     [self.activationTextField resignFirstResponder];
     
     // Save that user signed-up
-    [SSKeychain setPassword:self.userPhoneNumber forService:RDVSERVICE account:RDVACCOUNT];
     [[CurrentUser sharedInstance] setPhoneNumber:self.userPhoneNumber];
     [[CurrentUser sharedInstance] saveToDisk];
     
@@ -189,12 +186,14 @@ NSString *RDVACCOUNT = @"RDVACCOUNT";
         // If = 4, check code
         if (totalString.length == 4) {
             
-            [self.activityIndicator startAnimating];
+            [textField resignFirstResponder];
+            
+            [SVProgressHUD show];
             
             // Login through Parse
             [PFCloud callFunctionInBackground:@"logIn" withParameters:@{@"phoneNumber":self.userPhoneNumber, @"codeEntry": totalString} block:^(id object, NSError *error) {
                 
-                [self.activityIndicator stopAnimating];
+                [SVProgressHUD dismiss];
                 
                 // Success
                 if (!error) {

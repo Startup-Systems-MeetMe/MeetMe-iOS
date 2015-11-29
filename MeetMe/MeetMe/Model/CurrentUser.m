@@ -8,6 +8,9 @@
 
 #import "CurrentUser.h"
 
+NSString * const RDVSERVICE = @"RDVSERVICE";
+NSString * const RDVACCOUNT = @"RDVACCOUNT";
+
 // Key to save current user in user defaults
 NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
 

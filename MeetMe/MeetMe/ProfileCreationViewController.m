@@ -14,6 +14,7 @@
 #import <Parse/Parse.h>
 #import "UIImage+Additions.h"
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <SSKeychain/SSKeychain.h>
 
 const int BUTTON_CORNER_RADIUS = 4.f;
 
@@ -113,6 +114,9 @@ const int BUTTON_CORNER_RADIUS = 4.f;
             [user setName:self.nameTextField.text];
             if (self.selectedImage) [user setProfilePicture:self.selectedImage];
             [user saveToDisk];
+            
+            // Set password in keychain
+            [SSKeychain setPassword:user.phoneNumber forService:RDVSERVICE account:RDVACCOUNT];
             
             // Move to TabBar
             [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"tabBarRoot"] animated:YES];

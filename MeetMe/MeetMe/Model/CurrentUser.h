@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+extern NSString* const RDVSERVICE;
+extern NSString* const RDVACCOUNT;
+
 @interface CurrentUser : NSObject
 
 @property (strong, nonatomic) NSString *name;
