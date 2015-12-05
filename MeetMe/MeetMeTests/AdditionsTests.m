@@ -29,6 +29,9 @@
 {
     XCTAssertFalse([@"phone-number" isUSPhoneNumber]);
     XCTAssert([@"(212) 123-2345" isUSPhoneNumber]);
+
+    
+//    XCTAssertEqual(bH, 8)
 }
 
 - (void)testRemovingPhoneFormat

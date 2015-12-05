@@ -37,6 +37,7 @@
 		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; };
 		B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */; };
 		B8DA7E5A1C0AA1AB006E1D8B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
+		B8DD3E391C13765F00148BA4 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; };
 		B8DE3DE41C0A63B900A4154B /* Contacts.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DE3DE31C0A63B900A4154B /* Contacts.m */; };
 		B8EA6FE81BB1A23200C41477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FE71BB1A23200C41477 /* main.m */; };
 		B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */; };
@@ -555,6 +556,7 @@
 			files = (
 				B8EA70011BB1A23200C41477 /* MeetMeTests.m in Sources */,
 				B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */,
+				B8DD3E391C13765F00148BA4 /* CurrentUser.m in Sources */,
 				B8DA7E5A1C0AA1AB006E1D8B /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
