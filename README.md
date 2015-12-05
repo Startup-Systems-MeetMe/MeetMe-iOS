@@ -1,4 +1,5 @@
-# RendezVous (formerly MeetMe) [![TravisCI](https://travis-ci.org/Startup-Systems-MeetMe/MeetMe-iOS.svg?branch=master)](https://travis-ci.org/Startup-Systems-MeetMe/MeetMe-iOS)
+# RendezVous (formerly MeetMe) 
+[![TravisCI](https://travis-ci.org/Startup-Systems-MeetMe/MeetMe-iOS.svg?branch=master)](https://travis-ci.org/Startup-Systems-MeetMe/MeetMe-iOS)
 
 ----
 
