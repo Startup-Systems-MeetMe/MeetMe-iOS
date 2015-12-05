@@ -22,6 +22,7 @@
 		B88EE7201BE13B9200D22709 /* LandingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */; };
 		B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */; };
 		B88F794A1BF2D0C200555CE3 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B88F79491BF2D0C200555CE3 /* TabBarController.m */; };
+		B8A447921C0E7A0D004967D4 /* Meeting.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A447911C0E7A0D004967D4 /* Meeting.m */; };
 		B8A980D31BB3197E00C20A77 /* clock.gif in Resources */ = {isa = PBXBuildFile; fileRef = B8A980D21BB3197E00C20A77 /* clock.gif */; };
 		B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */; };
 		B8A980E11BB32BE700C20A77 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */; };
@@ -93,6 +94,8 @@
 		B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectContactsViewController.m; sourceTree = "<group>"; };
 		B88F79481BF2D0C200555CE3 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		B88F79491BF2D0C200555CE3 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		B8A447901C0E7A0D004967D4 /* Meeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Meeting.h; path = Model/Meeting.h; sourceTree = "<group>"; };
+		B8A447911C0E7A0D004967D4 /* Meeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Meeting.m; path = Model/Meeting.m; sourceTree = "<group>"; };
 		B8A980D21BB3197E00C20A77 /* clock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = clock.gif; sourceTree = "<group>"; };
 		B8A980D91BB31EC900C20A77 /* ProfileCreationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCreationViewController.h; sourceTree = "<group>"; };
 		B8A980DA1BB31EC900C20A77 /* ProfileCreationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCreationViewController.m; sourceTree = "<group>"; };
@@ -199,12 +202,14 @@
 		B87F896C1BCDB33600CD76F7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B87F896D1BCDB38800CD76F7 /* CurrentUser.h */,
-				B87F896E1BCDB38800CD76F7 /* CurrentUser.m */,
-				B85B9C9F1C027AB9009C0ED7 /* User.h */,
-				B85B9CA01C027AB9009C0ED7 /* User.m */,
 				B8DE3DE21C0A63B900A4154B /* Contacts.h */,
 				B8DE3DE31C0A63B900A4154B /* Contacts.m */,
+				B87F896D1BCDB38800CD76F7 /* CurrentUser.h */,
+				B87F896E1BCDB38800CD76F7 /* CurrentUser.m */,
+				B8A447901C0E7A0D004967D4 /* Meeting.h */,
+				B8A447911C0E7A0D004967D4 /* Meeting.m */,
+				B85B9C9F1C027AB9009C0ED7 /* User.h */,
+				B85B9CA01C027AB9009C0ED7 /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				B8EA6FEB1BB1A23200C41477 /* AppDelegate.m in Sources */,
 				B88F794A1BF2D0C200555CE3 /* TabBarController.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
+				B8A447921C0E7A0D004967D4 /* Meeting.m in Sources */,
 				B876BA321C0B412A00509685 /* ProfileViewController.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
 				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,
