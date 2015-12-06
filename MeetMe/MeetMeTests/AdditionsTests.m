@@ -29,9 +29,6 @@
 {
     XCTAssertFalse([@"phone-number" isUSPhoneNumber]);
     XCTAssert([@"(212) 123-2345" isUSPhoneNumber]);
-
-    
-//    XCTAssertEqual(bH, 8)
 }
 
 - (void)testRemovingPhoneFormat
@@ -39,18 +36,6 @@
     XCTAssert([[@"(212) 123-2345" stringWithoutPhoneFormatting] isEqualToString:@"2121232345"]);
     XCTAssertFalse([[@"(212) 123-2345" stringWithoutPhoneFormatting] isEqualToString:@"212 123-2345"]);
     XCTAssert([[@"+12121232345" stringWithoutPhoneFormatting] isEqualToString:@"2121232345"]);
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 @end
