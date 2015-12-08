@@ -34,11 +34,11 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
 }
 
 -(id)init{
-    if(self = [super init]){
+    if (self = [super init]) {
         phoneNumber = @"";
         name = @"";
         email = @"";
-        profileImage = [[UIImage alloc] init];
+        profileImage = [UIImage imageNamed:@"default_profile_pic"]; // default profile image
     }
     return self;
 }
