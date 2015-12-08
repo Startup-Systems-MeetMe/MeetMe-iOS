@@ -53,10 +53,7 @@
 
 - (void) getPendingMeetings
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
-        [SVProgressHUD show];
-    });
+    [self.refreshControl beginRefreshing];
 
     NSDictionary *params = @{@"username":@"3472252451"};
     [PFCloud callFunctionInBackground:@"getPendingMeetings" withParameters:params block:^(id _Nullable object, NSError * _Nullable error) {
@@ -129,24 +126,35 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    UIView *contentView    = (UIView*)[cell viewWithTag:100];
-    UILabel *titleLabel    = (UILabel*)[cell viewWithTag:101];
-    UILabel *participants  = (UILabel*)[cell viewWithTag:102];
-    UIImageView *imageView = (UIImageView*)[cell viewWithTag:103];
-    UIView *fakeImageView  = (UIView*)[cell viewWithTag:104];
+    // Cell's subviews
+    UIView *contentView        = (UIView*)[cell viewWithTag:100];
+    UILabel *titleLabel        = (UILabel*)[cell viewWithTag:101];
+    UILabel *participantsLabel = (UILabel*)[cell viewWithTag:102];
+    UIImageView *imageView     = (UIImageView*)[cell viewWithTag:103];
+    UIView *fakeImageView      = (UIView*)[cell viewWithTag:104];
     
-    NSDictionary *meeting = [self.meetings objectAtIndex:indexPath.row];
+    // Data objects
+    NSDictionary *meeting        = [self.meetings objectAtIndex:indexPath.row];
+    NSArray *participants        = [meeting objectForKey:@"participants"];
+    NSArray *participantNames    = [participants valueForKey:@"name"];
+    NSString *participantsString = [participantNames componentsJoinedByString:@", "];
     
     // Add shadow
     CGRect bounds     = contentView.bounds;
     bounds.size.width = self.view.bounds.size.width - 50.f;
-    contentView   = [self viewWithDropShadow:contentView inRect:bounds];
-    fakeImageView = [self viewWithDropShadow:fakeImageView inRect:fakeImageView.bounds];
+    contentView       = [self viewWithDropShadow:contentView inRect:bounds];
+    fakeImageView     = [self viewWithDropShadow:fakeImageView inRect:fakeImageView.bounds];
     
     // Add content
-    titleLabel.text   = [meeting objectForKey:@"name"];
-    participants.text = [[CurrentUser sharedInstance] name];
-    imageView.image   = [[CurrentUser sharedInstance] profileImage];
+    titleLabel.text        = [meeting objectForKey:@"name"];
+    participantsLabel.text = participantsString;
+    
+    // Fetch image on background thread
+    [(PFFile*)[participants[0] objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+        if (!error) {
+            imageView.image = [UIImage imageWithData:data];
+        }
+    } progressBlock:nil];
     
     return cell;
 }
