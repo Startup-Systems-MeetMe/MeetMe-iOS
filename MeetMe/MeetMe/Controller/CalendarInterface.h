@@ -11,5 +11,6 @@
 @interface CalendarInterface : NSObject
 
 - (NSArray*)getEventsIntervalsFrom:(NSDate*)start toDate:(NSDate*)end;
+- (NSArray*)offHoursForIntervalsFrom:(NSDate*)start toDate:(NSDate*)end;
 
 @end
