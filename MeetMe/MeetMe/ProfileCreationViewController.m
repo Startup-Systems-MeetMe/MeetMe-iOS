@@ -20,12 +20,11 @@ const int BUTTON_CORNER_RADIUS = 4.f;
 
 @interface ProfileCreationViewController () <UITextFieldDelegate, PKImagePickerViewControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
 @property (strong, nonatomic) UIImage *selectedImage;
 @property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (assign, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (strong, nonatomic) IBOutlet UIButton *calendarAccessButton;
-@property (strong, nonatomic) IBOutlet UIButton *contactsAccessButton;
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 
 @end
 
@@ -42,11 +41,16 @@ const int BUTTON_CORNER_RADIUS = 4.f;
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *visualEffectViewTf = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    UIVisualEffectView *visualEffectViewTf2 = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     
     // Textfield
     [self.nameTextField setDelegate:self];
     visualEffectViewTf.frame = self.nameTextField.bounds;
     [self.nameTextField addSubview:visualEffectViewTf];
+    
+    [self.emailTextField setDelegate:self];
+    visualEffectViewTf2.frame = self.emailTextField.bounds;
+    [self.emailTextField addSubview:visualEffectViewTf2];
     
     // Profile picture
     [self.profilePicture.layer setCornerRadius:(self.profilePicture.bounds.size.width/2)];
@@ -54,22 +58,14 @@ const int BUTTON_CORNER_RADIUS = 4.f;
     [self.profilePicture.layer setBorderWidth:4.f];
     [self.profilePicture setClipsToBounds:YES];
     
-    // Buttons
-    [self.calendarAccessButton.layer setCornerRadius:BUTTON_CORNER_RADIUS];
-    [self.calendarAccessButton.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [self.calendarAccessButton.layer setBorderWidth:1.f];
-    [self.calendarAccessButton setClipsToBounds:YES];
-    [self.contactsAccessButton.layer setCornerRadius:BUTTON_CORNER_RADIUS];
-    [self.contactsAccessButton.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [self.contactsAccessButton.layer setBorderWidth:1.f];
-    [self.contactsAccessButton setClipsToBounds:YES];
-    
     // Tap Gestures
     UIGestureRecognizer *dismissGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignTextField)];
     [self.backgroundImageView addGestureRecognizer:dismissGesture];
     [self.backgroundImageView setUserInteractionEnabled:YES];
-    UIGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchedTextField)];
+    UIGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchedNameTextField)];
     [visualEffectViewTf addGestureRecognizer:tapGesture];
+    UIGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchedEmailTextField)];
+    [visualEffectViewTf2 addGestureRecognizer:tapGesture2];
     UIGestureRecognizer *profilePicGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeImage)];
     [self.profilePicture addGestureRecognizer:profilePicGesture];
     [self.profilePicture setUserInteractionEnabled:YES];
@@ -97,13 +93,15 @@ const int BUTTON_CORNER_RADIUS = 4.f;
     }
     
     [self.nameTextField resignFirstResponder];
+    [self.emailTextField resignFirstResponder];
     [SVProgressHUD show];
     
     // Push to Parse
     NSString *username = self.nameTextField.text;
+    NSString *email = self.emailTextField.text;
     NSData *imageData = UIImageJPEGRepresentation(self.selectedImage, 0.4);
     
-    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[[CurrentUser sharedInstance] phoneNumber], @"phoneNumber", username, @"name", imageData, @"photo", nil];
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:[[CurrentUser sharedInstance] phoneNumber], @"phoneNumber", username, @"name", imageData, @"photo", email, @"email", nil];
     [PFCloud callFunctionInBackground:@"updateNameAndPhoto" withParameters:dict block:^(id object, NSError *error) {
         
         [SVProgressHUD dismiss];
@@ -135,10 +133,17 @@ const int BUTTON_CORNER_RADIUS = 4.f;
 #pragma mark - Handling the textfield -
 //------------------------------------------------------------------------------------------
 
-- (void)touchedTextField
+- (void)touchedNameTextField
 {
     if (![self.nameTextField isFirstResponder]) {
         [self.nameTextField becomeFirstResponder];
+    }
+}
+
+- (void)touchedEmailTextField
+{
+    if (![self.emailTextField isFirstResponder]) {
+        [self.emailTextField becomeFirstResponder];
     }
 }
 
@@ -146,6 +151,9 @@ const int BUTTON_CORNER_RADIUS = 4.f;
 {
     if ([self.nameTextField isFirstResponder]) {
         [self.nameTextField resignFirstResponder];
+        
+    } else if ([self.emailTextField isFirstResponder]) {
+        [self.emailTextField resignFirstResponder];
     }
 }
 
@@ -189,26 +197,6 @@ const int BUTTON_CORNER_RADIUS = 4.f;
 - (void)imageSelectionCancelled
 {
     // Nothing to do
-}
-
-//------------------------------------------------------------------------------------------
-#pragma mark - Access Calendar & Contacts -
-//------------------------------------------------------------------------------------------
-
--(IBAction)requestAccessToEvents
-{
-    EKEventStore *store = [[EKEventStore alloc] init];
-    [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-        // handle access here
-    }];
-}
-
--(IBAction)requestAccessToContacts:(id)sender
-{
-    CNContactStore *store = [[CNContactStore alloc] init];
-    [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        // handle access here
-    }];
 }
 
 @end

@@ -200,6 +200,32 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
+		B870E0D31C16845B00DE81A0 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */,
+				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
+				B8179FAE1C0B5642009A2AF0 /* FavoritesViewController.h */,
+				B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */,
+				B876BA301C0B412A00509685 /* ProfileViewController.h */,
+				B876BA311C0B412A00509685 /* ProfileViewController.m */,
+				B85B9CA81C02BAF2009C0ED7 /* SettingsViewController.h */,
+				B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */,
+			);
+			name = Tabs;
+			sourceTree = "<group>";
+		};
+		B870E0D41C16849F00DE81A0 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
+				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
+				B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */,
+				B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		B87F896C1BCDB33600CD76F7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,18 +311,8 @@
 				B88F79481BF2D0C200555CE3 /* TabBarController.h */,
 				B88F79491BF2D0C200555CE3 /* TabBarController.m */,
 				B88EE71D1BE13B1000D22709 /* Signup */,
-				B88EE71E1BE13B9200D22709 /* LandingPageViewController.h */,
-				B88EE71F1BE13B9200D22709 /* LandingPageViewController.m */,
-				B8179FAE1C0B5642009A2AF0 /* FavoritesViewController.h */,
-				B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */,
-				B88EE7211BE13BA300D22709 /* SelectContactsViewController.h */,
-				B88EE7221BE13BA300D22709 /* SelectContactsViewController.m */,
-				B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */,
-				B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */,
-				B876BA301C0B412A00509685 /* ProfileViewController.h */,
-				B876BA311C0B412A00509685 /* ProfileViewController.m */,
-				B85B9CA81C02BAF2009C0ED7 /* SettingsViewController.h */,
-				B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */,
+				B870E0D31C16845B00DE81A0 /* Tabs */,
+				B870E0D41C16849F00DE81A0 /* View Controllers */,
 				B8EA6FEF1BB1A23200C41477 /* Main.storyboard */,
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,

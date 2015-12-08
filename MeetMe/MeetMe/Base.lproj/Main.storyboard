@@ -220,36 +220,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgh-k6-liU">
-                                <rect key="frame" x="195" y="316" width="210" height="38"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="210" id="hcu-7v-WIa"/>
-                                    <constraint firstAttribute="height" constant="38" id="t63-P0-rgF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="  Give Calendar Access" image="calendar-icon">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="requestAccessToEvents" destination="e63-fA-WyZ" eventType="touchUpInside" id="lCK-gM-sZ4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wG-Xn-Unh">
-                                <rect key="frame" x="195" y="374" width="210" height="38"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="CEV-ZI-HWI"/>
-                                    <constraint firstAttribute="width" constant="210" id="Ks5-mq-aMh"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="  Give Contacts Access" image="contacts-icon">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="requestAccessToContacts:" destination="e63-fA-WyZ" eventType="touchUpInside" id="Ez8-b4-CV9"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr8-67-yWV">
                                 <rect key="frame" x="279" y="184" width="42" height="21"/>
                                 <animations/>
@@ -261,6 +231,18 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Email (optional)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4X-4O-MT3">
+                                <rect key="frame" x="0.0" y="296" width="600" height="42"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Z3b-fv-lEF"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -268,20 +250,19 @@
                             <constraint firstItem="NeN-6Q-zMH" firstAttribute="top" secondItem="Z6e-A2-xln" secondAttribute="bottom" constant="30" id="2Fq-5v-ZhG"/>
                             <constraint firstItem="6gN-uS-B8m" firstAttribute="leading" secondItem="F42-ne-Kru" secondAttribute="leadingMargin" constant="-20" id="3TR-ZL-nfx"/>
                             <constraint firstItem="mr8-67-yWV" firstAttribute="top" secondItem="6gN-uS-B8m" secondAttribute="bottom" constant="120" id="7sb-dN-AAo"/>
+                            <constraint firstItem="u4X-4O-MT3" firstAttribute="leading" secondItem="F42-ne-Kru" secondAttribute="leadingMargin" constant="-20" id="8Lc-mW-vOr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Tyb-za-kkX" secondAttribute="trailing" constant="-20" id="9Dl-Nw-0ke"/>
                             <constraint firstItem="NeN-6Q-zMH" firstAttribute="centerX" secondItem="F42-ne-Kru" secondAttribute="centerX" id="9ck-DP-vvv"/>
                             <constraint firstItem="NeN-6Q-zMH" firstAttribute="leading" secondItem="F42-ne-Kru" secondAttribute="leadingMargin" constant="-20" id="9dr-Gf-BTQ"/>
                             <constraint firstItem="Tyb-za-kkX" firstAttribute="top" secondItem="6gN-uS-B8m" secondAttribute="bottom" id="CQe-Ji-jas"/>
                             <constraint firstItem="mr8-67-yWV" firstAttribute="centerX" secondItem="F42-ne-Kru" secondAttribute="centerX" id="Cb5-Xq-pCb"/>
-                            <constraint firstItem="5wG-Xn-Unh" firstAttribute="centerX" secondItem="F42-ne-Kru" secondAttribute="centerX" id="E2O-ps-2Mk"/>
                             <constraint firstItem="Tyb-za-kkX" firstAttribute="leading" secondItem="F42-ne-Kru" secondAttribute="leadingMargin" constant="-20" id="HQj-3k-3nq"/>
-                            <constraint firstItem="tgh-k6-liU" firstAttribute="top" secondItem="NeN-6Q-zMH" secondAttribute="bottom" constant="28" id="JaJ-nN-qtP"/>
                             <constraint firstItem="Z6e-A2-xln" firstAttribute="centerX" secondItem="F42-ne-Kru" secondAttribute="centerX" id="MkI-DK-PMl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u4X-4O-MT3" secondAttribute="trailing" constant="-20" id="Q6O-XI-Vec"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6gN-uS-B8m" secondAttribute="trailing" constant="-20" id="Xh6-Js-1gM"/>
-                            <constraint firstItem="5wG-Xn-Unh" firstAttribute="top" secondItem="tgh-k6-liU" secondAttribute="bottom" constant="20" id="g9d-Pd-O2a"/>
+                            <constraint firstItem="u4X-4O-MT3" firstAttribute="top" secondItem="NeN-6Q-zMH" secondAttribute="bottom" constant="8" id="XpL-d9-H3v"/>
                             <constraint firstItem="VjZ-BE-e9F" firstAttribute="top" secondItem="Tyb-za-kkX" secondAttribute="bottom" id="lgx-Ol-M1A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NeN-6Q-zMH" secondAttribute="trailing" constant="-20" id="sKS-P7-xvx"/>
-                            <constraint firstItem="tgh-k6-liU" firstAttribute="centerX" secondItem="F42-ne-Kru" secondAttribute="centerX" id="x9l-IP-LtL"/>
                             <constraint firstItem="6gN-uS-B8m" firstAttribute="top" secondItem="F42-ne-Kru" secondAttribute="top" constant="20" id="xGh-qg-Pft"/>
                             <constraint firstItem="Z6e-A2-xln" firstAttribute="top" secondItem="fvy-ky-2Sp" secondAttribute="bottom" constant="68" id="xIw-qT-Fgk"/>
                         </constraints>
@@ -290,8 +271,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="Tyb-za-kkX" id="GYU-nh-VN6"/>
-                        <outlet property="calendarAccessButton" destination="tgh-k6-liU" id="3DD-2O-SKp"/>
-                        <outlet property="contactsAccessButton" destination="5wG-Xn-Unh" id="8V7-G1-V6X"/>
+                        <outlet property="emailTextField" destination="u4X-4O-MT3" id="gap-ya-UQV"/>
                         <outlet property="nameTextField" destination="NeN-6Q-zMH" id="XII-Pd-ytf"/>
                         <outlet property="profilePicture" destination="Z6e-A2-xln" id="gdQ-HH-OsZ"/>
                     </connections>
@@ -515,10 +495,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" rowHeight="45" id="mKJ-Uo-nUs">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="45"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mKJ-Uo-nUs" id="GRT-wY-FNj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No-Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="oz9-o9-bAT">
@@ -774,10 +754,10 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="contactCell" rowHeight="45" id="OuC-3E-IIQ">
-                                        <rect key="frame" x="0.0" y="50" width="600" height="45"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="600" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OuC-3E-IIQ" id="ywF-US-sXy">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No-Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="271-gS-aIB">
@@ -1200,8 +1180,6 @@
         <image name="Profile-unselected" width="25" height="25"/>
         <image name="Settings-selected" width="26" height="27"/>
         <image name="Settings-unselected" width="26" height="27"/>
-        <image name="calendar-icon" width="26" height="21"/>
-        <image name="contacts-icon" width="25" height="24"/>
         <image name="default_profile_pic" width="128" height="128"/>
         <image name="tertiary-logo" width="1508" height="462"/>
     </resources>
