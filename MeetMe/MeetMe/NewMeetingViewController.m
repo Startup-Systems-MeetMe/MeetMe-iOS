@@ -172,6 +172,7 @@ int MINUTES_TO_MS = 60000;
                                  @"participants": participants,
                                  @"numResponded": @(1),
                                  @"calendar":events,
+                                 @"notes": self.notesTextView.text,
                                  @"meetingLength": @(meetingDuration * MINUTES_TO_MS)};
         [PFCloud callFunctionInBackground:@"createNewMeeting" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
             
