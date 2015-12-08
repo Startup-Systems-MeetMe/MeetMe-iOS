@@ -10,6 +10,7 @@
 #import <EventKit/EventKit.h>
 #import "CurrentUser.h"
 #import "Meeting.h"
+#import "CalendarInterface.h"
 #import <Parse/Parse.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -119,11 +120,31 @@
     return self.meetings.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Get meeting
+    NSDictionary *meeting = [self.meetings objectAtIndex:indexPath.row];
+    return [self isMeetingPending:meeting] ? 139.f : 102.f;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"meetingCell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    // Get meeting
+    NSDictionary *meeting = [self.meetings objectAtIndex:indexPath.row];
+    BOOL isPending = [self isMeetingPending:meeting];
+    
+    // Choose the right type of cell
+    UITableViewCell *cell;
+    if (!isPending) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"meetingCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"meetingCell"];
+        }
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"pendingMeetingCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"pendingMeetingCell"];
+        }
     }
     
     // Cell's subviews
@@ -132,9 +153,14 @@
     UILabel *participantsLabel = (UILabel*)[cell viewWithTag:102];
     UIImageView *imageView     = (UIImageView*)[cell viewWithTag:103];
     UIView *fakeImageView      = (UIView*)[cell viewWithTag:104];
+    if (isPending) {
+        UIButton *refuseButton = (UIButton*)[cell viewWithTag:105];
+        UIButton *acceptButton = (UIButton*)[cell viewWithTag:106];
+        [acceptButton addTarget:self action:@selector(acceptMeeting:) forControlEvents:UIControlEventTouchUpInside];
+        [refuseButton addTarget:self action:@selector(refuseMeeting:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     // Data objects
-    NSDictionary *meeting        = [self.meetings objectAtIndex:indexPath.row];
     NSArray *participants        = [meeting objectForKey:@"participants"];
     NSArray *participantNames    = [participants valueForKey:@"name"];
     NSString *participantsString = [participantNames componentsJoinedByString:@", "];
@@ -157,6 +183,72 @@
     } progressBlock:nil];
     
     return cell;
+}
+
+- (BOOL)isMeetingPending:(NSDictionary*)meeting
+{
+    // Get self's position in participants array
+    int positionOfSelf = 0; // breaks if self not in participants
+    for (int i=0; i < [[meeting objectForKey:@"participants"] count]; i++) {
+        PFUser *user = [[meeting objectForKey:@"participants"] objectAtIndex:i];
+        if ([[user objectForKey:@"username"] isEqualToString:[[CurrentUser sharedInstance] phoneNumber]]) {
+            positionOfSelf = i;
+            break;
+        }
+    }
+    
+    // Is meeting waiting for my response
+    return [[[meeting objectForKey:@"attendance"] objectAtIndex:positionOfSelf] isEqualToString:@"-"];
+}
+
+- (void)acceptMeeting:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    if (!indexPath)
+        return;
+
+    [self updateMeetingWithAttendance:YES meeting:[self.meetings objectAtIndex:indexPath.row]];
+}
+
+- (void)refuseMeeting:(id)sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    if (!indexPath)
+        return;
+    
+    [self updateMeetingWithAttendance:NO meeting:[self.meetings objectAtIndex:indexPath.row]];
+}
+
+- (void)updateMeetingWithAttendance:(BOOL)attending meeting:(NSDictionary*)meeting
+{
+    NSString *accept  = attending ? @"YES" : @"NO";
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[[meeting objectForKey:@"startRange"] doubleValue]];
+    NSDate *endDate   = [NSDate dateWithTimeIntervalSince1970:[[meeting objectForKey:@"endRange"] doubleValue]];
+    NSArray *calendar = [[[CalendarInterface alloc] init] getEventsIntervalsFrom:startDate toDate:endDate];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                   [[CurrentUser sharedInstance] phoneNumber], @"username",
+                                   accept, @"accept",
+                                   [meeting objectForKey:@"meetingId"], @"meetingId",
+                                   nil];
+    if (calendar.count > 0) {
+        [params setObject:calendar forKey:@"calendar"];
+    } else {
+        [params setObject:@"" forKey:@"calendar"];
+    }
+    
+    [PFCloud callFunctionInBackground:@"updatePendingMeeting" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [SVProgressHUD showSuccessWithStatus:@"Updated Meeting Successfully"];
+            });
+            
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"Sorry, try again later."];
+        }
+    }];
 }
 
 - (UIView*)viewWithDropShadow:(UIView*)contentView inRect:(CGRect)bounds
