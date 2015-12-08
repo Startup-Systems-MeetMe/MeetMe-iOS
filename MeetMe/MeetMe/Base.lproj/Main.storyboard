@@ -495,17 +495,9 @@
                                 <rect key="frame" x="30" y="162" width="116" height="116"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="Ehp-NL-4BK"/>
                                     <constraint firstAttribute="height" constant="116" id="NTh-Oj-S0D"/>
                                     <constraint firstAttribute="width" constant="116" id="TkF-UL-421"/>
-                                    <constraint firstAttribute="height" constant="150" id="YQq-GM-eaT"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ehp-NL-4BK"/>
-                                        <exclude reference="YQq-GM-eaT"/>
-                                    </mask>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uC-T2-zK9">
                                 <rect key="frame" x="210" y="318" width="181" height="43"/>
@@ -636,16 +628,10 @@
                             <constraint firstItem="lTm-tG-t7m" firstAttribute="top" secondItem="aBF-Lh-Jdo" secondAttribute="bottom" id="CLQ-qS-ufx"/>
                             <constraint firstItem="aBF-Lh-Jdo" firstAttribute="leading" secondItem="QlI-mH-lyc" secondAttribute="leadingMargin" constant="-20" id="RmE-gM-6DT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aBF-Lh-Jdo" secondAttribute="trailing" constant="-20" id="Vgy-da-sZk"/>
-                            <constraint firstItem="lTm-tG-t7m" firstAttribute="top" secondItem="krb-Fl-r2O" secondAttribute="bottom" constant="3" id="XBd-nz-dqg"/>
                             <constraint firstItem="aBF-Lh-Jdo" firstAttribute="top" secondItem="krb-Fl-r2O" secondAttribute="bottom" id="kM3-Xo-hfv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lTm-tG-t7m" secondAttribute="trailing" constant="-20" id="m8t-A4-mJg"/>
                             <constraint firstItem="1rp-bC-yrH" firstAttribute="top" secondItem="lTm-tG-t7m" secondAttribute="bottom" id="qTf-k7-9XA"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="XBd-nz-dqg"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="WMg-is-kLw"/>
                     <connections>
@@ -770,13 +756,7 @@
                                                 <constraint firstItem="3Jr-MV-g86" firstAttribute="top" secondItem="Pu3-mf-nDR" secondAttribute="topMargin" constant="12" id="GrX-a6-Ymh"/>
                                                 <constraint firstItem="HiM-ga-TEm" firstAttribute="leading" secondItem="Pu3-mf-nDR" secondAttribute="leadingMargin" constant="12" id="MVZ-YW-X6K"/>
                                                 <constraint firstItem="3Jr-MV-g86" firstAttribute="leading" secondItem="Pu3-mf-nDR" secondAttribute="leadingMargin" constant="22" id="jTj-zF-q8u"/>
-                                                <constraint firstItem="AuG-9j-nLR" firstAttribute="leading" secondItem="HiM-ga-TEm" secondAttribute="trailing" constant="8" id="lVV-8K-ZwJ"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="lVV-8K-ZwJ"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1084,17 +1064,11 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="DsB-jh-fmf"/>
-                                    <constraint firstAttribute="height" constant="35" id="Vzg-IS-nJf"/>
                                     <constraint firstAttribute="height" constant="27" id="fbd-qn-07F"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Vzg-IS-nJf"/>
-                                    </mask>
-                                </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C5v-GS-7sQ">
                                 <rect key="frame" x="20" y="177" width="473" height="52"/>
@@ -1161,18 +1135,12 @@
                                 <rect key="frame" x="30" y="281" width="240" height="34"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="242" id="H9D-BI-5lR"/>
                                     <constraint firstAttribute="height" constant="34" id="VbI-He-HN0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                 <state key="normal" title="This Week">
                                     <color key="titleColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="H9D-BI-5lR"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <action selector="tappedThisWeek:" destination="DqG-bX-Acm" eventType="touchUpInside" id="KEy-aO-EED"/>
                                 </connections>
@@ -1210,19 +1178,11 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EUh-Mz-B1n"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="262" id="Inf-Ir-7V2"/>
                                     <constraint firstAttribute="width" constant="262" id="LIt-ZI-uZh"/>
-                                    <constraint firstAttribute="height" constant="35" id="mLt-HG-gys"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Inf-Ir-7V2"/>
-                                        <exclude reference="mLt-HG-gys"/>
-                                    </mask>
-                                </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxu-67-6ut" userLabel="Line Divider">
                                 <rect key="frame" x="0.0" y="113" width="600" height="1"/>
@@ -1238,19 +1198,11 @@
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="1e5-j5-C9L"/>
-                                    <constraint firstAttribute="height" constant="35" id="AAS-bs-TQr"/>
                                     <constraint firstAttribute="width" constant="104" id="VZM-Kb-vXf"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="213" id="e1i-qf-alt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="AAS-bs-TQr"/>
-                                        <exclude reference="e1i-qf-alt"/>
-                                    </mask>
-                                </variation>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="pmJ-Uf-KCj">
                                 <rect key="frame" x="407" y="127" width="173" height="29"/>
@@ -1286,7 +1238,6 @@
                             <constraint firstItem="mVd-Fx-c6t" firstAttribute="top" secondItem="xZ8-To-Yc1" secondAttribute="bottom" constant="8" id="Ibb-Rw-M9u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oXr-dQ-I0h" secondAttribute="trailing" constant="10" id="JRk-TE-NlM"/>
                             <constraint firstItem="Ie3-rp-g7D" firstAttribute="leading" secondItem="Jh1-Wq-tuW" secondAttribute="leadingMargin" id="Jrp-2E-PeT"/>
-                            <constraint firstItem="Ie3-rp-g7D" firstAttribute="trailing" secondItem="Jh1-Wq-tuW" secondAttribute="trailingMargin" id="Mg5-ID-Uwo"/>
                             <constraint firstItem="3fh-dc-xxj" firstAttribute="leading" secondItem="Jh1-Wq-tuW" secondAttribute="leadingMargin" id="NpV-6t-oCw"/>
                             <constraint firstItem="pmJ-Uf-KCj" firstAttribute="trailing" secondItem="Jh1-Wq-tuW" secondAttribute="trailingMargin" id="O2o-vj-88M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C5v-GS-7sQ" secondAttribute="trailing" constant="87" id="OMP-3M-uUO"/>
@@ -1314,7 +1265,6 @@
                             <constraint firstItem="SSK-Qy-S16" firstAttribute="top" secondItem="mIv-h7-oaV" secondAttribute="bottom" constant="14" id="ptU-l0-eRl"/>
                             <constraint firstItem="hbA-Ag-tmi" firstAttribute="top" secondItem="mVd-Fx-c6t" secondAttribute="bottom" constant="8" id="rsH-eh-Sdm"/>
                             <constraint firstItem="buy-Zm-0O8" firstAttribute="leading" secondItem="Ie3-rp-g7D" secondAttribute="trailing" constant="8" id="sqh-y2-S9u"/>
-                            <constraint firstItem="oXr-dQ-I0h" firstAttribute="leading" secondItem="hbA-Ag-tmi" secondAttribute="trailing" constant="36" id="t1O-3G-Jrl"/>
                             <constraint firstItem="jBx-zK-NcI" firstAttribute="top" secondItem="kfX-Gz-aBk" secondAttribute="bottom" constant="8" id="tIO-7a-1vY"/>
                             <constraint firstItem="kfX-Gz-aBk" firstAttribute="top" secondItem="frX-jj-NTC" secondAttribute="bottom" constant="5" id="tpM-g9-ZNw"/>
                             <constraint firstItem="Ie3-rp-g7D" firstAttribute="top" secondItem="jBx-zK-NcI" secondAttribute="bottom" constant="11" id="w0s-Mj-Axh"/>
@@ -1323,12 +1273,6 @@
                             <constraint firstItem="xZ8-To-Yc1" firstAttribute="top" secondItem="C5v-GS-7sQ" secondAttribute="bottom" constant="8" id="yYA-Lx-Xsz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xZ8-To-Yc1" secondAttribute="trailing" constant="-20" id="zdj-ja-xuc"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Mg5-ID-Uwo"/>
-                                <exclude reference="t1O-3G-Jrl"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
