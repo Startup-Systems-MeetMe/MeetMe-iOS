@@ -138,6 +138,7 @@ int MINUTES_TO_MS = 60000;
         for (User *user in self.contactsToMeetWith) {
             [participants addObject:user.phoneNumber];
         }
+        [participants addObject:[[CurrentUser sharedInstance] phoneNumber]];
         
         // Duration of meeting in minutes
         int meetingDuration;

@@ -10,6 +10,7 @@
 #import <Contacts/Contacts.h>
 #import "NSString+Additions.h"
 #import <Parse/Parse.h>
+#import "CurrentUser.h"
 
 @interface Contacts ()
 
@@ -99,6 +100,9 @@
             }
         }
     }
+    
+    // Remove myself
+    [numbers removeObject:[[CurrentUser sharedInstance] phoneNumber]];
     
     [PFCloud callFunctionInBackground:@"getCommonContacts" withParameters:@{@"phoneNumbers":numbers} block:^(id  _Nullable object, NSError * _Nullable error) {
         
