@@ -109,7 +109,8 @@ const int BUTTON_CORNER_RADIUS = 4.f;
         if (!error) {
             // Create profile instance
             CurrentUser *user = [CurrentUser sharedInstance];
-            [user setName:self.nameTextField.text];
+            [user setName:username];
+            if (email) [user setEmail:email];
             if (self.selectedImage) [user setProfilePicture:self.selectedImage];
             [user saveToDisk];
             

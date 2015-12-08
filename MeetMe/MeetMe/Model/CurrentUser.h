@@ -16,6 +16,7 @@ extern NSString* const RDVACCOUNT;
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *phoneNumber;
+@property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) UIImage *profileImage;
 
 + (instancetype)sharedInstance;

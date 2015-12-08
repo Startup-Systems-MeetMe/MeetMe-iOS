@@ -19,6 +19,7 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
 
 @synthesize phoneNumber;
 @synthesize name;
+@synthesize email;
 @synthesize profileImage;
 
 + (instancetype)sharedInstance
@@ -36,6 +37,7 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
     if(self = [super init]){
         phoneNumber = @"";
         name = @"";
+        email = @"";
         profileImage = [[UIImage alloc] init];
     }
     return self;
@@ -76,6 +78,11 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
     name = username;
 }
 
+- (void)setEmail:(NSString *)e
+{
+    email = e;
+}
+
 //------------------------------------------------------------------------------------------
 #pragma mark - Encoding & Saving -
 //------------------------------------------------------------------------------------------
@@ -83,6 +90,7 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.email forKey:@"email"];
     [encoder encodeObject:self.phoneNumber forKey:@"phoneNumber"];
     [encoder encodeObject:self.profileImage forKey:@"profileImage"];
 }
@@ -91,6 +99,7 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
 {
     if (self = [super init]) {
         self.name         = [decoder decodeObjectForKey:@"name"];
+        self.email        = [decoder decodeObjectForKey:@"email"];
         self.phoneNumber  = [decoder decodeObjectForKey:@"phoneNumber"];
         self.profileImage = [decoder decodeObjectForKey:@"profileImage"];
     }
@@ -113,6 +122,7 @@ NSString * const CURRENT_USER_KEY = @"CURRENT_USER_KEY";
     if (encodedObject) {
         CurrentUser *user        = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
         [self setName:user.name];
+        [self setEmail:user.email];
         [self setPhoneNumber:user.phoneNumber];
         [self setProfileImage:user.profileImage];
     }

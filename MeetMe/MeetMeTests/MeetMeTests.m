@@ -30,6 +30,7 @@
     CurrentUser *user = [[CurrentUser alloc] init];
     [user setName:@"NAME"];
     [user setPhoneNumber:@"1234567890"];
+    [user setEmail:@"abc@xyz.com"];
     [user saveToDisk];
     
     
@@ -38,6 +39,7 @@
     
     XCTAssertEqualObjects(user.name, anotherUser.name);
     XCTAssertEqualObjects(user.phoneNumber, anotherUser.phoneNumber);
+    XCTAssertEqualObjects(user.email, anotherUser.email);
 }
 
 - (void)testPerformanceExample {
@@ -47,6 +49,7 @@
         CurrentUser *user = [[CurrentUser alloc] init];
         [user setName:@"NAME"];
         [user setPhoneNumber:@"1234567890"];
+        [user setEmail:@"abc@xyz.com"];
         [user saveToDisk];
         
         CurrentUser *anotherUser = [[CurrentUser alloc] init];
