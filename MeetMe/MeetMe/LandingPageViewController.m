@@ -141,7 +141,7 @@
     
     // Add shadow
     CGRect bounds     = contentView.bounds;
-    bounds.size.width = self.view.bounds.size.width - 50.f;
+    bounds.size.width = self.view.bounds.size.width - 40.f;
     contentView       = [self viewWithDropShadow:contentView inRect:bounds];
     fakeImageView     = [self viewWithDropShadow:fakeImageView inRect:fakeImageView.bounds];
     
