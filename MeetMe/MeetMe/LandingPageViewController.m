@@ -223,21 +223,27 @@
 
 - (void)updateMeetingWithAttendance:(BOOL)attending meeting:(NSDictionary*)meeting
 {
+    PFObject *m = (PFObject*)meeting;
     NSString *accept  = attending ? @"YES" : @"NO";
-    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[[meeting objectForKey:@"startRange"] doubleValue]];
-    NSDate *endDate   = [NSDate dateWithTimeIntervalSince1970:[[meeting objectForKey:@"endRange"] doubleValue]];
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[[meeting objectForKey:@"startRange"] doubleValue] / 1000.0];
+    NSDate *endDate   = [NSDate dateWithTimeIntervalSince1970:[[meeting objectForKey:@"endRange"] doubleValue] / 1000.0];
     NSArray *calendar = [[[CalendarInterface alloc] init] getEventsIntervalsFrom:startDate toDate:endDate];
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    [[CurrentUser sharedInstance] phoneNumber], @"username",
                                    accept, @"accept",
-                                   [meeting objectForKey:@"meetingId"], @"meetingId",
+                                   m.objectId, @"meetingId",
                                    nil];
     if (calendar.count > 0) {
         [params setObject:calendar forKey:@"calendar"];
     } else {
-        [params setObject:@"" forKey:@"calendar"];
+        [params setObject:@[] forKey:@"calendar"];
     }
     
+    // Loading
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD show];
+    
+    // Update Meeting on Parse
     [PFCloud callFunctionInBackground:@"updatePendingMeeting" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
