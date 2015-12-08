@@ -55,6 +55,8 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_MEETINGS" object:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

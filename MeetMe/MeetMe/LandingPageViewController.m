@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Remove cell separators
     self.tableView.tableFooterView = [UIView new];
     
@@ -46,6 +46,15 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self registerForPushNotifications];
+    
+    [self getPendingMeetings];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getPendingMeetings) name:@"UPDATE_MEETINGS" object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UPDATE_MEETINGS" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,24 +63,26 @@
 
 - (void) getPendingMeetings
 {
-    [self.refreshControl beginRefreshing];
-
-    NSDictionary *params = @{@"username":@"3472252451"};
-    [PFCloud callFunctionInBackground:@"getPendingMeetings" withParameters:params block:^(id _Nullable object, NSError * _Nullable error) {
+    dispatch_async(dispatch_get_main_queue(), ^{
         
-        [SVProgressHUD dismiss];
-        [self.refreshControl endRefreshing];
+        [self.refreshControl beginRefreshing];
+        [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
         
-        //TODO: Handle Errors
-        if (error) {
-            NSLog(@"Error found: %@", error.localizedDescription);
-            return;
-        }
+        NSDictionary *params = @{@"username":[[CurrentUser sharedInstance] phoneNumber]};
+        [PFCloud callFunctionInBackground:@"getPendingMeetings" withParameters:params block:^(id _Nullable object, NSError * _Nullable error) {
+            
+            [SVProgressHUD dismiss];
+            [self.refreshControl endRefreshing];
+            
+            //TODO: Handle Errors
+            if (error)
+                return;
+            
+            _meetings = [NSArray arrayWithArray:object];
+            [_tableView reloadData];
+        }];
         
-        _meetings = [NSArray arrayWithArray:object];
-        [_tableView reloadData];
-        
-    }];
+    });
 }
 
 - (void)registerForPushNotifications
