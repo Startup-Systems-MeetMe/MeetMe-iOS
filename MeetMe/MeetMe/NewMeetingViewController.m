@@ -8,14 +8,22 @@
 
 #import "NewMeetingViewController.h"
 #import "LandingPageViewController.h"
+#import <Parse/Parse.h>
 #import "UIColor+Additions.h"
 #import "User.h"
+#import "CurrentUser.h"
+#import "NSDate+Additions.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "CalendarInterface.h"
+
+int MINUTES_TO_MS = 60000;
 
 @interface NewMeetingViewController () <UITextFieldDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *titleTextField;
 @property (strong, nonatomic) IBOutlet UITextView *notesTextView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *durationControl;
 
 // Buttons
 @property (strong, nonatomic) IBOutlet UIButton *meetWithButton;
@@ -124,7 +132,56 @@
         
         // Return to home page
     } else {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        
+        // Phone number of participants
+        NSMutableArray *participants = [[NSMutableArray alloc] init];
+        for (User *user in self.contactsToMeetWith) {
+            [participants addObject:user.phoneNumber];
+        }
+        
+        // Duration of meeting in minutes
+        int meetingDuration;
+        switch (self.durationControl.selectedSegmentIndex) {
+            case 0:
+                meetingDuration = 30;
+                break;
+            
+            case 2:
+                meetingDuration = 120;
+                break;
+                
+            default:
+                meetingDuration = 60;
+                break;
+        }
+        
+        // Range
+        double start = [[NSDate date] epochTime];
+        double end = [self.datePicker.date epochTime];
+        
+        // Events
+        CalendarInterface *calendarInterface = [[CalendarInterface alloc] init];
+        NSArray *events = [calendarInterface getEventsIntervalsFrom:[NSDate date] toDate:self.datePicker.date];
+        
+        NSDictionary *params = @{@"username":[[CurrentUser sharedInstance] phoneNumber],
+                                 @"name": self.titleTextField.text,
+                                 @"startRange": @(start),
+                                 @"endRange": @(end),
+                                 @"numOfParticipants": @(self.contactsToMeetWith.count),
+                                 @"participants": participants,
+                                 @"numResponded": @(1),
+                                 @"calendar":events,
+                                 @"meetingLength": @(meetingDuration * MINUTES_TO_MS)};
+        [PFCloud callFunctionInBackground:@"createNewMeeting" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
+            
+            if (!error) {
+                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            
+            } else {
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+                [SVProgressHUD showErrorWithStatus:@"Sorry...couldn't save meeting, try again."];
+            }
+        }];
     }
 }
 

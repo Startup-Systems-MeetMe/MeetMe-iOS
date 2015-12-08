@@ -14,6 +14,8 @@
 		B85B9CA11C027AB9009C0ED7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
 		B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */; };
 		B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */; };
+		B870E0D71C16B06800DE81A0 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B870E0D61C16B06800DE81A0 /* NSDate+Additions.m */; };
+		B870E0DB1C16B25600DE81A0 /* CalendarInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = B870E0DA1C16B25600DE81A0 /* CalendarInterface.m */; };
 		B876BA321C0B412A00509685 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B876BA311C0B412A00509685 /* ProfileViewController.m */; };
 		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; };
 		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; };
@@ -81,6 +83,10 @@
 		B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Additions.m"; path = "Additions/UIColor+Additions.m"; sourceTree = "<group>"; };
 		B85B9CA81C02BAF2009C0ED7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		B870E0D51C16B06800DE81A0 /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Additions.h"; path = "Additions/NSDate+Additions.h"; sourceTree = "<group>"; };
+		B870E0D61C16B06800DE81A0 /* NSDate+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Additions.m"; path = "Additions/NSDate+Additions.m"; sourceTree = "<group>"; };
+		B870E0D91C16B25600DE81A0 /* CalendarInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarInterface.h; path = Controller/CalendarInterface.h; sourceTree = "<group>"; };
+		B870E0DA1C16B25600DE81A0 /* CalendarInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarInterface.m; path = Controller/CalendarInterface.m; sourceTree = "<group>"; };
 		B876BA301C0B412A00509685 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		B876BA311C0B412A00509685 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B87F896D1BCDB38800CD76F7 /* CurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentUser.h; path = Model/CurrentUser.h; sourceTree = "<group>"; };
@@ -196,6 +202,8 @@
 				B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */,
 				B806864F1BCEFE900044EDA1 /* UIImage+Additions.h */,
 				B80686501BCEFE900044EDA1 /* UIImage+Additions.m */,
+				B870E0D51C16B06800DE81A0 /* NSDate+Additions.h */,
+				B870E0D61C16B06800DE81A0 /* NSDate+Additions.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -224,6 +232,15 @@
 				B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B870E0D81C16B23300DE81A0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B870E0D91C16B25600DE81A0 /* CalendarInterface.h */,
+				B870E0DA1C16B25600DE81A0 /* CalendarInterface.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		B87F896C1BCDB33600CD76F7 /* Model */ = {
@@ -317,6 +334,7 @@
 				B8EA6FF21BB1A23200C41477 /* Assets.xcassets */,
 				B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */,
 				B8EA6FF71BB1A23200C41477 /* Info.plist */,
+				B870E0D81C16B23300DE81A0 /* Controller */,
 				B87F896C1BCDB33600CD76F7 /* Model */,
 				B813E7D71BC080C3000B45B1 /* Additions */,
 				B8A980D41BB3198400C20A77 /* GIFs */,
@@ -554,9 +572,11 @@
 				B88F794A1BF2D0C200555CE3 /* TabBarController.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
 				B8A447921C0E7A0D004967D4 /* Meeting.m in Sources */,
+				B870E0D71C16B06800DE81A0 /* NSDate+Additions.m in Sources */,
 				B876BA321C0B412A00509685 /* ProfileViewController.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
 				B88EE7231BE13BA300D22709 /* SelectContactsViewController.m in Sources */,
+				B870E0DB1C16B25600DE81A0 /* CalendarInterface.m in Sources */,
 				B8EA6FE81BB1A23200C41477 /* main.m in Sources */,
 				B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */,
 				B8179FB01C0B5642009A2AF0 /* FavoritesViewController.m in Sources */,
