@@ -227,8 +227,8 @@
     // Date for set meetings
     if ([meeting objectForKey:@"set"] == nil) {
         dateLabel.text = @"Pending";
-    }
-    else if ([[meeting objectForKey:@"set"] boolValue]) {
+    
+    } else if ([[meeting objectForKey:@"set"] boolValue]) {
         // Use start date of first common time
         NSDate *firstCommonTime = [NSDate dateWithTimeIntervalSince1970:[[[[meeting objectForKey:@"commonFreeTime"]
                                                                            objectAtIndex:0]
@@ -250,6 +250,10 @@
 
 - (BOOL)isMeetingPending:(NSDictionary*)meeting
 {
+    if ([meeting objectForKey:@"set"] != nil && [[meeting objectForKey:@"set"] boolValue] == false) {
+        return false;
+    }
+
     // Get self's position in participants array
     int positionOfSelf = 0; // breaks if self not in participants
     for (int i=0; i < [[meeting objectForKey:@"participants"] count]; i++) {
