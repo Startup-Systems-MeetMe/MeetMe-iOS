@@ -11,6 +11,7 @@
 @interface NSDate (Additions)
 
 - (double)epochTime;
+- (NSDate*)endOFDay;
 + (NSDate*)sundayThisWeek;
 
 @end

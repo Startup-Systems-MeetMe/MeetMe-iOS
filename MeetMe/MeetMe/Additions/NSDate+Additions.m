@@ -15,6 +15,14 @@
     return floor([self timeIntervalSince1970] * 1000);
 }
 
+- (NSDate*)endOFDay
+{
+    NSDateComponents *comp = [[NSCalendar currentCalendar] components:(NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitDay) fromDate:self];
+    comp.hour   = 23;
+    comp.minute = 59;
+    comp.second = 59;
+    return [[NSCalendar currentCalendar] dateFromComponents:comp];
+}
 
 + (NSDate*)sundayThisWeek
 {

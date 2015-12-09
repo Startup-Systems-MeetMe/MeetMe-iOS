@@ -156,11 +156,11 @@ int MINUTES_TO_MS = 60000;
         
         // Range
         double start = [[NSDate date] epochTime];
-        double end = [self.datePicker.date epochTime];
+        double end = [self.datePicker.date.endOFDay epochTime];
         
         // Events
         CalendarInterface *calendarInterface = [[CalendarInterface alloc] init];
-        NSArray *events = [calendarInterface getEventsIntervalsFrom:[NSDate date] toDate:self.datePicker.date];
+        NSArray *events = [calendarInterface getEventsIntervalsFrom:[NSDate date] toDate:self.datePicker.date.endOFDay];
         
         NSDictionary *params = @{@"username":[[CurrentUser sharedInstance] phoneNumber],
                                  @"name": self.titleTextField.text,
