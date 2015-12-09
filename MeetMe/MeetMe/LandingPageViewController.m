@@ -196,7 +196,7 @@
     } progressBlock:nil];
     
     // Date for set meetings
-    NSString *dateString = @"";
+    NSString *dateString = @"Pending";
     if (isSet) {
         // Use start date of first common time
         NSDate *firstCommonTime = [NSDate dateWithTimeIntervalSince1970:[[[[meeting objectForKey:@"commonFreeTime"]
@@ -297,7 +297,7 @@
     contentView.layer.shadowColor   = [UIColor blackColor].CGColor;
     contentView.layer.shadowOffset  = CGSizeMake(0, 0);
     contentView.layer.shadowOpacity = 0.2f;
-    contentView.layer.shadowRadius  = 3;
+    contentView.layer.shadowRadius  = 5;
     
     return contentView;
 }

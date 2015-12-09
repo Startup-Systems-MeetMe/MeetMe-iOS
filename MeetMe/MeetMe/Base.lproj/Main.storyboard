@@ -700,7 +700,7 @@
                                                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Jr-MV-g86" userLabel="Background ContentView">
                                                     <rect key="frame" x="30" y="20" width="550" height="63"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="AuG-9j-nLR">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="AuG-9j-nLR">
                                                             <rect key="frame" x="58" y="5" width="486" height="26"/>
                                                             <animations/>
                                                             <constraints>
@@ -713,7 +713,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5c-o4x">
                                                             <rect key="frame" x="58" y="33" width="291.5" height="21"/>
                                                             <animations/>
-                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
                                                             <color key="textColor" red="0.49411764705882355" green="0.50196078431372548" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -779,10 +779,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qt0-3e-apv" userLabel="X button">
+                                                    <rect key="frame" x="30" y="83" width="275" height="37"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.83921568627450982" green="0.19215686274509805" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="37" id="KTZ-OR-Nhn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                                                    <state key="normal" title="X"/>
+                                                </button>
+                                                <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6E-G0-r0G" userLabel="Checkmark button">
+                                                    <rect key="frame" x="305" y="83" width="275" height="37"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" red="0.14509803921568629" green="0.72156862745098038" blue="0.32156862745098042" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="37" id="NRe-8N-N5R"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Check Mark"/>
+                                                </button>
                                                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4n-wl-RoA" userLabel="Background ContentView">
                                                     <rect key="frame" x="30" y="20" width="550" height="63"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJL-Me-1Py">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="mJL-Me-1Py">
                                                             <rect key="frame" x="58" y="5" width="486" height="26"/>
                                                             <animations/>
                                                             <constraints>
@@ -841,25 +860,6 @@
                                                         <constraint firstAttribute="height" constant="60" id="fPS-Zq-tFG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qt0-3e-apv">
-                                                    <rect key="frame" x="30" y="83" width="275" height="37"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" red="0.83921568627450982" green="0.19215686274509805" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="37" id="KTZ-OR-Nhn"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
-                                                    <state key="normal" title="X"/>
-                                                </button>
-                                                <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6E-G0-r0G">
-                                                    <rect key="frame" x="305" y="83" width="275" height="37"/>
-                                                    <animations/>
-                                                    <color key="backgroundColor" red="0.14509803921568629" green="0.72156862745098038" blue="0.32156862745098042" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="37" id="NRe-8N-N5R"/>
-                                                    </constraints>
-                                                    <state key="normal" image="Check Mark"/>
-                                                </button>
                                             </subviews>
                                             <animations/>
                                             <constraints>
