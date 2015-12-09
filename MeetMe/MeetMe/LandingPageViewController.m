@@ -296,7 +296,7 @@
                                    accept, @"accept",
                                    m.objectId, @"meetingId",
                                    nil];
-    if (calendar.count > 0) {
+    if (calendar.count > 0 && attending) {
         [params setObject:calendar forKey:@"calendar"];
     } else {
         [params setObject:@[] forKey:@"calendar"];
@@ -313,7 +313,7 @@
 
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
+                [self getPendingMeetings];
             });
             
         } else {
