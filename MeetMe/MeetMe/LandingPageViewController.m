@@ -140,7 +140,7 @@
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
 {
-    return [UIImage imageNamed:@"landing-empty"];
+    return [UIImage imageNamed:@"landing-empty-fullscreen"];
 }
 
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView
