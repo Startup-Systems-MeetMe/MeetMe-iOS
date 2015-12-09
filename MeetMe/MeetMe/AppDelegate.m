@@ -60,13 +60,17 @@
     [application cancelAllLocalNotifications];
 
     // New meeting time was set
-    if ([userInfo objectForKey:@"newData"]) {
+    if ([[userInfo objectForKey:@"meetingFound"] isEqualToString:@"YES"]) {
+        
         [SVProgressHUD showSuccessWithStatus:@"Found a Meeting Time!"];
         
         // Post notification to reload meetings and save new one
         [[NSNotificationCenter defaultCenter] postNotificationName:@"NEW_MEETING_TO_SAVE" object:self userInfo:userInfo];
 
         return;
+    
+    } else if ([[userInfo objectForKey:@"meetingFound"] isEqualToString:@"NO"]) {
+        [SVProgressHUD showInfoWithStatus:@"No time could be found for your meeting"];
     }
     
     // Update list of meetings
