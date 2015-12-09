@@ -700,21 +700,28 @@
                                                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Jr-MV-g86" userLabel="Background ContentView">
                                                     <rect key="frame" x="30" y="20" width="550" height="63"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuG-9j-nLR">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="AuG-9j-nLR">
                                                             <rect key="frame" x="58" y="5" width="486" height="26"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="26" id="usL-XN-8P8"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="19"/>
                                                             <color key="textColor" red="0.49411764705882355" green="0.50196078431372548" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5c-o4x">
-                                                            <rect key="frame" x="58" y="33" width="482" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-5c-o4x">
+                                                            <rect key="frame" x="58" y="33" width="291.5" height="21"/>
+                                                            <animations/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                                            <color key="textColor" red="0.49411764705882355" green="0.50196078431372548" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="107" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Obp-BW-Pdl">
+                                                            <rect key="frame" x="357.5" y="33" width="184" height="22"/>
                                                             <animations/>
                                                             <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
-                                                            <color key="textColor" red="0.49411764705882355" green="0.50196078431372548" blue="0.51372549019607838" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -724,10 +731,14 @@
                                                         <constraint firstAttribute="bottom" secondItem="4Jk-5c-o4x" secondAttribute="bottom" constant="9" id="4qG-1b-Sgl"/>
                                                         <constraint firstItem="AuG-9j-nLR" firstAttribute="top" secondItem="3Jr-MV-g86" secondAttribute="top" constant="5" id="8WD-YR-CBf"/>
                                                         <constraint firstItem="AuG-9j-nLR" firstAttribute="leading" secondItem="3Jr-MV-g86" secondAttribute="leading" constant="58" id="CWn-dJ-wkF"/>
+                                                        <constraint firstItem="Obp-BW-Pdl" firstAttribute="leading" secondItem="4Jk-5c-o4x" secondAttribute="trailing" constant="8" id="FE2-q0-YPM"/>
                                                         <constraint firstItem="4Jk-5c-o4x" firstAttribute="top" secondItem="AuG-9j-nLR" secondAttribute="bottom" constant="2" id="GAd-1x-xdn"/>
-                                                        <constraint firstAttribute="trailing" secondItem="4Jk-5c-o4x" secondAttribute="trailing" constant="10" id="SPN-5C-5qW"/>
+                                                        <constraint firstItem="4Jk-5c-o4x" firstAttribute="width" secondItem="AuG-9j-nLR" secondAttribute="width" multiplier="0.6" id="P9J-jN-Dag"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Obp-BW-Pdl" secondAttribute="trailing" constant="8" id="W9z-NV-NbE"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Obp-BW-Pdl" secondAttribute="bottom" constant="8" id="XCY-Ne-8qC"/>
                                                         <constraint firstItem="4Jk-5c-o4x" firstAttribute="leading" secondItem="3Jr-MV-g86" secondAttribute="leading" constant="58" id="nX8-zs-hP7"/>
                                                         <constraint firstAttribute="trailing" secondItem="AuG-9j-nLR" secondAttribute="trailing" constant="6" id="p9I-fc-9J6"/>
+                                                        <constraint firstItem="Obp-BW-Pdl" firstAttribute="top" secondItem="AuG-9j-nLR" secondAttribute="bottom" constant="2" id="qqe-E7-HRa"/>
                                                     </constraints>
                                                 </view>
                                                 <view tag="104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itf-MG-ene" userLabel="Fake Image View">
@@ -781,8 +792,8 @@
                                                             <color key="textColor" red="0.4941176471" green="0.50196078430000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-ql-aDL">
-                                                            <rect key="frame" x="58" y="33" width="482" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-ql-aDL">
+                                                            <rect key="frame" x="58" y="33" width="291.5" height="21"/>
                                                             <animations/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21" id="lJZ-Ac-JmX"/>
@@ -791,15 +802,26 @@
                                                             <color key="textColor" red="0.4941176471" green="0.50196078430000002" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="107" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3Z-8X-sfE">
+                                                            <rect key="frame" x="357.5" y="33" width="184.5" height="22"/>
+                                                            <animations/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="13"/>
+                                                            <color key="textColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="mJL-Me-1Py" firstAttribute="top" secondItem="T4n-wl-RoA" secondAttribute="top" constant="5" id="6WY-iA-8bE"/>
                                                         <constraint firstAttribute="height" constant="63" id="DsA-RM-geS"/>
+                                                        <constraint firstAttribute="bottom" secondItem="g3Z-8X-sfE" secondAttribute="bottom" constant="8" id="EKW-6g-g0b"/>
+                                                        <constraint firstItem="g3Z-8X-sfE" firstAttribute="top" secondItem="mJL-Me-1Py" secondAttribute="bottom" constant="2" id="Fui-zG-zpY"/>
+                                                        <constraint firstItem="g3Z-8X-sfE" firstAttribute="leading" secondItem="JCx-ql-aDL" secondAttribute="trailing" constant="8" id="NmR-PY-TMe"/>
+                                                        <constraint firstItem="JCx-ql-aDL" firstAttribute="width" secondItem="mJL-Me-1Py" secondAttribute="width" multiplier="0.6" id="P2r-05-V2D"/>
                                                         <constraint firstAttribute="trailing" secondItem="mJL-Me-1Py" secondAttribute="trailing" constant="6" id="i81-jI-lax"/>
+                                                        <constraint firstAttribute="trailing" secondItem="g3Z-8X-sfE" secondAttribute="trailing" constant="8" id="kl7-3G-2pl"/>
                                                         <constraint firstItem="JCx-ql-aDL" firstAttribute="top" secondItem="mJL-Me-1Py" secondAttribute="bottom" constant="2" id="ks0-Na-VMS"/>
-                                                        <constraint firstAttribute="trailing" secondItem="JCx-ql-aDL" secondAttribute="trailing" constant="10" id="mZ5-Xi-a4Y"/>
                                                     </constraints>
                                                 </view>
                                                 <view tag="104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8K1-BA-8Py" userLabel="Fake Image View">

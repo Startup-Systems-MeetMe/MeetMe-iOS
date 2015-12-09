@@ -142,7 +142,8 @@
 {
     // Get meeting
     NSDictionary *meeting = [self.meetings objectAtIndex:indexPath.row];
-    BOOL isPending = [self isMeetingPending:meeting];
+    BOOL isPending        = [self isMeetingPending:meeting];
+    BOOL isSet            = [[meeting objectForKey:@"set"] boolValue];
     
     // Choose the right type of cell
     UITableViewCell *cell;
@@ -164,6 +165,7 @@
     UILabel *participantsLabel = (UILabel*)[cell viewWithTag:102];
     UIImageView *imageView     = (UIImageView*)[cell viewWithTag:103];
     UIView *fakeImageView      = (UIView*)[cell viewWithTag:104];
+    UILabel *dateLabel         = (UILabel*)[cell viewWithTag:107];
     if (isPending) {
         UIButton *refuseButton = (UIButton*)[cell viewWithTag:105];
         UIButton *acceptButton = (UIButton*)[cell viewWithTag:106];
@@ -192,6 +194,24 @@
             imageView.image = [UIImage imageWithData:data];
         }
     } progressBlock:nil];
+    
+    // Date for set meetings
+    NSString *dateString = @"";
+    if (isSet) {
+        // Use start date of first common time
+        NSDate *firstCommonTime = [NSDate dateWithTimeIntervalSince1970:[[[[meeting objectForKey:@"commonFreeTime"]
+                                                                           objectAtIndex:0]
+                                                                          objectAtIndex:0]
+                                                                         doubleValue] / 1000.f];
+        
+        // Format date
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEE MM/dd - HH:mm"];
+        [dateFormatter setAMSymbol:@"am"];
+        [dateFormatter setPMSymbol:@"pm"];
+        dateString = [dateFormatter stringFromDate:firstCommonTime];
+    }
+    dateLabel.text = dateString;
     
     return cell;
 }
