@@ -308,6 +308,9 @@
     
     // Update Meeting on Parse
     [PFCloud callFunctionInBackground:@"updatePendingMeeting" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
+        
+        [SVProgressHUD dismiss];
+
         if (!error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
