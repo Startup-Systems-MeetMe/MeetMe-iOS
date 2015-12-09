@@ -226,7 +226,7 @@
     
     // Date for set meetings
     if ([meeting objectForKey:@"set"] == nil) {
-        dateLabel.text = @"Pending";
+        dateLabel.text = [NSString stringWithFormat:@"Pending (%@/%@)", meeting[@"numResponded"], meeting[@"numOfParticipants"]];
     
     } else if ([[meeting objectForKey:@"set"] boolValue]) {
         // Use start date of first common time
