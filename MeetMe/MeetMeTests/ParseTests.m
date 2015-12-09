@@ -28,9 +28,8 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    
+- (void)testMergeFreeTimesAPI {
+
     XCTestExpectation *expectation = [self expectationWithDescription:@"expect"];
     
     NSDictionary *params = @{@"calendarOne": @[@[@(0), @(1)], @[@(5), @(15)]],
@@ -39,6 +38,25 @@
     [PFCloud callFunctionInBackground:@"testMergeFreeTimes" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
         
         NSArray *array = [NSArray arrayWithObjects:[NSArray arrayWithObjects:@(5), @(12), nil], nil];
+        XCTAssertEqualObjects(object, array);
+        [expectation fulfill];
+    }];
+    
+    [self waitForExpectationsWithTimeout:10 handler:^(NSError * _Nullable error) {
+        // Failed
+    }];
+}
+
+- (void)testGetFreeTimesAPI
+{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"expect"];
+
+    NSDictionary *params = @{@"calendarOne": @[@{@"start": @(1), @"end": @(5)}, @{@"start":@(5), @"end":@(15)}],
+                             @"startRange": @(0),
+                             @"endRange": @(100)};
+    [PFCloud callFunctionInBackground:@"testGetFreeTimeFromCalendar" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
+        
+        NSArray *array = [NSArray arrayWithObjects:[NSArray arrayWithObjects:@(0), @(1), nil], [NSArray arrayWithObjects:@(15), @(100), nil], nil];
         XCTAssertEqualObjects(object, array);
         [expectation fulfill];
     }];
