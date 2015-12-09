@@ -173,7 +173,6 @@
     // Get meeting
     NSDictionary *meeting = [self.meetings objectAtIndex:indexPath.row];
     BOOL isPending        = [self isMeetingPending:meeting];
-    BOOL isSet            = [[meeting objectForKey:@"set"] boolValue];
     
     // Choose the right type of cell
     UITableViewCell *cell;
@@ -226,8 +225,10 @@
     } progressBlock:nil];
     
     // Date for set meetings
-    NSString *dateString = @"Pending";
-    if (isSet) {
+    if ([meeting objectForKey:@"set"] == nil) {
+        dateLabel.text = @"Pending";
+    }
+    else if ([[meeting objectForKey:@"set"] boolValue]) {
         // Use start date of first common time
         NSDate *firstCommonTime = [NSDate dateWithTimeIntervalSince1970:[[[[meeting objectForKey:@"commonFreeTime"]
                                                                            objectAtIndex:0]
@@ -239,9 +240,10 @@
         [dateFormatter setDateFormat:@"EEE MM/dd - HH:mm"];
         [dateFormatter setAMSymbol:@"am"];
         [dateFormatter setPMSymbol:@"pm"];
-        dateString = [dateFormatter stringFromDate:firstCommonTime];
+        dateLabel.text = [dateFormatter stringFromDate:firstCommonTime];
+    } else {
+        dateLabel.text = @"Failed";
     }
-    dateLabel.text = dateString;
     
     return cell;
 }
