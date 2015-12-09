@@ -15,4 +15,34 @@
     return floor([self timeIntervalSince1970] * 1000);
 }
 
+
++ (NSDate*)sundayThisWeek
+{
+    NSDate *today = [[NSDate alloc] init];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    
+    // Get the weekday component of the current date
+    NSDateComponents *weekdayComponents = [gregorian components:NSCalendarUnitWeekday
+                                                       fromDate:today];
+    
+    /*
+     Create a date components to represent the number of days to subtract from the current date.
+     The weekday value for Sunday in the Gregorian calendar is 1, so subtract 1 from the number of days to subtract from the date in question.  (If today is Sunday, subtract 0 days.)
+     */
+    NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
+    [componentsToSubtract setDay: 0 - ([weekdayComponents weekday] - 1)];
+    
+    // Add a week
+    NSDateComponents *nextWeekComp = [[NSDateComponents alloc] init];
+    [nextWeekComp setDay:7];
+    NSDate *beginningOfWeek = [gregorian dateByAddingComponents:nextWeekComp toDate:today options:0];
+    
+    // Then go back to Sunday
+    beginningOfWeek = [gregorian dateByAddingComponents:componentsToSubtract
+                                                         toDate:beginningOfWeek options:0];
+    
+    return beginningOfWeek;
+}
+
 @end

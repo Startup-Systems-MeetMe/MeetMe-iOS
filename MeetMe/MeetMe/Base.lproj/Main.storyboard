@@ -1081,7 +1081,7 @@
                                     <outlet property="delegate" destination="DqG-bX-Acm" id="TNk-1d-BKp"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need to meet before:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVd-Fx-c6t">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We need to meet by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVd-Fx-c6t">
                                 <rect key="frame" x="20" y="246" width="262" height="27"/>
                                 <animations/>
                                 <constraints>
@@ -1160,7 +1160,7 @@
                                     <constraint firstAttribute="height" constant="34" id="VbI-He-HN0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
-                                <state key="normal" title="This Week">
+                                <state key="normal" title="This Sunday">
                                     <color key="titleColor" red="0.25490196079999999" green="0.53725490200000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>

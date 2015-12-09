@@ -69,11 +69,15 @@ int MINUTES_TO_MS = 60000;
     
     // Setup date picker
     [self.datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [self setUpDatePickerForThisWeek:YES];
     
     // Tap to dismiss keyboard
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tapGesture];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self setUpDatePickerForThisWeek:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,13 +95,7 @@ int MINUTES_TO_MS = 60000;
     
     // Find this Sunday
     if (thisWeek) {
-        NSDate *today = [NSDate date];
-        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        [gregorian setLocale:[NSLocale currentLocale]];
-        NSDateComponents *nowComponents = [gregorian components:NSCalendarUnitYear | NSCalendarUnitWeekday fromDate:today];
-        [nowComponents setWeekday:1];
-        NSDate *thisSunday = [gregorian dateFromComponents:nowComponents];
-        [self.datePicker setDate:thisSunday];
+        [self.datePicker setDate:[NSDate sundayThisWeek]];
         
     // Set to next week
     } else {
@@ -189,6 +187,8 @@ int MINUTES_TO_MS = 60000;
 
 - (IBAction)tappedThisWeek:(id)sender
 {
+    [self dismissKeyboard];
+    
     [UIView animateWithDuration:0.2f animations:^{
         [self.thisWeekButton setBackgroundColor:[UIColor rdvTertiaryColor]];
         [self.thisWeekButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -202,6 +202,8 @@ int MINUTES_TO_MS = 60000;
 
 - (IBAction)tappedNextWeek:(id)sender
 {
+    [self dismissKeyboard];
+    
     [UIView animateWithDuration:0.2f animations:^{
         [self.nextWeekButton setBackgroundColor:[UIColor rdvTertiaryColor]];
         [self.nextWeekButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
