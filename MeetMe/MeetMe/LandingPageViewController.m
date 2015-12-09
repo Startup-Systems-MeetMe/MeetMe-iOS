@@ -20,6 +20,8 @@
 @property (strong, nonatomic) EKEventStore *store;
 @property (strong, nonatomic) NSArray *meetings;
 
+@property (strong, nonatomic) NSString *IdOfMeetingToSave;
+
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
@@ -30,6 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(newMeetingToSaveCallback:) name:@"NEW_MEETING_TO_SAVE" object:nil];
+    
     // Remove cell separators
     self.tableView.tableFooterView = [UIView new];
     
@@ -39,6 +43,13 @@
     [self.refreshControl setTintColor:[UIColor colorWithRed:0.49 green:0.50 blue:0.51 alpha:1.0]];
     [self.refreshControl addTarget:self action:@selector(getPendingMeetings) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+    
+    [self getPendingMeetings];
+}
+
+- (void)newMeetingToSaveCallback:(NSNotification*)notification
+{
+    self.IdOfMeetingToSave = [notification.userInfo objectForKey:@"newData"];
     
     [self getPendingMeetings];
 }
@@ -78,8 +89,27 @@
             if (error)
                 return;
             
+            
             _meetings = [NSArray arrayWithArray:object];
             [_tableView reloadData];
+            
+            // New Meeting to save
+            if (self.IdOfMeetingToSave.length > 0) {
+                for (PFObject *meeting in _meetings) {
+                    
+                    // Found meeting
+                    if ([[meeting objectId] isEqualToString:self.IdOfMeetingToSave]) {
+                        
+                        // Try saving to calendar
+                        if ([[[CalendarInterface alloc] init] saveMeetingToCalendar:(NSDictionary*)meeting]) {
+                            [SVProgressHUD showSuccessWithStatus:@"Saved Meeting to Your iOS Calendar"];
+                        } else {
+                            [SVProgressHUD showErrorWithStatus:@"Failed saving to calendar"];
+                        }
+                        self.IdOfMeetingToSave = @"";
+                    }
+                }
+            }
         }];
         
     });

@@ -12,5 +12,6 @@
 
 - (NSArray*)getEventsIntervalsFrom:(NSDate*)start toDate:(NSDate*)end;
 - (NSArray*)offHoursForIntervalsFrom:(NSDate*)start toDate:(NSDate*)end;
+- (BOOL)saveMeetingToCalendar:(NSDictionary*)meeting;
 
 @end

@@ -55,11 +55,22 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_MEETINGS" object:nil];
+    
+    // Clear notifications
+    [application cancelAllLocalNotifications];
+
+    // New meeting time was set
     if ([userInfo objectForKey:@"newData"]) {
         [SVProgressHUD showSuccessWithStatus:@"Found a Meeting Time!"];
+        
+        // Post notification to reload meetings and save new one
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NEW_MEETING_TO_SAVE" object:self userInfo:userInfo];
+
+        return;
     }
-    [application cancelAllLocalNotifications];
+    
+    // Update list of meetings
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_MEETINGS" object:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

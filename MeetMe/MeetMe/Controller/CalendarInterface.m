@@ -61,28 +61,29 @@
 {
     NSMutableArray *offHours = [[NSMutableArray alloc] init];
     NSCalendar *cal          = [NSCalendar currentCalendar];
+    [cal setTimeZone:[NSTimeZone localTimeZone]];
     unsigned unitFlags       = NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-    NSDate *tmpStart         = start;
-    NSDate *tmpEnd           = end;
     
     // Loop through days and add off hours
     for (NSDate *nextDate = start; [nextDate compare:end] < 0; nextDate = [nextDate dateByAddingTimeInterval:24*60*60]) {
         
         // Set end of interval to same day at 9am
         NSDateComponents *endComp = [cal components:unitFlags fromDate:nextDate];
+        [endComp setTimeZone:[NSTimeZone timeZoneWithName:@"EST"]];
         [endComp setHour:9];
         [endComp setMinute:0];
         [endComp setSecond:0];
-        tmpEnd = [cal dateFromComponents:endComp];
+        NSDate *tmpEnd = [cal dateFromComponents:endComp];
         
         // Get date of previous day
         NSDateComponents *startComp = [[NSDateComponents alloc] init];
         startComp.day = -1;
-        tmpStart = [[NSCalendar currentCalendar] dateByAddingComponents:startComp
+        NSDate *tmpStart = [[NSCalendar currentCalendar] dateByAddingComponents:startComp
                                                                  toDate:nextDate
                                                                 options:0];
         // Set it to 6pm
         startComp = [cal components:unitFlags fromDate:tmpStart];
+        [startComp setTimeZone:[NSTimeZone timeZoneWithName:@"EST"]];
         [startComp setHour:18];
         [startComp setMinute:0];
         [startComp setSecond:0];
@@ -94,6 +95,35 @@
     }
     
     return nil;
+}
+
+- (BOOL)saveMeetingToCalendar:(NSDictionary*)meeting
+{
+    EKEvent *event = [EKEvent eventWithEventStore:self.store];
+    
+    // Title
+    event.title = [meeting objectForKey:@"name"];
+    event.notes = [meeting objectForKey:@"notes"];
+    
+    // Start Date
+    event.startDate = [NSDate dateWithTimeIntervalSince1970:[[[[meeting objectForKey:@"commonFreeTime"]
+                                                                       objectAtIndex:0]
+                                                                      objectAtIndex:0]
+                                                                     doubleValue] / 1000.f];
+
+    // Meeting length
+    NSTimeInterval length = [[meeting objectForKey:@"meetingLength"] doubleValue] / 1000.f;
+
+    // End Date
+    event.endDate = [event.startDate dateByAddingTimeInterval:length];
+    
+    // Save to calendar
+    [event setCalendar:[self.store defaultCalendarForNewEvents]];
+    
+    // ... and catch error
+    NSError *error;
+    [self.store saveEvent:event span:EKSpanThisEvent error:&error];
+    return !error;
 }
 
 
