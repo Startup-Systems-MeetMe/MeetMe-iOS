@@ -55,6 +55,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_MEETINGS" object:nil];
+    [application cancelAllLocalNotifications];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
