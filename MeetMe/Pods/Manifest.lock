@@ -1,0 +1,19 @@
+PODS:
+  - DZNEmptyDataSet (HEAD based on 1.7.2)
+  - PKImagePicker (0.0.5)
+  - SSKeychain (1.2.3)
+  - SVProgressHUD (HEAD based on 2.0-beta)
+
+DEPENDENCIES:
+  - DZNEmptyDataSet (HEAD)
+  - PKImagePicker (= 0.0.5)
+  - SSKeychain (= 1.2.3)
+  - SVProgressHUD (HEAD)
+
+SPEC CHECKSUMS:
+  DZNEmptyDataSet: 0ec00bfc230d7450997b60c127afdd0b9f24f3b6
+  PKImagePicker: 0a6946f24a281d0664c88cac849b69792e4f1551
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
+
+COCOAPODS: 0.39.0
