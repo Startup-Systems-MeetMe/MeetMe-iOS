@@ -36,6 +36,18 @@
 		B8A980EF1BB32C1000C20A77 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */; };
 		B8A980F11BB32C2800C20A77 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */; };
 		B8A980F31BB32C2E00C20A77 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F21BB32C2E00C20A77 /* libz.tbd */; };
+		B8BB7F171C18BC5900784EAE /* ParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BB7F161C18BC5900784EAE /* ParseTests.m */; };
+		B8BB7F1B1C18C44D00784EAE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; };
+		B8BB7F1C1C18C44F00784EAE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; };
+		B8BB7F1D1C18C45400784EAE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F21BB32C2E00C20A77 /* libz.tbd */; };
+		B8BB7F1E1C18C45800784EAE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */; };
+		B8BB7F1F1C18C45A00784EAE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */; };
+		B8BB7F201C18C48500784EAE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980EA1BB32C0400C20A77 /* Security.framework */; };
+		B8BB7F211C18C48700784EAE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E81BB32BFF00C20A77 /* QuartzCore.framework */; };
+		B8BB7F221C18C48900784EAE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E61BB32BFA00C20A77 /* CoreLocation.framework */; };
+		B8BB7F231C18C48B00784EAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E41BB32BF200C20A77 /* CoreGraphics.framework */; };
+		B8BB7F241C18C48E00784EAE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E21BB32BEE00C20A77 /* CFNetwork.framework */; };
+		B8BB7F251C18C49000784EAE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8A980E01BB32BE700C20A77 /* AudioToolbox.framework */; };
 		B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CA55641BB2698E00591B9F /* SignupViewController.m */; };
 		B8CAEE5D1BF52EC10061AF82 /* NewMeetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */; };
 		B8DA7E5A1C0AA1AB006E1D8B /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
@@ -115,6 +127,7 @@
 		B8A980EE1BB32C1000C20A77 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B8A980F01BB32C2800C20A77 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B8A980F21BB32C2E00C20A77 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B8BB7F161C18BC5900784EAE /* ParseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseTests.m; sourceTree = "<group>"; };
 		B8CA55631BB2698E00591B9F /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		B8CA55641BB2698E00591B9F /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		B8CAEE5B1BF52EC10061AF82 /* NewMeetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMeetingViewController.h; sourceTree = "<group>"; };
@@ -163,6 +176,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BB7F1C1C18C44F00784EAE /* Parse.framework in Frameworks */,
+				B8BB7F1F1C18C45A00784EAE /* SystemConfiguration.framework in Frameworks */,
+				B8BB7F211C18C48700784EAE /* QuartzCore.framework in Frameworks */,
+				B8BB7F251C18C49000784EAE /* AudioToolbox.framework in Frameworks */,
+				B8BB7F231C18C48B00784EAE /* CoreGraphics.framework in Frameworks */,
+				B8BB7F241C18C48E00784EAE /* CFNetwork.framework in Frameworks */,
+				B8BB7F1D1C18C45400784EAE /* libz.tbd in Frameworks */,
+				B8BB7F221C18C48900784EAE /* CoreLocation.framework in Frameworks */,
+				B8BB7F1E1C18C45800784EAE /* libsqlite3.tbd in Frameworks */,
+				B8BB7F201C18C48500784EAE /* Security.framework in Frameworks */,
+				B8BB7F1B1C18C44D00784EAE /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +381,7 @@
 			children = (
 				B8EA70001BB1A23200C41477 /* MeetMeTests.m */,
 				B813E7D81BC0811F000B45B1 /* AdditionsTests.m */,
+				B8BB7F161C18BC5900784EAE /* ParseTests.m */,
 				B8EA70021BB1A23200C41477 /* Info.plist */,
 			);
 			path = MeetMeTests;
@@ -591,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8EA70011BB1A23200C41477 /* MeetMeTests.m in Sources */,
+				B8BB7F171C18BC5900784EAE /* ParseTests.m in Sources */,
 				B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */,
 				B8DD3E391C13765F00148BA4 /* CurrentUser.m in Sources */,
 				B8DA7E5A1C0AA1AB006E1D8B /* NSString+Additions.m in Sources */,
@@ -767,6 +793,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MeetMe/Frameworks",
+				);
 				INFOPLIST_FILE = MeetMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeTests;
@@ -780,6 +810,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MeetMe/Frameworks",
+				);
 				INFOPLIST_FILE = MeetMeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeTests;
