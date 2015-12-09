@@ -91,6 +91,12 @@
             
             
             _meetings = [NSArray arrayWithArray:object];
+            
+            // Sort meetings
+            NSSortDescriptor *startSort = [NSSortDescriptor sortDescriptorWithKey:@"startRange" ascending:YES];
+            NSSortDescriptor *endSort = [NSSortDescriptor sortDescriptorWithKey:@"endRange" ascending:YES];
+            [_meetings sortedArrayUsingDescriptors:@[startSort, endSort]];
+            
             [_tableView reloadData];
             
             // New Meeting to save
