@@ -59,19 +59,11 @@
 		B8EA6FF31BB1A23200C41477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8EA6FF21BB1A23200C41477 /* Assets.xcassets */; };
 		B8EA6FF61BB1A23200C41477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8EA6FF41BB1A23200C41477 /* LaunchScreen.storyboard */; };
 		B8EA70011BB1A23200C41477 /* MeetMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA70001BB1A23200C41477 /* MeetMeTests.m */; };
-		B8EA700C1BB1A23200C41477 /* MeetMeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8EA700B1BB1A23200C41477 /* MeetMeUITests.m */; };
 		C81B627D014AE7D68A70E6A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AC49D61042CB384DFF08C99 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		B8EA6FFD1BB1A23200C41477 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B8EA6FDB1BB1A23200C41477 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B8EA6FE21BB1A23200C41477;
-			remoteInfo = MeetMe;
-		};
-		B8EA70081BB1A23200C41477 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B8EA6FDB1BB1A23200C41477 /* Project object */;
 			proxyType = 1;
@@ -145,9 +137,6 @@
 		B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rendez-VousTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA70001BB1A23200C41477 /* MeetMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeTests.m; sourceTree = "<group>"; };
 		B8EA70021BB1A23200C41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8EA70071BB1A23200C41477 /* Rendez-VousUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rendez-VousUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8EA700B1BB1A23200C41477 /* MeetMeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeUITests.m; sourceTree = "<group>"; };
-		B8EA700D1BB1A23200C41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F06C1169CB4CB89309E7E4B8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F48D1A59ACA6C8D4A4D4B04B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,13 +176,6 @@
 				B8BB7F1E1C18C45800784EAE /* libsqlite3.tbd in Frameworks */,
 				B8BB7F201C18C48500784EAE /* Security.framework in Frameworks */,
 				B8BB7F1B1C18C44D00784EAE /* Bolts.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B8EA70041BB1A23200C41477 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +309,6 @@
 			children = (
 				B8EA6FE51BB1A23200C41477 /* MeetMe */,
 				B8EA6FFF1BB1A23200C41477 /* MeetMeTests */,
-				B8EA700A1BB1A23200C41477 /* MeetMeUITests */,
 				B8EA6FE41BB1A23200C41477 /* Products */,
 				5EFADD8BFF684339A4211277 /* Pods */,
 				37E405AC5C09607B6B458B35 /* Frameworks */,
@@ -339,7 +320,6 @@
 			children = (
 				B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */,
 				B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */,
-				B8EA70071BB1A23200C41477 /* Rendez-VousUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -387,15 +367,6 @@
 			path = MeetMeTests;
 			sourceTree = "<group>";
 		};
-		B8EA700A1BB1A23200C41477 /* MeetMeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B8EA700B1BB1A23200C41477 /* MeetMeUITests.m */,
-				B8EA700D1BB1A23200C41477 /* Info.plist */,
-			);
-			path = MeetMeUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,24 +408,6 @@
 			productReference = B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B8EA70061BB1A23200C41477 /* Rendez-VousUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B8EA70161BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousUITests" */;
-			buildPhases = (
-				B8EA70031BB1A23200C41477 /* Sources */,
-				B8EA70041BB1A23200C41477 /* Frameworks */,
-				B8EA70051BB1A23200C41477 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B8EA70091BB1A23200C41477 /* PBXTargetDependency */,
-			);
-			name = "Rendez-VousUITests";
-			productName = MeetMeUITests;
-			productReference = B8EA70071BB1A23200C41477 /* Rendez-VousUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -480,10 +433,6 @@
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = B8EA6FE21BB1A23200C41477;
 					};
-					B8EA70061BB1A23200C41477 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = B8EA6FE21BB1A23200C41477;
-					};
 				};
 			};
 			buildConfigurationList = B8EA6FDE1BB1A23200C41477 /* Build configuration list for PBXProject "MeetMe" */;
@@ -501,7 +450,6 @@
 			targets = (
 				B8EA6FE21BB1A23200C41477 /* Rendez-Vous */,
 				B8EA6FFB1BB1A23200C41477 /* Rendez-VousTests */,
-				B8EA70061BB1A23200C41477 /* Rendez-VousUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -519,13 +467,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B8EA6FFA1BB1A23200C41477 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B8EA70051BB1A23200C41477 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -623,14 +564,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B8EA70031BB1A23200C41477 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B8EA700C1BB1A23200C41477 /* MeetMeUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -638,11 +571,6 @@
 			isa = PBXTargetDependency;
 			target = B8EA6FE21BB1A23200C41477 /* Rendez-Vous */;
 			targetProxy = B8EA6FFD1BB1A23200C41477 /* PBXContainerItemProxy */;
-		};
-		B8EA70091BB1A23200C41477 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B8EA6FE21BB1A23200C41477 /* Rendez-Vous */;
-			targetProxy = B8EA70081BB1A23200C41477 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -822,34 +750,6 @@
 			};
 			name = Release;
 		};
-		B8EA70171BB1A23200C41477 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				INFOPLIST_FILE = MeetMeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_TARGET_NAME = MeetMe;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		B8EA70181BB1A23200C41477 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				INFOPLIST_FILE = MeetMeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MM.MeetMeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_TARGET_NAME = MeetMe;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -876,15 +776,6 @@
 			buildConfigurations = (
 				B8EA70141BB1A23200C41477 /* Debug */,
 				B8EA70151BB1A23200C41477 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B8EA70161BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B8EA70171BB1A23200C41477 /* Debug */,
-				B8EA70181BB1A23200C41477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
