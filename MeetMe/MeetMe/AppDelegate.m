@@ -17,7 +17,7 @@
 
 @implementation AppDelegate
 
-
+// First thing called when app runs
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // Load current user
