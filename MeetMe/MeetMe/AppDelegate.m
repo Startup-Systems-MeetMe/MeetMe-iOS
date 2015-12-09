@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 #import "CurrentUser.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface AppDelegate ()
 
@@ -55,6 +56,9 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"UPDATE_MEETINGS" object:nil];
+    if ([userInfo objectForKey:@"newData"]) {
+        [SVProgressHUD showSuccessWithStatus:@"Found a Meeting Time!"];
+    }
     [application cancelAllLocalNotifications];
 }
 
