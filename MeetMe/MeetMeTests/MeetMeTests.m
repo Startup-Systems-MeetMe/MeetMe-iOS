@@ -31,6 +31,7 @@
     [user setName:@"NAME"];
     [user setPhoneNumber:@"1234567890"];
     [user setEmail:@"abc@xyz.com"];
+    [user setProfilePicture:[UIImage imageNamed:@"default_profile_pic"]];
     [user saveToDisk];
     
     
@@ -40,6 +41,13 @@
     XCTAssertEqualObjects(user.name, anotherUser.name);
     XCTAssertEqualObjects(user.phoneNumber, anotherUser.phoneNumber);
     XCTAssertEqualObjects(user.email, anotherUser.email);
+    XCTAssertEqualObjects(user.profileImage, anotherUser.profileImage);
+}
+
+- (void)testSingletonInstance
+{
+    CurrentUser *user = [CurrentUser sharedInstance];
+    XCTAssertEqual(user, [CurrentUser sharedInstance]);
 }
 
 - (void)testPerformanceExample {
