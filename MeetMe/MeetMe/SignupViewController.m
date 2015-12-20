@@ -95,7 +95,7 @@ const int CODE_TAG = 88;
         background.alpha = 1.f;
     }];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"completeProfile"] animated:YES];
     });
 }
@@ -187,30 +187,35 @@ const int CODE_TAG = 88;
         // If = 4, check code
         if (totalString.length == 4) {
             
-            [textField resignFirstResponder];
-            
-            [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
-            [SVProgressHUD show];
-            
-            // Login through Parse
-            [PFCloud callFunctionInBackground:@"logIn" withParameters:@{@"phoneNumber":self.userPhoneNumber, @"codeEntry": totalString} block:^(id object, NSError *error) {
+            // Dispatch 0.1 seconds after to allow the textfield to show the number
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+                [SVProgressHUD show];
                 
-                [SVProgressHUD dismiss];
+                [self.activationTextField resignFirstResponder];
                 
-                // Success
-                if (!error) {
+                // Login through Parse
+                [PFCloud callFunctionInBackground:@"logIn" withParameters:@{@"phoneNumber":self.userPhoneNumber, @"codeEntry": totalString} block:^(id object, NSError *error) {
                     
-                    [self moveToProfileScreen];
-                }
-                
-                // Error
-                else {
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-                    [alert addAction:action];
-                    [self presentViewController:alert animated:YES completion:nil];
-                }
-            }];
+                    [SVProgressHUD dismiss];
+                    
+                    // Success
+                    if (!error) {
+                        [self moveToProfileScreen];
+                    }
+                    
+                    // Error
+                    else {
+                        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *action = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            self.activationTextField.text = @"";
+                            [self.activationTextField becomeFirstResponder];
+                        }];
+                        [alert addAction:action];
+                        [self presentViewController:alert animated:YES completion:nil];
+                    }
+                }];
+            });
             
             return YES;
         }
