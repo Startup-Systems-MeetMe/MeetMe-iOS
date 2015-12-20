@@ -77,7 +77,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self.refreshControl beginRefreshing];
-        [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
+//        [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
         
         NSDictionary *params = @{@"username":[[CurrentUser sharedInstance] phoneNumber]};
         [PFCloud callFunctionInBackground:@"getPendingMeetings" withParameters:params block:^(id _Nullable object, NSError * _Nullable error) {
