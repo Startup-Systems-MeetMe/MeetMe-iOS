@@ -1,3 +1,10 @@
 language: objective-c
-#xcode_project: MeetMe/MeetMe.xcodeproj # path to your xcodeproj folder
-#xcode_scheme: MeetMe/MeetMeTests
+# cache: cocoapods
+# xcode_workspace: MeetMe/MeetMe.xcworkspace
+# xcode_scheme: RendezVous
+# xcode_sdk: iphonesimulator
+podfile: MeetMe/Podfile
+
+before_install: gem install slather -N
+
+after_success: slather

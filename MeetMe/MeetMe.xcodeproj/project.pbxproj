@@ -126,7 +126,7 @@
 		B8CAEE5C1BF52EC10061AF82 /* NewMeetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMeetingViewController.m; sourceTree = "<group>"; };
 		B8DE3DE21C0A63B900A4154B /* Contacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contacts.h; path = Model/Contacts.h; sourceTree = "<group>"; };
 		B8DE3DE31C0A63B900A4154B /* Contacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contacts.m; path = Model/Contacts.m; sourceTree = "<group>"; };
-		B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rendez-Vous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EA6FE31BB1A23200C41477 /* RendezVous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RendezVous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA6FE71BB1A23200C41477 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8EA6FE91BB1A23200C41477 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B8EA6FEA1BB1A23200C41477 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		B8EA6FF21BB1A23200C41477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8EA6FF51BB1A23200C41477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B8EA6FF71BB1A23200C41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rendez-VousTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8EA6FFC1BB1A23200C41477 /* RendezVousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RendezVousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8EA70001BB1A23200C41477 /* MeetMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeetMeTests.m; sourceTree = "<group>"; };
 		B8EA70021BB1A23200C41477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F06C1169CB4CB89309E7E4B8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -318,8 +318,8 @@
 		B8EA6FE41BB1A23200C41477 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */,
-				B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */,
+				B8EA6FE31BB1A23200C41477 /* RendezVous.app */,
+				B8EA6FFC1BB1A23200C41477 /* RendezVousTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -370,9 +370,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8EA6FE21BB1A23200C41477 /* Rendez-Vous */ = {
+		B8EA6FE21BB1A23200C41477 /* RendezVous */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-Vous" */;
+			buildConfigurationList = B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "RendezVous" */;
 			buildPhases = (
 				C4865BF9AFD5D59077CDE292 /* Check Pods Manifest.lock */,
 				B8EA6FDF1BB1A23200C41477 /* Sources */,
@@ -385,14 +385,14 @@
 			);
 			dependencies = (
 			);
-			name = "Rendez-Vous";
+			name = RendezVous;
 			productName = MeetMe;
-			productReference = B8EA6FE31BB1A23200C41477 /* Rendez-Vous.app */;
+			productReference = B8EA6FE31BB1A23200C41477 /* RendezVous.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B8EA6FFB1BB1A23200C41477 /* Rendez-VousTests */ = {
+		B8EA6FFB1BB1A23200C41477 /* RendezVousTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousTests" */;
+			buildConfigurationList = B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "RendezVousTests" */;
 			buildPhases = (
 				B8EA6FF81BB1A23200C41477 /* Sources */,
 				B8EA6FF91BB1A23200C41477 /* Frameworks */,
@@ -403,9 +403,9 @@
 			dependencies = (
 				B8EA6FFE1BB1A23200C41477 /* PBXTargetDependency */,
 			);
-			name = "Rendez-VousTests";
+			name = RendezVousTests;
 			productName = MeetMeTests;
-			productReference = B8EA6FFC1BB1A23200C41477 /* Rendez-VousTests.xctest */;
+			productReference = B8EA6FFC1BB1A23200C41477 /* RendezVousTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -448,8 +448,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8EA6FE21BB1A23200C41477 /* Rendez-Vous */,
-				B8EA6FFB1BB1A23200C41477 /* Rendez-VousTests */,
+				B8EA6FE21BB1A23200C41477 /* RendezVous */,
+				B8EA6FFB1BB1A23200C41477 /* RendezVousTests */,
 			);
 		};
 /* End PBXProject section */
@@ -569,7 +569,7 @@
 /* Begin PBXTargetDependency section */
 		B8EA6FFE1BB1A23200C41477 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B8EA6FE21BB1A23200C41477 /* Rendez-Vous */;
+			target = B8EA6FE21BB1A23200C41477 /* RendezVous */;
 			targetProxy = B8EA6FFD1BB1A23200C41477 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -619,6 +619,8 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -663,6 +665,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -762,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-Vous" */ = {
+		B8EA70101BB1A23200C41477 /* Build configuration list for PBXNativeTarget "RendezVous" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8EA70111BB1A23200C41477 /* Debug */,
@@ -771,7 +775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "Rendez-VousTests" */ = {
+		B8EA70131BB1A23200C41477 /* Build configuration list for PBXNativeTarget "RendezVousTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8EA70141BB1A23200C41477 /* Debug */,

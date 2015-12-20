@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B8EA6FE21BB1A23200C41477"
-               BuildableName = "Rendez-Vous.app"
-               BlueprintName = "Rendez-Vous"
+               BuildableName = "RendezVous.app"
+               BlueprintName = "RendezVous"
                ReferencedContainer = "container:MeetMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B8EA6FFB1BB1A23200C41477"
-               BuildableName = "Rendez-VousTests.xctest"
-               BlueprintName = "Rendez-VousTests"
+               BuildableName = "RendezVousTests.xctest"
+               BlueprintName = "RendezVousTests"
                ReferencedContainer = "container:MeetMe.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,8 +44,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8EA6FE21BB1A23200C41477"
-            BuildableName = "Rendez-Vous.app"
-            BlueprintName = "Rendez-Vous"
+            BuildableName = "RendezVous.app"
+            BlueprintName = "RendezVous"
             ReferencedContainer = "container:MeetMe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,8 +67,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8EA6FE21BB1A23200C41477"
-            BuildableName = "Rendez-Vous.app"
-            BlueprintName = "Rendez-Vous"
+            BuildableName = "RendezVous.app"
+            BlueprintName = "RendezVous"
             ReferencedContainer = "container:MeetMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B8EA6FE21BB1A23200C41477"
-            BuildableName = "Rendez-Vous.app"
-            BlueprintName = "Rendez-Vous"
+            BuildableName = "RendezVous.app"
+            BlueprintName = "RendezVous"
             ReferencedContainer = "container:MeetMe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
