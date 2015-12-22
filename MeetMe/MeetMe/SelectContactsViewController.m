@@ -60,6 +60,8 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     // Next button frame
     CGRect bounds = self.myTableView.frame;
     self.nextButton = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(bounds), CGRectGetWidth(bounds), NEXT_BUTTON_HEIGHT)];
@@ -75,6 +77,7 @@ static const int NEXT_BUTTON_HEIGHT = 75.f;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.nextButton removeFromSuperview];
     });

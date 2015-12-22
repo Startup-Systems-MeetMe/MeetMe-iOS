@@ -56,6 +56,8 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     [self registerForPushNotifications];
     
     [self getPendingMeetings];
@@ -65,6 +67,8 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"UPDATE_MEETINGS" object:nil];
 }
 

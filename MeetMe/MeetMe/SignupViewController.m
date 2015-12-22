@@ -55,6 +55,8 @@ const int CODE_TAG = 88;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     // Is user already signed up?
     if ([SSKeychain passwordForService:RDVSERVICE account:RDVACCOUNT] &&
         [[[NSUserDefaults standardUserDefaults] objectForKey:RDVACCOUNT] isEqualToString:RDVSERVICE]) {

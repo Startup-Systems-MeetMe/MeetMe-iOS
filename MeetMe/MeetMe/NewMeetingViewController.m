@@ -77,6 +77,8 @@ int MINUTES_TO_MS = 60000;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     [self setUpDatePickerForThisWeek:YES];
 }
 
