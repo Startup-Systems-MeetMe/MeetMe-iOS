@@ -220,8 +220,8 @@
     // Add shadow
     CGRect bounds     = contentView.bounds;
     bounds.size.width = self.view.bounds.size.width - 40.f;
-    contentView       = [self viewWithDropShadow:contentView inRect:bounds];
-    fakeImageView     = [self viewWithDropShadow:fakeImageView inRect:fakeImageView.bounds];
+    [self addDropShadowToView:contentView inRect:bounds];
+    [self addDropShadowToView:fakeImageView inRect:fakeImageView.bounds];
     
     // Add content
     titleLabel.text        = [meeting objectForKey:@"name"];
@@ -336,18 +336,16 @@
     }];
 }
 
-- (UIView*)viewWithDropShadow:(UIView*)contentView inRect:(CGRect)bounds
+- (void)addDropShadowToView:(UIView*)view inRect:(CGRect)bounds
 {
     UIBezierPath *shadowPath        = [UIBezierPath bezierPathWithRect:bounds];
     
-    contentView.layer.masksToBounds = NO;
-    contentView.layer.shadowPath    = shadowPath.CGPath;
-    contentView.layer.shadowColor   = [UIColor blackColor].CGColor;
-    contentView.layer.shadowOffset  = CGSizeMake(0, 0);
-    contentView.layer.shadowOpacity = 0.2f;
-    contentView.layer.shadowRadius  = 5;
-    
-    return contentView;
+    view.layer.masksToBounds = NO;
+    view.layer.shadowPath    = shadowPath.CGPath;
+    view.layer.shadowColor   = [UIColor blackColor].CGColor;
+    view.layer.shadowOffset  = CGSizeMake(0, 0);
+    view.layer.shadowOpacity = 0.2f;
+    view.layer.shadowRadius  = 5;
 }
 
 @end

@@ -12,7 +12,7 @@
 
 - (id)initWithDictionary
 {
-    if (self == [super init]) {
+    if (self = [super init]) {
         // stuff
     }
     return self;
