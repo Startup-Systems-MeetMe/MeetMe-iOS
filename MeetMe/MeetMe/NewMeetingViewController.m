@@ -133,6 +133,9 @@ int MINUTES_TO_MS = 60000;
         // Return to home page
     } else {
         
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+        [SVProgressHUD showWithStatus:@"Creating Your Meeting"];
+        
         // Phone number of participants
         NSMutableArray *participants = [[NSMutableArray alloc] init];
         for (User *user in self.contactsToMeetWith) {
@@ -176,7 +179,11 @@ int MINUTES_TO_MS = 60000;
                                  @"meetingLength": @(meetingDuration * MINUTES_TO_MS)};
         [PFCloud callFunctionInBackground:@"createNewMeeting" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
             
+            [SVProgressHUD dismiss];
+            
             if (!error) {
+                [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+                
                 [self.navigationController dismissViewControllerAnimated:YES completion:nil];
             
             } else {
