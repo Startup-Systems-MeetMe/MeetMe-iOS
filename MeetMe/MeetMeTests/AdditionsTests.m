@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "NSString+Additions.h"
+#import "UIImage+Additions.h"
 
 @interface AdditionsTests : XCTestCase
 
@@ -36,6 +37,15 @@
     XCTAssert([[@"(212) 123-2345" stringWithoutPhoneFormatting] isEqualToString:@"2121232345"]);
     XCTAssertFalse([[@"(212) 123-2345" stringWithoutPhoneFormatting] isEqualToString:@"212 123-2345"]);
     XCTAssert([[@"+12121232345" stringWithoutPhoneFormatting] isEqualToString:@"2121232345"]);
+}
+
+- (void)testRescalingImages
+{
+    UIImage *image = [UIImage imageNamed:@"default_profile_pic"];
+    CGSize size = CGSizeMake(10, 10);
+    image = [UIImage imageWithImage:image scaledToSize:size];
+    XCTAssertEqual(size.width, image.size.width);
+    XCTAssertEqual(size.height, image.size.height);
 }
 
 @end
