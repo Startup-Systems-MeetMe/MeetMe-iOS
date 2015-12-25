@@ -14,6 +14,7 @@
 #import <Parse/Parse.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "UIView+Additions.h"
 
 @interface LandingPageViewController () <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource>
 
@@ -199,12 +200,11 @@
     }
     
     // Cell's subviews
-    UIView *contentView        = (UIView*)[cell viewWithTag:100];
-    UILabel *titleLabel        = (UILabel*)[cell viewWithTag:101];
-    UILabel *participantsLabel = (UILabel*)[cell viewWithTag:102];
-    UIImageView *imageView     = (UIImageView*)[cell viewWithTag:103];
-    UIView *fakeImageView      = (UIView*)[cell viewWithTag:104];
-    UILabel *dateLabel         = (UILabel*)[cell viewWithTag:107];
+    UIView *contentView          = (UIView*)[cell viewWithTag:100];
+    UILabel *titleLabel          = (UILabel*)[cell viewWithTag:101];
+    UILabel *participantsLabel   = (UILabel*)[cell viewWithTag:102];
+    UIView *squareViewWithShadow = (UIView*)[cell viewWithTag:104];
+    UILabel *dateLabel           = (UILabel*)[cell viewWithTag:107];
     if (isPending) {
         UIButton *refuseButton = (UIButton*)[cell viewWithTag:105];
         UIButton *acceptButton = (UIButton*)[cell viewWithTag:106];
@@ -221,18 +221,36 @@
     CGRect bounds     = contentView.bounds;
     bounds.size.width = self.view.bounds.size.width - 40.f;
     [self addDropShadowToView:contentView inRect:bounds];
-    [self addDropShadowToView:fakeImageView inRect:fakeImageView.bounds];
+    [self addDropShadowToView:squareViewWithShadow inRect:squareViewWithShadow.bounds];
     
     // Add content
     titleLabel.text        = [meeting objectForKey:@"name"];
     participantsLabel.text = participantsString;
     
-    // Fetch image on background thread
-    [(PFFile*)[participants[0] objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
-        if (!error) {
-            imageView.image = [UIImage imageWithData:data];
-        }
-    } progressBlock:nil];
+    // Add a combined image view
+    UIView *combinedImageViews = [[UIView alloc] initWithFrame:squareViewWithShadow.bounds];
+    [squareViewWithShadow addSubview:combinedImageViews];
+    
+    // ... default it to standard profile picture in case no profile pics are found
+    [combinedImageViews addSubview:[UIView viewWithMultipleImages:@[[UIImage imageNamed:@"default_profile_pic"]] andSize:squareViewWithShadow.bounds.size]];
+    
+    // Fetch all profile pictures in background
+    NSMutableArray *profilePictures = [[NSMutableArray alloc] init];
+    for (id obj in participants) {
+        [(PFFile*)[obj objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            if (!error) {
+                
+                // Add new UIImage to NSArray
+                [profilePictures addObject:[UIImage imageWithData:data]];
+                
+                // Clear all the subviews
+                [combinedImageViews.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                
+                // Then re-create combined view
+                [combinedImageViews addSubview:[UIView viewWithMultipleImages:profilePictures andSize:squareViewWithShadow.bounds.size]];
+            }
+        }];
+    }
     
     // Date for set meetings
     if ([meeting objectForKey:@"set"] == nil) {

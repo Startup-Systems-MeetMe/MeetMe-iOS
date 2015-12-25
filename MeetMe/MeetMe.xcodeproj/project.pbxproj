@@ -11,6 +11,7 @@
 		B813E7D61BC080BF000B45B1 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D51BC080BF000B45B1 /* NSString+Additions.m */; };
 		B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B813E7D81BC0811F000B45B1 /* AdditionsTests.m */; };
 		B8179FB01C0B5642009A2AF0 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */; };
+		B821FFCF1C2CE98100BDD27A /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B821FFCE1C2CE98100BDD27A /* UIView+Additions.m */; };
 		B85B9CA11C027AB9009C0ED7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
 		B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */; };
 		B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */; };
@@ -81,6 +82,8 @@
 		B813E7D81BC0811F000B45B1 /* AdditionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionsTests.m; sourceTree = "<group>"; };
 		B8179FAE1C0B5642009A2AF0 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		B821FFCD1C2CE98100BDD27A /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Additions.h"; path = "Additions/UIView+Additions.h"; sourceTree = "<group>"; };
+		B821FFCE1C2CE98100BDD27A /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Additions.m"; path = "Additions/UIView+Additions.m"; sourceTree = "<group>"; };
 		B85B9C9F1C027AB9009C0ED7 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
 		B85B9CA01C027AB9009C0ED7 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		B85B9CA21C02A89C009C0ED7 /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Additions.h"; path = "Additions/UIColor+Additions.h"; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				B80686501BCEFE900044EDA1 /* UIImage+Additions.m */,
 				B870E0D51C16B06800DE81A0 /* NSDate+Additions.h */,
 				B870E0D61C16B06800DE81A0 /* NSDate+Additions.m */,
+				B821FFCD1C2CE98100BDD27A /* UIView+Additions.h */,
+				B821FFCE1C2CE98100BDD27A /* UIView+Additions.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				B88F794A1BF2D0C200555CE3 /* TabBarController.m in Sources */,
 				B8CA55651BB2698E00591B9F /* SignupViewController.m in Sources */,
 				B8A447921C0E7A0D004967D4 /* Meeting.m in Sources */,
+				B821FFCF1C2CE98100BDD27A /* UIView+Additions.m in Sources */,
 				B870E0D71C16B06800DE81A0 /* NSDate+Additions.m in Sources */,
 				B876BA321C0B412A00509685 /* ProfileViewController.m in Sources */,
 				B8A980DB1BB31EC900C20A77 /* ProfileCreationViewController.m in Sources */,
