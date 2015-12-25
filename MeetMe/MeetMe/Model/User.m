@@ -14,17 +14,6 @@
 @synthesize profileImage;
 @synthesize profilePictureFile;
 
-- (id)initWithName:(NSString *)n andNumber:(NSString *)number andProfileImage:(UIImage *)image
-{
-    if (self = [super init]) {
-        name = n;
-        phoneNumber = number;
-        profileImage = image;
-        profilePictureFile = [PFFile new];
-    }
-    return self;
-}
-
 - (id)initFromDictionary:(NSDictionary *)dictionary
 {
     if (self = [super init]) {

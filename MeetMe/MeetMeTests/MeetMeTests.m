@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "CurrentUser.h"
+#import "User.h"
 
 @interface MeetMeTests : XCTestCase
 
@@ -50,7 +51,7 @@
     XCTAssertEqual(user, [CurrentUser sharedInstance]);
 }
 
-- (void)testPerformanceExample {
+- (void)testSavingAndLoadingPerformance {
     
     // Saving & loading the user should be fast
     [self measureBlock:^{
@@ -63,6 +64,21 @@
         CurrentUser *anotherUser = [[CurrentUser alloc] init];
         [anotherUser loadCustomObject];
     }];
+}
+
+- (void)testUserClass
+{
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                @"Anas", @"name",
+                                @"2123456789", @"username",
+                                [PFFile fileWithData:[NSData new]], @"profilePicture",
+                                nil];
+    User *user = [[User alloc] initFromDictionary:dictionary];
+    
+    XCTAssertNotNil(user);
+    XCTAssertEqualObjects(user.name, dictionary[@"name"]);
+    XCTAssertEqualObjects(user.phoneNumber, dictionary[@"username"]);
+    XCTAssertEqualObjects([PFFile fileWithData:[NSData new]], dictionary[@"profilePicture"]);
 }
 
 @end

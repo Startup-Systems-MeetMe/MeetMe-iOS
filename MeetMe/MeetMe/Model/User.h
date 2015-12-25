@@ -17,8 +17,6 @@
 @property (strong, nonatomic) UIImage *profileImage;
 @property (strong, nonatomic) PFFile *profilePictureFile;
 
-- (id) initWithName:(NSString*)name andNumber:(NSString*)number andProfileImage:(UIImage*)image;
-
 - (id) initFromDictionary:(NSDictionary*)dictionary;
 
 @end

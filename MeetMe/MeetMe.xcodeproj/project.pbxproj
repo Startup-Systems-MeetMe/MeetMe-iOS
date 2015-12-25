@@ -13,6 +13,7 @@
 		B8179FB01C0B5642009A2AF0 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8179FAF1C0B5642009A2AF0 /* FavoritesViewController.m */; };
 		B821FFCF1C2CE98100BDD27A /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B821FFCE1C2CE98100BDD27A /* UIView+Additions.m */; };
 		B821FFD01C2CFAD200BDD27A /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B80686501BCEFE900044EDA1 /* UIImage+Additions.m */; };
+		B821FFD11C2CFC6E00BDD27A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
 		B85B9CA11C027AB9009C0ED7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA01C027AB9009C0ED7 /* User.m */; };
 		B85B9CA41C02A89C009C0ED7 /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA31C02A89C009C0ED7 /* UIColor+Additions.m */; };
 		B85B9CAA1C02BAF2009C0ED7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B85B9CA91C02BAF2009C0ED7 /* SettingsViewController.m */; };
@@ -564,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8EA70011BB1A23200C41477 /* MeetMeTests.m in Sources */,
+				B821FFD11C2CFC6E00BDD27A /* User.m in Sources */,
 				B821FFD01C2CFAD200BDD27A /* UIImage+Additions.m in Sources */,
 				B8BB7F171C18BC5900784EAE /* ParseTests.m in Sources */,
 				B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */,
