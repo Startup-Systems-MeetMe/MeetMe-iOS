@@ -57,7 +57,11 @@
 - (void)imageSelected:(UIImage *)img
 {
     NSData *imageData = UIImageJPEGRepresentation(img, 0.4);
-    [PFCloud callFunctionInBackground:@"updateNameAndPhoto" withParameters:@{@"photo":imageData} block:^(id  _Nullable object, NSError * _Nullable error) {
+    NSDictionary *params = @{@"photo":imageData,
+                             @"phoneNumber":[[CurrentUser sharedInstance] phoneNumber],
+                             @"name": [[CurrentUser sharedInstance] name],
+                             @"email": [[CurrentUser sharedInstance] email]};
+    [PFCloud callFunctionInBackground:@"updateNameAndPhoto" withParameters:params block:^(id  _Nullable object, NSError * _Nullable error) {
         
         if (error) {
             [SVProgressHUD showErrorWithStatus:@"Failed saving profile picture. Please try again later."];
@@ -73,26 +77,5 @@
 {
     // Nothing to do
 }
-
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    // Add shadow
-//    self.fakeImageView = [self viewWithDropShadow:self.fakeImageView inRect:self.fakeImageView.bounds];
-//}
-//
-//- (UIView*)viewWithDropShadow:(UIView*)contentView inRect:(CGRect)bounds
-//{
-//    UIBezierPath *shadowPath        = [UIBezierPath bezierPathWithRect:bounds];
-//    
-//    contentView.layer.masksToBounds = NO;
-//    contentView.layer.shadowPath    = shadowPath.CGPath;
-//    contentView.layer.shadowColor   = [UIColor blackColor].CGColor;
-//    contentView.layer.shadowOffset  = CGSizeMake(0, 0);
-//    contentView.layer.shadowOpacity = 0.2f;
-//    contentView.layer.shadowRadius  = 3;
-//    
-//    return contentView;
-//}
-
 
 @end
