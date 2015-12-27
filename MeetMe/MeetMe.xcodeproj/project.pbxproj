@@ -20,6 +20,7 @@
 		B870E0D71C16B06800DE81A0 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B870E0D61C16B06800DE81A0 /* NSDate+Additions.m */; };
 		B870E0DB1C16B25600DE81A0 /* CalendarInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = B870E0DA1C16B25600DE81A0 /* CalendarInterface.m */; };
 		B876BA321C0B412A00509685 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B876BA311C0B412A00509685 /* ProfileViewController.m */; };
+		B877E7E91C3080F20027B9C3 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = B870E0D61C16B06800DE81A0 /* NSDate+Additions.m */; };
 		B87F896F1BCDB38800CD76F7 /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = B87F896E1BCDB38800CD76F7 /* CurrentUser.m */; };
 		B88B34F01BC06FCF00CE1271 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34EC1BC06FCF00CE1271 /* Bolts.framework */; };
 		B88B34F11BC06FCF00CE1271 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B88B34ED1BC06FCF00CE1271 /* Parse.framework */; };
@@ -570,6 +571,7 @@
 				B8BB7F171C18BC5900784EAE /* ParseTests.m in Sources */,
 				B813E7D91BC0811F000B45B1 /* AdditionsTests.m in Sources */,
 				B8DD3E391C13765F00148BA4 /* CurrentUser.m in Sources */,
+				B877E7E91C3080F20027B9C3 /* NSDate+Additions.m in Sources */,
 				B8DA7E5A1C0AA1AB006E1D8B /* NSString+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

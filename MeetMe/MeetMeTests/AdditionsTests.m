@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "NSString+Additions.h"
 #import "UIImage+Additions.h"
+#import "NSDate+Additions.h"
 
 @interface AdditionsTests : XCTestCase
 
@@ -46,6 +47,20 @@
     image = [UIImage imageWithImage:image scaledToSize:size];
     XCTAssertEqual(size.width, image.size.width);
     XCTAssertEqual(size.height, image.size.height);
+}
+
+- (void)testEpochTime
+{
+    NSString *str = @"3/15/2012 9:15 PM";
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
+    
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [formatter setTimeZone:gmt];
+    
+    NSDate *date = [formatter dateFromString:str];
+    XCTAssertEqual(date.epochTime, 1331846100000.0);
 }
 
 @end
