@@ -232,24 +232,32 @@
     UIView *combinedImageViews = [[UIView alloc] initWithFrame:squareViewWithShadow.bounds];
     [squareViewWithShadow addSubview:combinedImageViews];
     
-    // ... default it to standard profile picture in case no profile pics are found
-    [combinedImageViews addSubview:[UIView viewWithMultipleImages:@[[UIImage imageNamed:@"default_profile_pic"]] andSize:squareViewWithShadow.bounds.size]];
+    // Default it to standard profile picture in case no profile pics are found
+    if (participants.count == 0) {
+        [combinedImageViews addSubview:[UIView viewWithMultipleImages:@[[UIImage imageNamed:@"default_profile_pic"]] andSize:squareViewWithShadow.bounds.size]];
+    }
     
     // Fetch all profile pictures in background
     NSMutableArray *profilePictures = [[NSMutableArray alloc] init];
     for (id obj in participants) {
         [(PFFile*)[obj objectForKey:@"profilePicture"] getDataInBackgroundWithBlock:^(NSData * _Nullable data, NSError * _Nullable error) {
+            
+            // No errors, add user's profile pic
             if (!error) {
-                
                 // Add new UIImage to NSArray
                 [profilePictures addObject:[UIImage imageWithData:data]];
-                
-                // Clear all the subviews
-                [combinedImageViews.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-                
-                // Then re-create combined view
-                [combinedImageViews addSubview:[UIView viewWithMultipleImages:profilePictures andSize:squareViewWithShadow.bounds.size]];
-            }
+
+            // Else add default profile pic
+            } else {
+                [profilePictures addObject:[UIImage imageNamed:@"default_profile_pic"]];
+            }            
+            
+            // Clear all the subviews
+            [combinedImageViews.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+            
+            // Then re-create combined view
+            [combinedImageViews addSubview:[UIView viewWithMultipleImages:profilePictures andSize:squareViewWithShadow.bounds.size]];
+            
         }];
     }
     
