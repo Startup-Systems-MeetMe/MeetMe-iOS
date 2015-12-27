@@ -52,7 +52,7 @@
     }
     
     // And add off hours
-    [events arrayByAddingObjectsFromArray:[self offHoursForIntervalsFrom:start toDate:end]];
+    [events addObjectsFromArray:[self offHoursForIntervalsFrom:start toDate:end]];
     
     return events;
 }
@@ -94,7 +94,7 @@
                               @"end":@(tmpEnd.epochTime)}];
     }
     
-    return nil;
+    return offHours;
 }
 
 - (BOOL)saveMeetingToCalendar:(NSDictionary*)meeting
