@@ -98,9 +98,10 @@
             _meetings = [NSArray arrayWithArray:object];
             
             // Sort meetings
-            NSSortDescriptor *startSort = [NSSortDescriptor sortDescriptorWithKey:@"startRange" ascending:YES];
-            NSSortDescriptor *endSort = [NSSortDescriptor sortDescriptorWithKey:@"endRange" ascending:YES];
-            [_meetings sortedArrayUsingDescriptors:@[startSort, endSort]];
+            NSSortDescriptor *startSort     = [NSSortDescriptor sortDescriptorWithKey:@"startRange" ascending:YES];
+            NSSortDescriptor *endSort       = [NSSortDescriptor sortDescriptorWithKey:@"endRange" ascending:YES];
+            NSSortDescriptor *respondedSort = [NSSortDescriptor sortDescriptorWithKey:@"numResponded" ascending:YES];
+            _meetings = [_meetings sortedArrayUsingDescriptors:@[respondedSort, startSort, endSort]];
             
             [_tableView reloadData];
             
