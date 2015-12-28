@@ -1,7 +1,7 @@
 language: objective-c
 # cache: cocoapods
 # xcode_workspace: MeetMe/MeetMe.xcworkspace
-# xcode_scheme: RendezVous
+xcode_scheme: RendezVousTests
 # xcode_sdk: iphonesimulator
 podfile: MeetMe/Podfile
 
